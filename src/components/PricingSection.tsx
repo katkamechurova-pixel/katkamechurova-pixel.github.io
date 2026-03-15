@@ -10,7 +10,7 @@ const prices = [
   { service: "Konzultace zdravotního stavu", price: "od 400 Kč" },
   { service: "Paliativní péče", price: "individuálně" },
   { service: "Eutanazie v domácím prostředí", price: "od 1 500 Kč" },
-  { service: "Výjezdový poplatek", price: "od 200 Kč" },
+  { service: "Výjezdový poplatek", price: "280 Kč + 9 Kč/km" },
 ];
 
 const PricingSection = () => (
@@ -46,6 +46,15 @@ const PricingSection = () => (
           </div>
         ))}
       </motion.div>
+
+      <div className="mt-6 text-sm text-muted-foreground leading-relaxed space-y-3">
+        <p className="font-semibold text-foreground">Výjezdový poplatek 280 Kč + 9 Kč/km</p>
+        <p>
+          Kilometry jsou účtovány od výchozího místa, které je k Vám blíže. Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna.
+          Vzdálenost se vždy počítá od té z těchto lokalit, která je k místu výjezdu nejbližší.
+        </p>
+        <p>Počet kilometrů je stanoven podle navigace Google Maps.</p>
+      </div>
     </div>
   </section>
 );
