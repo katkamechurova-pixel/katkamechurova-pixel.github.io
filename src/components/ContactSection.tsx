@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { z } from "zod";
+import * as L from "leaflet";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Vyplňte jméno").max(100),
@@ -25,12 +29,61 @@ const GOOGLE_FORM_ENTRIES = {
 };
 
 const ContactSection = () => {
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
+
   const [form, setForm] = useState<FormData>({
     name: "", phone: "", email: "", animalName: "", animalType: "", description: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (mapRef.current || !mapContainerRef.current) return;
+
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: markerIcon2x,
+      iconUrl: markerIcon,
+      shadowUrl: markerShadow,
+    });
+
+    const map = L.map(mapContainerRef.current, {
+      zoomControl: true,
+      scrollWheelZoom: false,
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors",
+      maxZoom: 19,
+    }).addTo(map);
+
+    const invalidovna: L.LatLngExpression = [50.0929, 14.4636];
+    const vlassim: L.LatLngExpression = [49.7067, 14.8989];
+    const sedlcany: L.LatLngExpression = [49.6603, 14.4275];
+    const benesov: L.LatLngExpression = [49.7813, 14.6869];
+
+    const polygon = L.polygon([invalidovna, vlassim, sedlcany], {
+      color: "rgba(236, 72, 153, 0.9)",
+      weight: 2,
+      fillColor: "rgba(236, 72, 153, 0.22)",
+      fillOpacity: 1,
+    }).addTo(map);
+
+    polygon.bindTooltip("Oblast působnosti", { sticky: true });
+
+    L.marker(invalidovna).addTo(map).bindPopup("Praha 8 – Invalidovna");
+    L.marker(benesov).addTo(map).bindPopup("Benešov");
+    L.marker(vlassim).addTo(map).bindPopup("Vlašim (příklad v oblasti)");
+
+    map.fitBounds(polygon.getBounds(), { padding: [16, 16] });
+    mapRef.current = map;
+
+    return () => {
+      mapRef.current?.remove();
+      mapRef.current = null;
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -121,7 +174,7 @@ const ContactSection = () => {
                 <div>
                   <p className="font-semibold text-foreground">Oblast působnosti</p>
                   <p className="text-muted-foreground">Benešov a okolí (do 30 km)</p>
-                  <p className="text-muted-foreground">Praha 8 + místa podél trasy Benešov ↔ Praha 8 (pásmo 2 km od trasy)</p>
+                  <p className="text-muted-foreground">Praha 8 (Invalidovna) + místa podél trasy Benešov ↔ Praha 8 (pásmo 2 km od trasy)</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -136,37 +189,10 @@ const ContactSection = () => {
             </div>
 
             {/* Map */}
-            <div className="mt-8 rounded-2xl overflow-hidden border border-border h-48 bg-muted relative">
-              <iframe
-                title="Oblast působnosti"
-                src="https://www.google.com/maps?q=Bene%C5%A1ov%20Praha%208&z=10&output=embed"
-                className="absolute inset-0 w-full h-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                style={{ pointerEvents: "none" }}
-              />
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                aria-label="Schématicky vyznačená oblast působnosti (trojúhelník)"
-                role="img"
-              >
-                <polygon
-                  points="22,78 78,22 88,88"
-                  fill="rgba(236, 72, 153, 0.18)"
-                  stroke="rgba(236, 72, 153, 0.75)"
-                  strokeWidth="1.5"
-                />
-                <text x="20" y="86" fontSize="6" fill="rgba(15, 23, 42, 0.9)">
-                  Benešov
-                </text>
-                <text x="62" y="20" fontSize="6" fill="rgba(15, 23, 42, 0.9)">
-                  Praha 8
-                </text>
-              </svg>
+            <div className="mt-8 rounded-2xl overflow-hidden border border-border h-48 bg-muted">
+              <div ref={mapContainerRef} className="w-full h-full" />
             </div>
-            <p className="mt-2 text-xs text-muted-foreground">Trojúhelník je schematické vyznačení oblasti (mapa je pouze podklad).</p>
+            <p className="mt-2 text-xs text-muted-foreground">Špička trojúhelníku: Praha 8 (Invalidovna). Dva body u Benešova jsou zvolené tak, aby oblast zahrnovala i Vlašim.</p>
           </motion.div>
 
           {/* Form */}
