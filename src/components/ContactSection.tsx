@@ -58,23 +58,32 @@ const ContactSection = () => {
       maxZoom: 19,
     }).addTo(map);
 
-    const invalidovna: L.LatLngExpression = [50.0929, 14.4636];
-    const vlassim: L.LatLngExpression = [49.7067, 14.8989];
-    const sedlcany: L.LatLngExpression = [49.6603, 14.4275];
+    const invalidovna: L.LatLngExpression = [50.10556840933827, 14.47730729552215];
     const benesov: L.LatLngExpression = [49.7813, 14.6869];
 
-    const polygon = L.polygon([invalidovna, vlassim, sedlcany], {
+    const serviceAreaPoints: L.LatLngExpression[] = [
+      [49.643099475524714, 14.635966144857015],
+      [49.74561582316734, 15.101012733893041],
+      [49.88206387489433, 14.905379862287177],
+      [50.004756287643154, 14.663856494141793],
+      [50.10556840933827, 14.47730729552215],
+      [50.08966095876044, 14.41683763185437],
+      [49.85361434515883, 14.39898260613367],
+      [49.65621560136275, 14.42482461195396],
+      [49.636283850238144, 14.644481664486161],
+    ];
+
+    const polygon = L.polygon(serviceAreaPoints, {
       color: "rgba(236, 72, 153, 0.9)",
       weight: 2,
       fillColor: "rgba(236, 72, 153, 0.22)",
       fillOpacity: 1,
     }).addTo(map);
 
-    polygon.bindTooltip("Oblast působnosti", { sticky: true });
+    polygon.bindTooltip("Okruh výjezdů", { sticky: true });
 
     L.marker(invalidovna).addTo(map).bindPopup("Praha 8 – Invalidovna");
     L.marker(benesov).addTo(map).bindPopup("Benešov");
-    L.marker(vlassim).addTo(map).bindPopup("Vlašim (příklad v oblasti)");
 
     map.fitBounds(polygon.getBounds(), { padding: [16, 16] });
     mapRef.current = map;
@@ -192,7 +201,7 @@ const ContactSection = () => {
             <div className="mt-8 rounded-2xl overflow-hidden border border-border h-48 bg-muted">
               <div ref={mapContainerRef} className="w-full h-full" />
             </div>
-            <p className="mt-2 text-xs text-muted-foreground">Špička trojúhelníku: Praha 8 (Invalidovna). Dva body u Benešova jsou zvolené tak, aby oblast zahrnovala i Vlašim.</p>
+            <p className="mt-2 text-xs text-muted-foreground">Vyjíždím v rámci vyznačeného okruhu (polygon).</p>
           </motion.div>
 
           {/* Form */}
