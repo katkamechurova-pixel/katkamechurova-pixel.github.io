@@ -121,7 +121,7 @@ const ContactSection = () => {
                 <div>
                   <p className="font-semibold text-foreground">Oblast působnosti</p>
                   <p className="text-muted-foreground">Benešov a okolí (do 30 km)</p>
-                  <p className="text-muted-foreground">Praha 8 (Nekvasilova) + místa podél trasy Benešov ↔ Praha 8 (pásmo 2 km od trasy)</p>
+                  <p className="text-muted-foreground">Praha 8 + místa podél trasy Benešov ↔ Praha 8 (pásmo 2 km od trasy)</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -135,16 +135,38 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Map placeholder */}
-            <div className="mt-8 rounded-2xl overflow-hidden border border-border h-48 bg-muted flex items-center justify-center">
+            {/* Map */}
+            <div className="mt-8 rounded-2xl overflow-hidden border border-border h-48 bg-muted relative">
               <iframe
                 title="Oblast působnosti"
-                src="https://www.google.com/maps?q=Bene%C5%A1ov&z=10&output=embed"
-                className="w-full h-full border-0"
+                src="https://www.google.com/maps?q=Bene%C5%A1ov%20Praha%208&z=10&output=embed"
+                className="absolute inset-0 w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                style={{ pointerEvents: "none" }}
               />
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-label="Schématicky vyznačená oblast působnosti (trojúhelník)"
+                role="img"
+              >
+                <polygon
+                  points="22,78 78,22 88,88"
+                  fill="rgba(236, 72, 153, 0.18)"
+                  stroke="rgba(236, 72, 153, 0.75)"
+                  strokeWidth="1.5"
+                />
+                <text x="20" y="86" fontSize="6" fill="rgba(15, 23, 42, 0.9)">
+                  Benešov
+                </text>
+                <text x="62" y="20" fontSize="6" fill="rgba(15, 23, 42, 0.9)">
+                  Praha 8
+                </text>
+              </svg>
             </div>
+            <p className="mt-2 text-xs text-muted-foreground">Trojúhelník je schematické vyznačení oblasti (mapa je pouze podklad).</p>
           </motion.div>
 
           {/* Form */}
