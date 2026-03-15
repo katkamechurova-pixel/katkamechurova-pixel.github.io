@@ -47,13 +47,15 @@ const PricingSection = () => (
         ))}
       </motion.div>
 
-      <div className="mt-6 text-sm text-muted-foreground leading-relaxed space-y-3">
-        <p className="font-semibold text-foreground">Výjezdový poplatek 280 Kč + 9 Kč/km</p>
-        <p>
-          Kilometry jsou účtovány od výchozího místa, které je k Vám blíže. Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna.
-          Vzdálenost se vždy počítá od té z těchto lokalit, která je k místu výjezdu nejbližší.
-        </p>
-        <p>Počet kilometrů je stanoven podle navigace Google Maps.</p>
+      <div className="mt-6 rounded-2xl border border-border bg-pastel-turquoise-light p-5">
+        <p className="font-semibold text-foreground">Výjezdový poplatek: 280 Kč + 9 Kč/km</p>
+        <div className="mt-3 text-sm text-muted-foreground leading-relaxed space-y-3">
+          <p>
+            Kilometry jsou účtovány od výchozího místa, které je k Vám blíže. Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna.
+            Vzdálenost se vždy počítá od té z těchto lokalit, která je k místu výjezdu nejbližší.
+          </p>
+          <p>Počet kilometrů je stanoven podle navigace Google Maps.</p>
+        </div>
       </div>
     </div>
   </section>
