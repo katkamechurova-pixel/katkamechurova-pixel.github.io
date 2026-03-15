@@ -16,7 +16,7 @@ const Index = () => {
         <title>Ducktorka – Výjezdová veterinární péče | MVDr. Kateřina Měchurová</title>
         <meta
           name="description"
-          content="Ducktorka – mobilní veterinář k vám domů. Profesionální veterinární péče bez stresu pro psy, kočky a drobná zvířata. MVDr. Kateřina Měchurová, Benešov a okolí (do 30 km) + Praha 8 (Invalidovna) a místa podél trasy (pásmo 2 km)."
+          content="Ducktorka – mobilní veterinář k vám domů. Profesionální veterinární péče bez stresu pro psy, kočky a drobná zvířata. MVDr. Kateřina Měchurová, Benešov a okolí + Praha ve vyznačených částech, případně dle domluvy."
         />
         <meta
           name="keywords"
@@ -30,9 +30,9 @@ const Index = () => {
             name: "Ducktorka – MVDr. Kateřina Měchurová",
             description: "Výjezdová veterinární péče o vaše mazlíčky v pohodlí domova",
             url: "https://ducktorka.cz",
-            telephone: "+420123456789",
-            email: "info@ducktorka.cz",
-            areaServed: "Benešov a okolí (do 30 km); Praha 8 (Invalidovna) a místa podél trasy Benešov ↔ Praha 8 (pásmo 2 km od trasy)",
+            telephone: "+420734231444",
+            email: "ducktorka@outlook.com",
+            areaServed: "Benešov a okolí; Praha ve vyznačených částech, případně dle domluvy",
             priceRange: "$$",
           })}
         </script>

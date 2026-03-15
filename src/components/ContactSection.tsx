@@ -168,31 +168,35 @@ const ContactSection = () => {
                 <Phone className="w-5 h-5 text-pastel-pink mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">Telefon</p>
-                  <a href="tel:+420123456789" className="text-muted-foreground hover:text-primary transition-colors">+420 123 456 789</a>
+                  <a href="tel:+420734231444" className="text-muted-foreground hover:text-primary transition-colors">+420 734 231 444</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-pastel-pink mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">E-mail</p>
-                  <a href="mailto:info@ducktorka.cz" className="text-muted-foreground hover:text-primary transition-colors">info@ducktorka.cz</a>
+                  <a href="mailto:ducktorka@outlook.com" className="text-muted-foreground hover:text-primary transition-colors">ducktorka@outlook.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-pastel-pink mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">Oblast působnosti</p>
-                  <p className="text-muted-foreground">Benešov a okolí (do 30 km)</p>
-                  <p className="text-muted-foreground">Praha 8 (Invalidovna) + místa podél trasy Benešov ↔ Praha 8 (pásmo 2 km od trasy)</p>
+                  <p className="text-muted-foreground">Benešov a okolí</p>
+                  <p className="text-muted-foreground">Praha ve vyznačených částech, případně dle domluvy</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-pastel-pink mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">Provozní doba</p>
-                  <p className="text-muted-foreground">Po–Pá: 8:00–18:00</p>
-                  <p className="text-muted-foreground">So: 9:00–14:00</p>
-                  <p className="text-muted-foreground text-sm">Po domluvě i mimo provozní dobu</p>
+                  <p className="text-muted-foreground">Pondělí: 8:00–20:00</p>
+                  <p className="text-muted-foreground">Úterý: 8:00–20:00</p>
+                  <p className="text-muted-foreground">Středa: dle dohody</p>
+                  <p className="text-muted-foreground">Čtvrtek: dle dohody</p>
+                  <p className="text-muted-foreground">Pátek: dle dohody</p>
+                  <p className="text-muted-foreground">Sobota: 9:00–13:00</p>
+                  <p className="text-muted-foreground text-sm">Po domluvě i mimo provozní dobu.</p>
                 </div>
               </div>
             </div>
