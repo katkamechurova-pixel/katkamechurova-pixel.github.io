@@ -83,7 +83,8 @@ const ContactSection = () => {
                 <MapPin className="w-5 h-5 text-pastel-pink mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">Oblast působnosti</p>
-                  <p className="text-muted-foreground">Praha a okolí (do 30 km)</p>
+                  <p className="text-muted-foreground">Benešov a okolí (do 30 km)</p>
+                  <p className="text-muted-foreground">Praha 8 (Nekvasilova) + místa podél trasy Benešov ↔ Praha 8 (pásmo 2 km od trasy)</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -101,7 +102,7 @@ const ContactSection = () => {
             <div className="mt-8 rounded-2xl overflow-hidden border border-border h-48 bg-muted flex items-center justify-center">
               <iframe
                 title="Oblast působnosti"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163539.3214847!2d14.2244!3d50.0755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b939c0970798b%3A0x400af0f66164090!2sPraha!5e0!3m2!1scs!2scz!4v1700000000000"
+                src="https://www.google.com/maps?q=Bene%C5%A1ov&z=10&output=embed"
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
