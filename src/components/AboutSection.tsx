@@ -60,7 +60,7 @@ const AboutSection = () => {
               Jsem <strong className="text-foreground">MVDr. Kateřina Měchurová</strong>, veterinární lékařka s láskou ke zvířatům a přesvědčením, že péče o ně může být šetrná a bez zbytečného stresu.
             </p>
             <p className="text-muted-foreground mb-4 leading-relaxed">
-              Vystudovala jsem Veterinární univerzitu v Brně a praxi jsem získávala v ambulancích i terénu. Postupně jsem si uvědomila, že pro mnoho zvířat je návštěva veterináře spojena s velkým stresem – a tak vznikla <strong className="text-foreground">Ducktorka</strong>.
+              Vystudovala jsem Veterinární univerzitu v Brně a praxi jsem získávala v ambulancích i terénu. Během studia jsem také absolvovala dvě zahraniční stáže v USA (Tennessee) – na klinice Animal Wellness and Rehabilitation Center, která se specializuje na rehabilitaci a fyzioterapii zvířat, a na referenční veterinární klinice Blackford Veterinary Referral Hospital. Během práce se zvířaty v lékařském prostředí jsem si postupně uvědomila, že pro mnoho zvířat je právě návštěva veterináře spojena s velkým stresem – a tak vznikla <strong className="text-foreground">Ducktorka</strong>.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Mou filozofií je přistupovat ke každému pacientovi individuálně, s trpělivostí a empatií. Věřím, že klidné prostředí domova přispívá k lepší diagnostice i léčbě. 🐥

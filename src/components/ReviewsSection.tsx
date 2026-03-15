@@ -9,21 +9,7 @@ import petClient4 from "@/assets/pet-client-4.jpg";
 import petClient5 from "@/assets/pet-client-5.jpg";
 
 const placeholderReviews = [
-  {
-    name: "Petra K.",
-    text: "Ducktorka přijela k nám domů a náš Beny byl úplně v klidu. Úžasný přístup, citlivá a odborná péče. Vřele doporučujeme!",
-    rating: 5,
-  },
-  {
-    name: "Tomáš M.",
-    text: "Konečně veterinářka, která chápe, že pro kočku je cesta do ordinace obrovský stres. Profesionální, milá a pečlivá.",
-    rating: 5,
-  },
-  {
-    name: "Jana S.",
-    text: "S MVDr. Měchurovou jsme spokojeni na 100 %. Vždy si najde čas vše vysvětlit a zvířátko ošetří s maximální ohleduplností.",
-    rating: 5,
-  },
+  
 ];
 
 const petPhotos = [petClient1, petClient2, petClient3, petClient4, petClient5];
@@ -39,17 +25,8 @@ const ReviewsSection = () => {
   }, []);
 
   return (
-    <section id="reviews" className="py-20">
+    <section id="reviews" className="pb-20">
       <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-2xl md:text-3xl font-heading font-bold text-center mb-12 text-foreground"
-        >
-          Co říkají naši <span className="text-gradient">klienti</span>
-        </motion.h2>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           {placeholderReviews.map((r, i) => (
             <motion.div

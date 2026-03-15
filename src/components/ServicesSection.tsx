@@ -1,19 +1,22 @@
 import { motion } from "framer-motion";
 import {
-  Stethoscope, Syringe, Bug, Cpu, Droplets, Scissors, MessageCircle, HeartHandshake, HousePlus, ScanLine
+  Stethoscope, Syringe, Bug, Cpu, Droplets, Scissors, MessageCircle, HeartHandshake, HousePlus, ScanLine,
+  BriefcaseMedical
 } from "lucide-react";
 
 const services = [
   { icon: Stethoscope, title: "Preventivní prohlídky", desc: "Pravidelné kontroly zdravotního stavu vašeho mazlíčka." },
-  { icon: Syringe, title: "Vakcinace", desc: "Očkování dle aktuálního vakcinačního schématu." },
+  { icon: Syringe, title: "Vakcinace", desc: "Očkování moderními vakcínami dle aktuálního vakcinačního schématu." },
   { icon: Bug, title: "Odčervení", desc: "Vnitřní i vnější antiparazitární ošetření." },
   { icon: Cpu, title: "Čipování", desc: "Implantace mikročipu pro identifikaci zvířete." },
-  { icon: Droplets, title: "Odběry krve", desc: "Laboratorní diagnostika z pohodlí domova." },
-  { icon: ScanLine, title: "Sono vyšetření", desc: "Ultrazvuková diagnostika pro přesné a šetrné vyšetření." },
-  { icon: Scissors, title: "Ošetření poranění", desc: "Ošetření drobných ran a poranění." },
+  { icon: Droplets, title: "Odběry krve", desc: "Laboratorní diagnostika z pohodlí domova. Biochemické vyšetření s výsledky v den odběru. Spolupráce s laboratoří Veteo, případně německou laboratoří Laboklin" },
+  { icon: ScanLine, title: "Sono vyšetření", desc: "Ultrazvuková diagnostika pro přesné a šetrné vyšetření přenosným USG přístrojem." },
+  { icon: BriefcaseMedical, title: "Ošetření poranění", desc: "Ošetření drobných ran a poranění." },
   { icon: MessageCircle, title: "Konzultace", desc: "Poradenství ohledně zdraví, výživy a prevence." },
   { icon: HeartHandshake, title: "Paliativní péče", desc: "Citlivá péče o nemocná a stárnoucí zvířata." },
   { icon: HousePlus, title: "Eutanazie doma", desc: "Důstojný a klidný odchod v domácím prostředí." },
+  { icon: Scissors, title: "Kastrace", desc: "Preventivní kastrace koček a psů, pouze v ordinaci v Benešově." },
+
 ];
 
 const ServicesSection = () => (

@@ -1,16 +1,28 @@
 import { motion } from "framer-motion";
 
 const prices = [
-  { service: "Preventivní prohlídka", price: "od 600 Kč" },
-  { service: "Vakcinace", price: "od 500 Kč" },
-  { service: "Odčervení", price: "od 200 Kč" },
+  { service: "Preventivní prohlídka", price: "od 500 Kč" },
+  { service: "Vakcinace", price: "od 600 Kč" },
+  { service: "Odčervení", price: "od 150 Kč" },
   { service: "Čipování", price: "od 800 Kč" },
-  { service: "Odběr krve + laboratorní vyšetření", price: "od 900 Kč" },
+  { service: "Odběr krve + laboratorní vyšetření", price: "od 800 Kč" },
   { service: "Ošetření drobného poranění", price: "od 500 Kč" },
   { service: "Konzultace zdravotního stavu", price: "od 400 Kč" },
+  { service: "Eutanazie v domácím prostředí", price: "od 1 500 Kč" }, 
+  { service: "Kastrace", price: "kocour od 1000 Kč, kočka od 1400 Kč" },
   { service: "Paliativní péče", price: "individuálně" },
-  { service: "Eutanazie v domácím prostředí", price: "od 1 500 Kč" },
-  { service: "Výjezdový poplatek", price: "280 Kč + 9 Kč/km" },
+  
+
+  {
+    service: "Výjezdový poplatek",
+    price: "280 Kč + 9 Kč/km",
+    details: [
+      "Kilometry jsou účtovány od výchozího místa, které je k Vám blíže.",
+      "Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna. ",
+      "Vzdálenost se vždy počítá od té z těchto lokalit, která je k místu výjezdu nejbližší.",
+      "Počet kilometrů je stanoven podle navigace Google Maps.",
+    ],
+  },
 ];
 
 const PricingSection = () => (
@@ -25,7 +37,7 @@ const PricingSection = () => (
         <span className="text-gradient">Ceník</span> služeb
       </motion.h2>
       <p className="text-center text-muted-foreground mb-10 text-sm">
-        Ceny jsou orientační a mohou se lišit dle náročnosti ošetření a lokality výjezdu.
+        Ceny jsou orientační a mohou se lišit dle náročnosti ošetření, použitého materiálu a typu léčiv. Pro přesnou cenu mě kontaktujte telefonicky, případně na email.
       </p>
 
       <motion.div
@@ -41,22 +53,20 @@ const PricingSection = () => (
               i !== prices.length - 1 ? "border-b border-border" : ""
             } ${i === prices.length - 1 ? "bg-pastel-green-light font-semibold" : ""}`}
           >
-            <span className="text-foreground text-sm md:text-base">{p.service}</span>
+            <div className="min-w-0">
+              <div className="text-foreground text-sm md:text-base">{p.service}</div>
+              {"details" in p && p.details ? (
+                <div className="mt-2 space-y-1 text-xs md:text-sm text-muted-foreground font-normal leading-relaxed">
+                  {p.details.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </div>
+              ) : null}
+            </div>
             <span className="text-pastel-green font-semibold text-sm md:text-base whitespace-nowrap ml-4">{p.price}</span>
           </div>
         ))}
       </motion.div>
-
-      <div className="mt-6 rounded-2xl border border-border bg-pastel-turquoise-light p-5">
-        <p className="font-semibold text-foreground">Výjezdový poplatek: 280 Kč + 9 Kč/km</p>
-        <div className="mt-3 text-sm text-muted-foreground leading-relaxed space-y-3">
-          <p>
-            Kilometry jsou účtovány od výchozího místa, které je k Vám blíže. Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna.
-            Vzdálenost se vždy počítá od té z těchto lokalit, která je k místu výjezdu nejbližší.
-          </p>
-          <p>Počet kilometrů je stanoven podle navigace Google Maps.</p>
-        </div>
-      </div>
     </div>
   </section>
 );
