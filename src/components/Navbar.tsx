@@ -3,11 +3,11 @@ import { Menu, X } from "lucide-react";
 import { DuckLogo } from "@/components/HeroSection";
 
 const navItems = [
-  { label: "Úvod", href: "#hero" },
-  { label: "O mně", href: "#about" },
-  { label: "Služby", href: "#services" },
-  { label: "Ceník", href: "#pricing" },
-  { label: "Kontakt", href: "#contact" },
+  { label: "Úvod", href: "/#hero" },
+  { label: "O mně", href: "/#about" },
+  { label: "Služby", href: "/#services" },
+  { label: "Ceník", href: "/#pricing" },
+  { label: "Kontakt", href: "/#contact" },
 ];
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/85 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <a href="#hero" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <DuckLogo className="w-8 h-8" />
           <span className="font-heading font-bold text-lg text-gradient">Ducktorka<span className="text-pastel-pink">.cz</span></span>
         </a>
@@ -34,7 +34,7 @@ const Navbar = () => {
           ))}
           <li>
             <a
-              href="#contact"
+              href="/#contact"
               className="inline-block px-5 py-2 rounded-full bg-accent text-accent-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
             >
               Objednat návštěvu
@@ -67,7 +67,7 @@ const Navbar = () => {
             ))}
             <li>
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 className="inline-block px-5 py-2 rounded-full bg-accent text-accent-foreground font-semibold text-sm"
               >

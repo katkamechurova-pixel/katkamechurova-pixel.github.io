@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ServiceDetail from "./pages/ServiceDetail";
+import ArticleDetail from "./pages/ArticleDetail";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +20,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/sluzby/:serviceSlug" element={<ServiceDetail />} />
+            <Route path="/clanky/:articleSlug" element={<ArticleDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
