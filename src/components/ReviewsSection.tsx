@@ -56,9 +56,9 @@ const ReviewsSection = () => {
         >
           <div className="flex items-center justify-center gap-2 mb-8">
             <PawPrint className="w-5 h-5 text-pastel-turquoise" />
-            <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground text-center">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center">
               Moji chlupatí <span className="text-gradient">klienti</span>
-            </h3>
+            </h2>
             <PawPrint className="w-5 h-5 text-pastel-turquoise" />
           </div>
 

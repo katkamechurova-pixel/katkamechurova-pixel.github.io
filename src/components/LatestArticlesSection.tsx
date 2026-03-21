@@ -11,12 +11,12 @@ const LatestArticlesSection = () => {
     <section id="articles" className="py-20 lg:py-24">
       <div className="container mx-auto px-4">
         
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="text-center mb-12">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl"
+            className="max-w-2xl mx-auto"
           >
             <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-foreground">
               Zajímavosti a <span className="text-gradient">články</span>
@@ -27,7 +27,7 @@ const LatestArticlesSection = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {recentArticles.map((article, i) => (
             <motion.div
               key={article.id}

@@ -65,12 +65,12 @@ const ServiceDetail = () => {
                 <h4 className="font-heading font-bold text-lg mb-1">Potřebujete tuto službu?</h4>
                 <p className="text-muted-foreground text-sm">Zavolejte nám nebo vyplňte formulář.</p>
               </div>
-              <Link 
-                to="/#contact" 
+              <a 
+                href="/#contact" 
                 className="px-8 py-3 rounded-full bg-accent text-accent-foreground font-bold hover:opacity-90 transition-all hover:scale-105 shadow-md whitespace-nowrap"
               >
                 Objednat návštěvu
-              </Link>
+              </a>
             </div>
             
           </article>

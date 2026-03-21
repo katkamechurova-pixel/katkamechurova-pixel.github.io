@@ -33,7 +33,7 @@ Předem si najděte očkovací průkaz nebo pas vašeho zvířete. Sepište si t
 
 Klidný páníček znamená klidný pes. Relaxujte a my se u vás postaráme o ten nejlepší veterinární zážitek bez stresu!
     `,
-    date: "20. října 2023",
+    date: "20. března 2026",
     imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop",
     metaTitle: "Jak připravit psa na domácí prohlídku | Ducktorka",
     metaDescription: "Tipy a rady, jak zajistit klidnou a bezstresovou domácí veterinární prohlídku pro vašeho psa."
