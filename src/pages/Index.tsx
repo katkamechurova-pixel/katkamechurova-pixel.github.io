@@ -24,6 +24,13 @@ const Index = () => {
           content="výjezdová veterinární péče, mobilní veterinář, veterinář domů, veterinář bez stresu, veterinář Benešov, veterinář Praha 8"
         />
         <link rel="canonical" href="https://ducktorka.cz" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ducktorka – Výjezdová veterinární péče | MVDr. Kateřina Měchurová" />
+        <meta name="twitter:description" content="Mobilní veterinář k vám domů. Profesionální péče bez stresu pro psy, kočky a drobná zvířata." />
+        <meta name="twitter:image" content="https://ducktorka.cz/og-image-1.jpg" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

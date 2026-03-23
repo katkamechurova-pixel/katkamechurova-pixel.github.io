@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -177,6 +177,13 @@ const ContactSection = () => {
                 <div>
                   <p className="font-semibold text-foreground">Telefon</p>
                   <a href="tel:+420734231444" className="text-muted-foreground hover:text-primary transition-colors">+420 734 231 444</a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <MessageCircle className="w-5 h-5 text-pastel-pink mt-0.5" />
+                <div>
+                  <p className="font-semibold text-foreground">WhatsApp</p>
+                  <a href="https://wa.me/420734231444" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Napište nám</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">

@@ -29,7 +29,35 @@ const ServiceDetail = () => {
       <Helmet>
         <title>{service.metaTitle}</title>
         <meta name="description" content={service.metaDescription} />
-        {/* Potentially add OpenGraph, Canonical URLs, etc here */}
+        <link rel="canonical" href={`https://ducktorka.cz/sluzby/${service.slug}`} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={service.metaTitle} />
+        <meta property="og:description" content={service.metaDescription} />
+        <meta property="og:url" content={`https://ducktorka.cz/sluzby/${service.slug}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://ducktorka.cz/og-image-1.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:title" content={service.metaTitle} />
+        <meta name="twitter:description" content={service.metaDescription} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": service.title,
+            "description": service.shortDesc,
+            "provider": {
+              "@type": "VeterinaryCare",
+              "name": "Ducktorka – MVDr. Kateřina Měchurová",
+              "url": "https://ducktorka.cz"
+            },
+            "areaServed": "Benešov a okolí; Praha ve vyznačených částech",
+            "serviceType": "VeterinaryService"
+          })}
+        </script>
       </Helmet>
       
       <Navbar />

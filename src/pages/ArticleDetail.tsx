@@ -27,6 +27,48 @@ const ArticleDetail = () => {
       <Helmet>
         <title>{article.metaTitle}</title>
         <meta name="description" content={article.metaDescription} />
+        <link rel="canonical" href={`https://ducktorka.cz/clanky/${article.slug}`} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={article.metaTitle} />
+        <meta property="og:description" content={article.metaDescription} />
+        <meta property="og:url" content={`https://ducktorka.cz/clanky/${article.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={article.imageUrl} />
+        <meta property="article:published_time" content={article.date} />
+
+        {/* Twitter */}
+        <meta name="twitter:title" content={article.metaTitle} />
+        <meta name="twitter:description" content={article.metaDescription} />
+        <meta name="twitter:image" content={article.imageUrl} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": article.title,
+            "description": article.excerpt,
+            "image": article.imageUrl,
+            "datePublished": article.date,
+            "author": {
+              "@type": "Person",
+              "name": "MVDr. Kateřina Měchurová"
+            },
+            "publisher": {
+              "@type": "VeterinaryCare",
+              "name": "Ducktorka – Výjezdová veterinární péče",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ducktorka.cz/og-image-1.jpg"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://ducktorka.cz/clanky/${article.slug}`
+            }
+          })}
+        </script>
       </Helmet>
       
       <Navbar />
