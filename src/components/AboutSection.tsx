@@ -62,22 +62,9 @@ const AboutSection = () => {
             <p className="text-muted-foreground mb-4 leading-relaxed">
               Vystudovala jsem Veterinární univerzitu v Brně a praxi jsem získávala v ambulancích i terénu. Během studia jsem také absolvovala dvě zahraniční stáže v USA (Tennessee) – na klinice Animal Wellness and Rehabilitation Center, která se specializuje na rehabilitaci a fyzioterapii zvířat, a na referenční veterinární klinice Blackford Veterinary Referral Hospital. Během práce se zvířaty v lékařském prostředí jsem si postupně uvědomila, že pro mnoho zvířat je právě návštěva veterináře spojena s velkým stresem – a tak vznikla <strong className="text-foreground">Ducktorka</strong>.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-muted-foreground leading-relaxed">
               Mou filozofií je přistupovat ke každému pacientovi individuálně, s trpělivostí a empatií. Věřím, že klidné prostředí domova přispívá k lepší diagnostice i léčbě. 🐥
             </p>
-
-            <div className="flex flex-wrap gap-4 mt-8">
-              <div className="bg-pastel-turquoise/10 border border-pastel-turquoise/20 rounded-2xl p-4 flex-1 min-w-[200px]">
-                <p className="text-xs font-bold text-pastel-turquoise uppercase tracking-wider mb-1">Zkušenosti</p>
-                <p className="text-sm font-medium text-foreground">Dvě zahraniční stáže v USA (Tennessee)</p>
-                <p className="text-xs text-muted-foreground mt-1">Specializace na rehabilitaci a fyzioterapii</p>
-              </div>
-              <div className="bg-pastel-pink/10 border border-pastel-pink/20 rounded-2xl p-4 flex-1 min-w-[200px]">
-                <p className="text-xs font-bold text-pastel-pink uppercase tracking-wider mb-1">Vzdělání</p>
-                <p className="text-sm font-medium text-foreground">VFU Brno</p>
-                <p className="text-xs text-muted-foreground mt-1">Praxe v ambulanci i v terénu</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
