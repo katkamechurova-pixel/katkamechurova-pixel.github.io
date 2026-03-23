@@ -56,9 +56,10 @@ const ServiceDetail = () => {
               </div>
             </header>
 
-            <div className="prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-none mb-12">
-              <p>{service.longDescription}</p>
-            </div>
+            <div 
+              className="prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-none mb-12"
+              dangerouslySetInnerHTML={{ __html: service.html }}
+            />
 
             <div className="flex flex-col sm:flex-row gap-4 mt-12 bg-section-alt rounded-2xl p-6 items-center justify-between">
               <div>

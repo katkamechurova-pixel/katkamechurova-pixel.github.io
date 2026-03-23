@@ -2,10 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { z } from "zod";
-import * as L from "leaflet";
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Vyplňte jméno").max(100),
@@ -30,7 +26,7 @@ const GOOGLE_FORM_ENTRIES = {
 
 const ContactSection = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef<L.Map | null>(null);
+  const mapRef = useRef<any>(null);
 
   const [form, setForm] = useState<FormData>({
     name: "", phone: "", email: "", animalName: "", animalType: "", description: "",
@@ -42,51 +38,66 @@ const ContactSection = () => {
   useEffect(() => {
     if (mapRef.current || !mapContainerRef.current) return;
 
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: markerIcon2x,
-      iconUrl: markerIcon,
-      shadowUrl: markerShadow,
+    // Dynamically import Leaflet only on the client side to avoid SSR "window is not defined"
+    Promise.all([
+      import("leaflet"),
+      import("leaflet/dist/leaflet.css"),
+      import("leaflet/dist/images/marker-icon-2x.png"),
+      import("leaflet/dist/images/marker-icon.png"),
+      import("leaflet/dist/images/marker-shadow.png"),
+    ]).then(([L, _css, markerIcon2xMod, markerIconMod, markerShadowMod]) => {
+      if (mapRef.current || !mapContainerRef.current) return;
+
+      const markerIcon2x = markerIcon2xMod.default;
+      const markerIcon = markerIconMod.default;
+      const markerShadow = markerShadowMod.default;
+
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: markerIcon2x,
+        iconUrl: markerIcon,
+        shadowUrl: markerShadow,
+      });
+
+      const map = L.map(mapContainerRef.current!, {
+        zoomControl: true,
+        scrollWheelZoom: false,
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+        maxZoom: 19,
+      }).addTo(map);
+
+      const invalidovna: L.LatLngExpression = [50.10556840933827, 14.47730729552215];
+      const benesov: L.LatLngExpression = [49.7813, 14.6869];
+
+      const serviceAreaPoints: L.LatLngExpression[] = [
+        [49.643099475524714, 14.635966144857015],
+        [49.74561582316734, 15.101012733893041],
+        [49.88206387489433, 14.905379862287177],
+        [50.004756287643154, 14.663856494141793],
+        [50.10556840933827, 14.47730729552215],
+        [50.08966095876044, 14.41683763185437],
+        [49.85361434515883, 14.39898260613367],
+        [49.65621560136275, 14.42482461195396],
+        [49.636283850238144, 14.644481664486161],
+      ];
+
+      const polygon = L.polygon(serviceAreaPoints, {
+        color: "rgba(236, 72, 153, 0.9)",
+        weight: 2,
+        fillColor: "rgba(236, 72, 153, 0.22)",
+        fillOpacity: 1,
+      }).addTo(map);
+
+      polygon.bindTooltip("Okruh výjezdů", { sticky: true });
+
+      L.marker(invalidovna).addTo(map).bindPopup("Praha 8 – Invalidovna");
+      L.marker(benesov).addTo(map).bindPopup("Benešov");
+
+      map.fitBounds(polygon.getBounds(), { padding: [16, 16] });
+      mapRef.current = map;
     });
-
-    const map = L.map(mapContainerRef.current, {
-      zoomControl: true,
-      scrollWheelZoom: false,
-    });
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap contributors",
-      maxZoom: 19,
-    }).addTo(map);
-
-    const invalidovna: L.LatLngExpression = [50.10556840933827, 14.47730729552215];
-    const benesov: L.LatLngExpression = [49.7813, 14.6869];
-
-    const serviceAreaPoints: L.LatLngExpression[] = [
-      [49.643099475524714, 14.635966144857015],
-      [49.74561582316734, 15.101012733893041],
-      [49.88206387489433, 14.905379862287177],
-      [50.004756287643154, 14.663856494141793],
-      [50.10556840933827, 14.47730729552215],
-      [50.08966095876044, 14.41683763185437],
-      [49.85361434515883, 14.39898260613367],
-      [49.65621560136275, 14.42482461195396],
-      [49.636283850238144, 14.644481664486161],
-    ];
-
-    const polygon = L.polygon(serviceAreaPoints, {
-      color: "rgba(236, 72, 153, 0.9)",
-      weight: 2,
-      fillColor: "rgba(236, 72, 153, 0.22)",
-      fillOpacity: 1,
-    }).addTo(map);
-
-    polygon.bindTooltip("Okruh výjezdů", { sticky: true });
-
-    L.marker(invalidovna).addTo(map).bindPopup("Praha 8 – Invalidovna");
-    L.marker(benesov).addTo(map).bindPopup("Benešov");
-
-    map.fitBounds(polygon.getBounds(), { padding: [16, 16] });
-    mapRef.current = map;
 
     return () => {
       mapRef.current?.remove();
@@ -117,8 +128,6 @@ const ContactSection = () => {
         formData.append(GOOGLE_FORM_ENTRIES[fieldKey], form[fieldKey]);
       });
 
-      // Using 'no-cors' mode as Google Forms doesn't support CORS for direct submissions this way
-      // This means we won't get a 'success' response status, but the data will be sent.
       await fetch(GOOGLE_FORM_URL, {
         method: "POST",
         mode: "no-cors",
@@ -129,7 +138,6 @@ const ContactSection = () => {
       setSubmitted(true);
     } catch (error) {
       console.error("Submission error:", error);
-      // Fallback: even if fetch fails/cors errors, often the request still hits Google
       setSubmitted(true);
     } finally {
       setIsSubmitting(false);

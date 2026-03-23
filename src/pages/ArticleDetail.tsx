@@ -1,6 +1,5 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import ReactMarkdown from "react-markdown";
 import { ArrowLeft, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -62,9 +61,10 @@ const ArticleDetail = () => {
               />
             </div>
 
-            <div className="prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-3xl mx-auto prose-img:rounded-2xl">
-              <ReactMarkdown>{article.content}</ReactMarkdown>
-            </div>
+            <div 
+              className="prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-3xl mx-auto prose-img:rounded-2xl"
+              dangerouslySetInnerHTML={{ __html: article.html }}
+            />
             
           </article>
 

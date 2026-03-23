@@ -30,7 +30,7 @@ const LatestArticlesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {recentArticles.map((article, i) => (
             <motion.div
-              key={article.id}
+              key={article.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
