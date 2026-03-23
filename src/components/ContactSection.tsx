@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { z } from "zod";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Vyplňte jméno").max(100),
   phone: z.string().trim().min(1, "Vyplňte telefon").max(20),
@@ -134,6 +140,14 @@ const ContactSection = () => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData,
       });
+
+
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "engagement",
+          event_label: "contact_form",
+        });
+      }
 
       setSubmitted(true);
     } catch (error) {
