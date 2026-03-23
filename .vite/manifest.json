@@ -1,0 +1,104 @@
+{
+  "_client-iBu4c4Am.js": {
+    "file": "assets/client-iBu4c4Am.js",
+    "name": "client",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_leaflet-src-Bnbv0kVV.js": {
+    "file": "assets/leaflet-src-Bnbv0kVV.js",
+    "name": "leaflet-src",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
+  "index.html": {
+    "file": "assets/app-D1w8YbEA.js",
+    "name": "app",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "_client-iBu4c4Am.js",
+      "_client-iBu4c4Am.js",
+      "_leaflet-src-Bnbv0kVV.js",
+      "node_modules/leaflet/dist/images/marker-icon-2x.png",
+      "node_modules/leaflet/dist/images/marker-icon.png",
+      "node_modules/leaflet/dist/images/marker-shadow.png"
+    ],
+    "css": [
+      "assets/app-D9oR32oW.css"
+    ],
+    "assets": [
+      "assets/hero-v11-xMAz4vvH.jpg",
+      "assets/duck-watercolor-clean-Bxim03iY.png",
+      "assets/about-photo-1-D9IdlX9l.png",
+      "assets/about-photo-2-BIfeb59Z.png",
+      "assets/pet-client-1-C343djPj.jpg",
+      "assets/pet-client-2-B-B70xA0.jpg",
+      "assets/pet-client-3-D0V1QyGK.jpg",
+      "assets/pet-client-4-CMWO9j8Y.jpg",
+      "assets/pet-client-5-CBYllpJs.jpg"
+    ]
+  },
+  "node_modules/leaflet/dist/images/marker-icon-2x.png": {
+    "file": "assets/marker-icon-2x-D4k_ikNW.js",
+    "name": "marker-icon-2x",
+    "src": "node_modules/leaflet/dist/images/marker-icon-2x.png",
+    "isDynamicEntry": true
+  },
+  "node_modules/leaflet/dist/images/marker-icon.png": {
+    "file": "assets/marker-icon-C2eJqgqv.js",
+    "name": "marker-icon",
+    "src": "node_modules/leaflet/dist/images/marker-icon.png",
+    "isDynamicEntry": true
+  },
+  "node_modules/leaflet/dist/images/marker-shadow.png": {
+    "file": "assets/marker-shadow-DU6CIJ0p.js",
+    "name": "marker-shadow",
+    "src": "node_modules/leaflet/dist/images/marker-shadow.png",
+    "isDynamicEntry": true
+  },
+  "node_modules/leaflet/dist/leaflet.css": {
+    "file": "assets/leaflet-Dgihpmma.css",
+    "src": "node_modules/leaflet/dist/leaflet.css"
+  },
+  "src/assets/about-photo-1.png": {
+    "file": "assets/about-photo-1-D9IdlX9l.png",
+    "src": "src/assets/about-photo-1.png"
+  },
+  "src/assets/about-photo-2.png": {
+    "file": "assets/about-photo-2-BIfeb59Z.png",
+    "src": "src/assets/about-photo-2.png"
+  },
+  "src/assets/duck-watercolor-clean.png": {
+    "file": "assets/duck-watercolor-clean-Bxim03iY.png",
+    "src": "src/assets/duck-watercolor-clean.png"
+  },
+  "src/assets/hero-v11.jpg": {
+    "file": "assets/hero-v11-xMAz4vvH.jpg",
+    "src": "src/assets/hero-v11.jpg"
+  },
+  "src/assets/pet-client-1.jpg": {
+    "file": "assets/pet-client-1-C343djPj.jpg",
+    "src": "src/assets/pet-client-1.jpg"
+  },
+  "src/assets/pet-client-2.jpg": {
+    "file": "assets/pet-client-2-B-B70xA0.jpg",
+    "src": "src/assets/pet-client-2.jpg"
+  },
+  "src/assets/pet-client-3.jpg": {
+    "file": "assets/pet-client-3-D0V1QyGK.jpg",
+    "src": "src/assets/pet-client-3.jpg"
+  },
+  "src/assets/pet-client-4.jpg": {
+    "file": "assets/pet-client-4-CMWO9j8Y.jpg",
+    "src": "src/assets/pet-client-4.jpg"
+  },
+  "src/assets/pet-client-5.jpg": {
+    "file": "assets/pet-client-5-CBYllpJs.jpg",
+    "src": "src/assets/pet-client-5.jpg"
+  }
+}
