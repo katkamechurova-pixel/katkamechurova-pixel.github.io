@@ -101,6 +101,127 @@
   }
 }
 
+@layer components {
+  .price-table-wrapper {
+    @apply my-8 overflow-x-auto rounded-2xl border border-border shadow-sm;
+    background-color: hsl(var(--pastel-pink-light));
+  }
+
+  .price-table {
+    @apply w-full min-w-[34rem] border-separate border-spacing-0 text-sm md:text-base;
+  }
+
+  .price-table thead th {
+    @apply px-4 py-3 text-left font-heading font-bold text-foreground;
+    background-color: hsl(var(--pastel-pink-light));
+  }
+
+  .price-table thead th:first-child {
+    @apply rounded-tl-2xl;
+  }
+
+  .price-table thead th:last-child {
+    @apply rounded-tr-2xl text-right tabular-nums;
+  }
+
+  .price-table tbody td {
+    @apply px-4 py-3 align-top border-b border-border/60;
+  }
+
+  .price-table tbody tr:nth-child(odd) td {
+    background-color: hsl(var(--pastel-pink-light));
+  }
+
+  .price-table tbody tr:nth-child(even) td {
+    background-color: hsl(var(--pastel-pink-light));
+  }
+
+  .dark .price-table tbody tr:nth-child(odd) td {
+    background-color: hsl(var(--card));
+  }
+
+  .dark .price-table tbody tr:nth-child(even) td {
+    background-color: hsl(var(--muted));
+  }
+
+  .dark .price-table-wrapper {
+    background-color: hsl(var(--card));
+  }
+
+  .dark .price-table thead th {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--foreground));
+  }
+
+  .price-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .price-table tbody tr:last-child td:first-child {
+    @apply rounded-bl-2xl;
+  }
+
+  .price-table tbody tr:last-child td:last-child {
+    @apply rounded-br-2xl;
+  }
+
+  .price-table tbody td:first-child {
+    @apply font-semibold text-foreground;
+  }
+
+  .price-table tbody td:nth-child(2) {
+    @apply text-foreground;
+  }
+
+  .price-table tbody td:last-child {
+    @apply text-right font-bold text-primary whitespace-nowrap tabular-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .service-prose h3 {
+    @apply mt-12 mb-6 px-5 py-3 rounded-2xl border border-border shadow-sm;
+    background-color: hsl(var(--pastel-turquoise-light));
+  }
+
+  .service-prose h2 {
+    @apply mt-12 mb-8 pb-3 border-b border-border font-heading font-extrabold tracking-wide text-primary;
+  }
+
+  .service-prose h4 {
+    @apply mt-10 mb-6 pb-2 border-b border-border font-heading font-bold tracking-wide text-primary;
+  }
+
+  .dark .service-prose h3 {
+    background-color: hsl(var(--muted));
+  }
+
+  .dark .service-prose h2 {
+    @apply border-border text-primary;
+  }
+
+  .dark .service-prose h4 {
+    @apply border-border text-primary;
+  }
+
+  @media (min-width: 768px) {
+    .price-table--2col {
+      table-layout: fixed;
+    }
+
+    .price-table--2col th:last-child,
+    .price-table--2col td:last-child {
+      width: 30%;
+    }
+
+    .price-table--2col th:first-child,
+    .price-table--2col td:first-child {
+      width: 70%;
+    }
+  }
+}
+
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;

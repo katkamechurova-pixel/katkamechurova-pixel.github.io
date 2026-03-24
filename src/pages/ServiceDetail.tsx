@@ -85,7 +85,7 @@ const ServiceDetail = () => {
             </header>
 
             <div 
-              className="prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-none mb-12"
+              className="service-prose prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-none mb-12"
               dangerouslySetInnerHTML={{ __html: service.html }}
             />
 
