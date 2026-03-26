@@ -7,7 +7,7 @@ import ServicesSection from "@/components/ServicesSection";
 import PricingSection from "@/components/PricingSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import LatestArticlesSection from "@/components/LatestArticlesSection";
-import Footer from "@/components/Footer";
+import HomeFooter from "@/components/HomeFooter";
 import DeferredSection from "@/components/DeferredSection";
 
 const loadContactSection = () => import("@/components/ContactSection");
@@ -106,7 +106,7 @@ const Index = () => {
           loader={loadContactSection}
           placeholderClassName="min-h-[980px] bg-section-alt"
         />
-        <Footer />
+        <HomeFooter />
       </main>
     </>
   );

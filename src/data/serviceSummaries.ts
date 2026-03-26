@@ -1,47 +1,28 @@
-import {
-  Stethoscope,
-  Syringe,
-  Bug,
-  Cpu,
-  Droplets,
-  Scissors,
-  MessageCircle,
-  HeartHandshake,
-  HousePlus,
-  ScanLine,
-  type LucideIcon,
-} from "lucide-react";
-
-const iconMap: Record<string, LucideIcon> = {
-  Stethoscope,
-  Syringe,
-  Bug,
-  Cpu,
-  Droplets,
-  Scissors,
-  MessageCircle,
-  HeartHandshake,
-  HousePlus,
-  ScanLine,
-};
+export type ServiceIconName =
+  | "Stethoscope"
+  | "Syringe"
+  | "Bug"
+  | "Cpu"
+  | "Droplets"
+  | "Scissors"
+  | "MessageCircle"
+  | "HeartHandshake"
+  | "HousePlus"
+  | "ScanLine";
 
 export interface ServiceSummary {
   slug: string;
-  icon: LucideIcon;
+  iconName: ServiceIconName;
   title: string;
   shortDesc: string;
   metaTitle: string;
   metaDescription: string;
 }
 
-type ServiceSummarySource = Omit<ServiceSummary, "icon"> & {
-  icon: keyof typeof iconMap;
-};
-
-const serviceSummarySources: ServiceSummarySource[] = [
+export const serviceSummaries: ServiceSummary[] = [
   {
     slug: "preventivni-prohlidky",
-    icon: "Stethoscope",
+    iconName: "Stethoscope",
     title: "Preventivní prohlídky",
     shortDesc: "Pravidelné kontroly zdravotního stavu vašeho mazlíčka.",
     metaTitle: "Preventivní prohlídky doma | Ducktorka",
@@ -49,7 +30,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "vakcinace",
-    icon: "Syringe",
+    iconName: "Syringe",
     title: "Vakcinace",
     shortDesc: "Očkování moderními vakcínami dle aktuálního vakcinačního schématu.",
     metaTitle: "Vakcinace doma | Ducktorka",
@@ -57,7 +38,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "odcerveni",
-    icon: "Bug",
+    iconName: "Bug",
     title: "Antiparazitární ochrana",
     shortDesc: "Vnitřní i vnější antiparazitární ošetření.",
     metaTitle: "Antiparazitární ochrana doma | Ducktorka",
@@ -65,7 +46,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "cipovani",
-    icon: "Cpu",
+    iconName: "Cpu",
     title: "Čipování",
     shortDesc: "Implantace mikročipu pro identifikaci zvířete.",
     metaTitle: "Čipování pasů a zvířat doma | Ducktorka",
@@ -73,7 +54,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "odbery-krve",
-    icon: "Droplets",
+    iconName: "Droplets",
     title: "Odběry krve",
     shortDesc: "Laboratorní diagnostika z pohodlí domova. Biochemické vyšetření s výsledky v den odběru. Spolupráce s laboratoří Veteo, případně německou laboratoří Laboklin",
     metaTitle: "Odběry krve doma | Ducktorka",
@@ -81,7 +62,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "sono-vysetreni",
-    icon: "ScanLine",
+    iconName: "ScanLine",
     title: "Sono vyšetření",
     shortDesc: "Ultrazvuková diagnostika pro přesné a šetrné vyšetření přenosným USG přístrojem.",
     metaTitle: "Sono vyšetření doma | Ducktorka",
@@ -89,7 +70,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "osetreni-poraneni",
-    icon: "Scissors",
+    iconName: "Scissors",
     title: "Ošetření poranění",
     shortDesc: "Ošetření drobných ran a poranění.",
     metaTitle: "Ošetření poranění doma | Ducktorka",
@@ -97,7 +78,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "konzultace",
-    icon: "MessageCircle",
+    iconName: "MessageCircle",
     title: "Konzultace",
     shortDesc: "Poradenství ohledně zdraví, výživy a prevence.",
     metaTitle: "Veterinární konzultace doma | Ducktorka",
@@ -105,7 +86,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "paliativni-pece",
-    icon: "HeartHandshake",
+    iconName: "HeartHandshake",
     title: "Paliativní péče",
     shortDesc: "Citlivá péče o nemocná a stárnoucí zvířata.",
     metaTitle: "Paliativní péče doma | Ducktorka",
@@ -113,7 +94,7 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "eutanazie-doma",
-    icon: "HousePlus",
+    iconName: "HousePlus",
     title: "Eutanazie doma",
     shortDesc: "Důstojný a klidný odchod v domácím prostředí.",
     metaTitle: "Eutanazie doma | Ducktorka",
@@ -121,15 +102,10 @@ const serviceSummarySources: ServiceSummarySource[] = [
   },
   {
     slug: "kastrace",
-    icon: "Scissors",
+    iconName: "Scissors",
     title: "Kastrace",
     shortDesc: "Preventivní kastrace koček a psů, pouze v ordinaci v Benešově.",
     metaTitle: "Kastrace | Ducktorka",
     metaDescription: "Informace o preventivní kastraci koček a psů v ordinaci v Benešově.",
   },
 ];
-
-export const serviceSummaries: ServiceSummary[] = serviceSummarySources.map((service) => ({
-  ...service,
-  icon: iconMap[service.icon] || Stethoscope,
-}));

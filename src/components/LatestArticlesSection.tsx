@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { articleSummaries } from "@/data/articleSummaries";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+const CalendarIcon = () => (
+  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
+    <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
 
 const LatestArticlesSection = () => {
   const recentArticles = articleSummaries.slice(0, 3);
@@ -39,7 +46,7 @@ const LatestArticlesSection = () => {
                 
                 <div className="p-6 md:p-8 flex flex-col flex-1">
                   <div className="flex items-center gap-2 text-pastel-turquoise font-semibold text-xs mb-4">
-                    <Calendar className="w-3.5 h-3.5" />
+                    <CalendarIcon />
                     <span>{article.date}</span>
                   </div>
                   

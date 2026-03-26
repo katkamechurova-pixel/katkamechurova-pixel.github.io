@@ -1,9 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articleDetails } from "@/data/articleDetails";
+
+const CalendarIcon = () => (
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
+    <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
 
 const ArticleDetail = () => {
   const { articleSlug } = useParams<{ articleSlug: string }>();
@@ -93,7 +100,7 @@ const ArticleDetail = () => {
           <article>
             <div className="mb-10 text-center">
               <div className="flex justify-center items-center gap-2 text-pastel-turquoise font-semibold text-sm mb-6">
-                <Calendar className="w-4 h-4" />
+                <CalendarIcon />
                 <span>{article.date}</span>
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 leading-tight">
@@ -113,10 +120,7 @@ const ArticleDetail = () => {
               />
             </div>
 
-            <div
-              className="prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-3xl mx-auto prose-img:rounded-2xl"
-              dangerouslySetInnerHTML={{ __html: article.html }}
-            />
+            <div className="rich-content max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: article.html }} />
 
           </article>
 

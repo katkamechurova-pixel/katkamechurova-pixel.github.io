@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getServiceIcon } from "@/data/serviceIcons";
 import { serviceDetails } from "@/data/serviceDetails";
 
 const ServiceDetail = () => {
@@ -22,7 +23,7 @@ const ServiceDetail = () => {
     );
   }
 
-  const Icon = service.icon;
+  const Icon = getServiceIcon(service.iconName);
 
   return (
     <>
@@ -115,10 +116,7 @@ const ServiceDetail = () => {
               </div>
             </header>
 
-            <div
-              className="service-prose prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-none mb-12"
-              dangerouslySetInnerHTML={{ __html: service.html }}
-            />
+            <div className="service-prose rich-content max-w-none mb-12" dangerouslySetInnerHTML={{ __html: service.html }} />
 
             <div className="flex flex-col sm:flex-row gap-4 mt-12 bg-section-alt rounded-2xl p-6 items-center justify-between">
               <div>
