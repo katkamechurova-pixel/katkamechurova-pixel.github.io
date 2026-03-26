@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const prices = [
   { service: "Preventivní prohlídka", price: "od 500 Kč" },
   { service: "Vakcinace", price: "od 600 Kč" },
-  { service: "Odčervení", price: "od 150 Kč" },
+  { service: "Antiparazitární ochrana", price: "od 150 Kč" },
   { service: "Čipování", price: "od 800 Kč" },
   { service: "Odběr krve + laboratorní vyšetření", price: "od 800 Kč" },
   { service: "Ošetření drobného poranění", price: "od 500 Kč" },

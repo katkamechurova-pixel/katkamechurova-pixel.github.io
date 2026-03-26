@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const services = [
   { icon: Stethoscope, slug: "preventivni-prohlidky", title: "Preventivní prohlídky", desc: "Pravidelné kontroly zdravotního stavu vašeho mazlíčka." },
   { icon: Syringe, slug: "vakcinace", title: "Vakcinace", desc: "Očkování moderními vakcínami dle aktuálního vakcinačního schématu." },
-  { icon: Bug, slug: "odcerveni", title: "Odčervení", desc: "Vnitřní i vnější antiparazitární ošetření." },
+  { icon: Bug, slug: "odcerveni", title: "Antiparazitární ochrana", desc: "Vnitřní i vnější antiparazitární ošetření." },
   { icon: Cpu, slug: "cipovani", title: "Čipování", desc: "Implantace mikročipu pro identifikaci zvířete." },
   { icon: Droplets, slug: "odbery-krve", title: "Odběry krve", desc: "Laboratorní diagnostika z pohodlí domova. Biochemické vyšetření s výsledky v den odběru. Spolupráce s laboratoří Veteo, případně německou laboratoří Laboklin" },
   { icon: ScanLine, slug: "sono-vysetreni", title: "Sono vyšetření", desc: "Ultrazvuková diagnostika pro přesné a šetrné vyšetření přenosným USG přístrojem." },
