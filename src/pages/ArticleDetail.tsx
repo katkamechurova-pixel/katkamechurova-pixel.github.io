@@ -66,16 +66,24 @@ const ArticleDetail = () => {
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": `https://ducktorka.cz/clanky/${article.slug}`
-            }
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nezvalova 989",
+              "addressLocality": "Benešov",
+              "postalCode": "25601",
+              "addressCountry": "CZ"
+            },
+            publicAccess: false
           })}
         </script>
       </Helmet>
-      
+
       <Navbar />
-      
+
       <main className="min-h-screen pt-28 md:pt-36 pb-20">
         <div className="container mx-auto px-4 max-w-4xl">
-          
+
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 uppercase tracking-wider text-sm font-semibold">
             <ArrowLeft className="w-4 h-4" /> Zpět
           </Link>
@@ -96,23 +104,23 @@ const ArticleDetail = () => {
 
             <div className="w-full aspect-[21/9] md:aspect-[3/1] bg-muted rounded-[2rem] overflow-hidden shadow-lg mb-16 relative">
               <div className="absolute inset-0 bg-black/10 z-10" />
-              <img 
-                src={article.imageUrl} 
+              <img
+                src={article.imageUrl}
                 alt={article.title}
                 className="w-full h-full object-cover"
               />
             </div>
 
-            <div 
+            <div
               className="prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-3xl mx-auto prose-img:rounded-2xl"
               dangerouslySetInnerHTML={{ __html: article.html }}
             />
-            
+
           </article>
 
         </div>
       </main>
-      
+
       <Footer />
     </>
   );

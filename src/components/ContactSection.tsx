@@ -41,10 +41,31 @@ const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (mapRef.current || !mapContainerRef.current) return;
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
-    // Dynamically import Leaflet only on the client side to avoid SSR "window is not defined"
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setHasLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" } // Start loading 100px before it enters viewport
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoaded || mapRef.current || !mapContainerRef.current) return;
+
+    // Dynamically import Leaflet only when visible
     Promise.all([
       import("leaflet"),
       import("leaflet/dist/leaflet.css"),
@@ -74,10 +95,10 @@ const ContactSection = () => {
         maxZoom: 19,
       }).addTo(map);
 
-      const invalidovna: L.LatLngExpression = [50.10556840933827, 14.47730729552215];
-      const benesov: L.LatLngExpression = [49.7813, 14.6869];
+      const invalidovna: [number, number] = [50.10556840933827, 14.47730729552215];
+      const benesov: [number, number] = [49.7813, 14.6869];
 
-      const serviceAreaPoints: L.LatLngExpression[] = [
+      const serviceAreaPoints: [number, number][] = [
         [49.643099475524714, 14.635966144857015],
         [49.74561582316734, 15.101012733893041],
         [49.88206387489433, 14.905379862287177],
@@ -109,7 +130,7 @@ const ContactSection = () => {
       mapRef.current?.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [hasLoaded]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -166,7 +187,7 @@ const ContactSection = () => {
   const inputClasses = "w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow text-sm";
 
   return (
-    <section id="contact" className="py-20 bg-section-alt">
+    <section id="contact" ref={sectionRef} className="py-20 bg-section-alt">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

@@ -30,14 +30,14 @@ const ServiceDetail = () => {
         <title>{service.metaTitle}</title>
         <meta name="description" content={service.metaDescription} />
         <link rel="canonical" href={`https://ducktorka.cz/sluzby/${service.slug}`} />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content={service.metaTitle} />
         <meta property="og:description" content={service.metaDescription} />
         <meta property="og:url" content={`https://ducktorka.cz/sluzby/${service.slug}`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ducktorka.cz/og-image-1.jpg" />
-        
+
         {/* Twitter */}
         <meta name="twitter:title" content={service.metaTitle} />
         <meta name="twitter:description" content={service.metaDescription} />
@@ -55,16 +55,24 @@ const ServiceDetail = () => {
               "url": "https://ducktorka.cz"
             },
             "areaServed": "Benešov a okolí; Praha ve vyznačených částech",
-            "serviceType": "VeterinaryService"
+            "serviceType": "VeterinaryService",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nezvalova 989",
+              "addressLocality": "Benešov",
+              "postalCode": "25601",
+              "addressCountry": "CZ"
+            },
+            publicAccess: false
           })}
         </script>
       </Helmet>
-      
+
       <Navbar />
-      
+
       <main className="min-h-screen pt-32 pb-20 overflow-hidden relative">
         <div className="container mx-auto px-4 relative z-10">
-          
+
           {/* Back link */}
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-12 uppercase tracking-wider text-sm font-semibold">
             <ArrowLeft className="w-4 h-4" /> Zpět na přehled
@@ -73,7 +81,7 @@ const ServiceDetail = () => {
           <article className="max-w-3xl mx-auto bg-card rounded-[2rem] p-8 md:p-14 shadow-sm border border-border relative overflow-hidden">
             {/* Visual background blob */}
             <div className="absolute top-0 right-0 p-16 bg-gradient-to-bl from-pastel-turquoise-light via-pastel-turquoise-light/20 to-transparent rounded-bl-full opacity-60 pointer-events-none -z-10" />
-            
+
             <header className="flex flex-col md:flex-row gap-6 md:items-center mb-10 border-b border-border pb-8">
               <div className="w-16 h-16 rounded-2xl bg-pastel-turquoise flex items-center justify-center shrink-0 shadow-sm shadow-pastel-turquoise/20">
                 <Icon className="w-8 h-8 text-white" />
@@ -84,7 +92,7 @@ const ServiceDetail = () => {
               </div>
             </header>
 
-            <div 
+            <div
               className="service-prose prose prose-lg dark:prose-invert prose-p:leading-relaxed prose-headings:font-heading prose-a:text-primary max-w-none mb-12"
               dangerouslySetInnerHTML={{ __html: service.html }}
             />
@@ -94,18 +102,18 @@ const ServiceDetail = () => {
                 <h4 className="font-heading font-bold text-lg mb-1">Potřebujete tuto službu?</h4>
                 <p className="text-muted-foreground text-sm">Zavolejte nám nebo vyplňte formulář.</p>
               </div>
-              <a 
-                href="/#contact" 
+              <a
+                href="/#contact"
                 className="px-8 py-3 rounded-full bg-accent text-accent-foreground font-bold hover:opacity-90 transition-all hover:scale-105 shadow-md whitespace-nowrap"
               >
                 Objednat návštěvu
               </a>
             </div>
-            
+
           </article>
         </div>
       </main>
-      
+
       <Footer />
     </>
   );

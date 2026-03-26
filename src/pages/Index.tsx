@@ -1,14 +1,18 @@
 import { Helmet } from "react-helmet-async";
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import PricingSection from "@/components/PricingSection";
-import ContactSection from "@/components/ContactSection";
-import ReviewsSection from "@/components/ReviewsSection";
-import LatestArticlesSection from "@/components/LatestArticlesSection";
-import Footer from "@/components/Footer";
+
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const PricingSection = lazy(() => import("@/components/PricingSection"));
+const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
+const LatestArticlesSection = lazy(() => import("@/components/LatestArticlesSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+const SectionFallback = () => <div className="min-h-[200px]" />;
 
 const Index = () => {
   return (
@@ -41,7 +45,16 @@ const Index = () => {
             telephone: "+420734231444",
             email: "ducktorka@outlook.com",
             areaServed: "Benešov a okolí; Praha ve vyznačených částech, případně dle domluvy",
+            serviceType: "VeterinaryService",
             priceRange: "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nezvalova 989",
+              "addressLocality": "Benešov",
+              "postalCode": "25601",
+              "addressCountry": "CZ"
+            },
+            publicAccess: false
           })}
         </script>
       </Helmet>
@@ -50,13 +63,15 @@ const Index = () => {
         <HeroSection />
         <BenefitsSection />
         <AboutSection />
-        <ServicesSection />
-        <PricingSection />
-        <ReviewsSection />
-        <LatestArticlesSection />
-        <ContactSection />
+        <Suspense fallback={<SectionFallback />}>
+          <ServicesSection />
+          <PricingSection />
+          <ReviewsSection />
+          <LatestArticlesSection />
+          <ContactSection />
+          <Footer />
+        </Suspense>
       </main>
-      <Footer />
     </>
   );
 };
