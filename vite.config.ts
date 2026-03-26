@@ -4,6 +4,7 @@ import path from "path";
 import Sitemap from "vite-plugin-sitemap";
 import { plugin as markdown, Mode } from "vite-plugin-markdown";
 import fs from "fs";
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // Discover dynamic routes from content directory at config time
 function getContentSlugs(dir: string): string[] {
@@ -33,6 +34,50 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    ViteImageOptimizer({
+      test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
+      exclude: undefined,
+      include: undefined,
+      includePublic: true,
+      logStats: true,
+      ansiColors: true,
+      svg: {
+        multipass: true,
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                cleanupIds: false,
+                removeViewBox: false,
+              },
+            },
+          },
+          'sortAttrs',
+          {
+            name: 'addAttributesToSVGElement',
+            params: {
+              attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
+            },
+          },
+        ],
+      },
+      png: {
+        quality: 80,
+      },
+      jpeg: {
+        quality: 80,
+      },
+      jpg: {
+        quality: 80,
+      },
+      webp: {
+        lossless: true,
+      },
+      avif: {
+        lossless: true,
+      },
+    }),
     markdown({ mode: [Mode.HTML] }),
     Sitemap({
       hostname: 'https://ducktorka.cz',

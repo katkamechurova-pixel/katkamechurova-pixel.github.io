@@ -1,9 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import aboutPhoto1 from "@/assets/about-photo-1.png";
-import aboutPhoto2 from "@/assets/about-photo-2.png";
+import aboutPhoto1Lg from "@/assets/about-photo-1-lg.webp";
+import aboutPhoto1Md from "@/assets/about-photo-1-md.webp";
+import aboutPhoto1Sm from "@/assets/about-photo-1-sm.webp";
+import aboutPhoto2Lg from "@/assets/about-photo-2-lg.webp";
+import aboutPhoto2Md from "@/assets/about-photo-2-md.webp";
+import aboutPhoto2Sm from "@/assets/about-photo-2-sm.webp";
 
-const photos = [aboutPhoto1, aboutPhoto2];
+const photos = [
+  { lg: aboutPhoto1Lg, md: aboutPhoto1Md, sm: aboutPhoto1Sm },
+  { lg: aboutPhoto2Lg, md: aboutPhoto2Md, sm: aboutPhoto2Sm },
+];
 
 const AboutSection = () => {
   const [current, setCurrent] = useState(0);
@@ -33,7 +40,9 @@ const AboutSection = () => {
               <AnimatePresence mode="wait">
                 <motion.img
                   key={current}
-                  src={photos[current]}
+                  src={photos[current].lg}
+                  srcSet={`${photos[current].sm} 400w, ${photos[current].md} 800w, ${photos[current].lg} 1200w`}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   alt="MVDr. Kateřina Měchurová"
                   className="w-full h-full object-cover absolute inset-0"
                   initial={{ opacity: 0 }}

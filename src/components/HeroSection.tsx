@@ -1,11 +1,21 @@
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-v11.jpg";
-import duckLogo from "@/assets/duck-watercolor-clean.png";
+import heroImageLg from "@/assets/hero-v11-lg.webp";
+import heroImageMd from "@/assets/hero-v11-md.webp";
+import heroImageSm from "@/assets/hero-v11-sm.webp";
+import duckLogoLg from "@/assets/duck-watercolor-clean-lg.webp";
+import duckLogoMd from "@/assets/duck-watercolor-clean-md.webp";
+import duckLogoSm from "@/assets/duck-watercolor-clean-sm.webp";
 
 /** Watercolor duck logo component */
 const DuckLogo = ({ className = "" }: { className?: string }) => (
   <div className={`${className} rounded-full bg-gradient-to-br from-primary/80 to-accent/60 p-1.5 flex items-center justify-center shadow-md`}>
-    <img src={duckLogo} alt="Ducktorka logo" className="w-full h-full object-contain rounded-full drop-shadow-sm" />
+    <img 
+      src={duckLogoMd} 
+      srcSet={`${duckLogoSm} 200w, ${duckLogoMd} 400w, ${duckLogoLg} 800w`}
+      sizes="(max-width: 768px) 64px, 96px"
+      alt="Ducktorka logo" 
+      className="w-full h-full object-contain rounded-full drop-shadow-sm" 
+    />
   </div>
 );
 
@@ -13,11 +23,14 @@ const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-[100svh] overflow-hidden flex items-center pt-20">
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-no-repeat bg-cover bg-[center_top_20%] md:bg-[center_bottom]"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-        }}
+      <img
+        src={heroImageLg}
+        srcSet={`${heroImageSm} 800w, ${heroImageMd} 1200w, ${heroImageLg} 1920w`}
+        sizes="100vw"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-[center_top_20%] md:object-bottom"
+        loading="eager"
+        fetchPriority="high"
       />
       
       {/* Light/Dark Overlays for Text Readability */}

@@ -2,17 +2,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, PawPrint } from "lucide-react";
 import { useState, useEffect } from "react";
 
-import petClient1 from "@/assets/pet-client-1.jpg";
-import petClient2 from "@/assets/pet-client-2.jpg";
-import petClient3 from "@/assets/pet-client-3.jpg";
-import petClient4 from "@/assets/pet-client-4.jpg";
-import petClient5 from "@/assets/pet-client-5.jpg";
+import petClient1Lg from "@/assets/pet-client-1-lg.webp";
+import petClient1Md from "@/assets/pet-client-1-md.webp";
+import petClient1Sm from "@/assets/pet-client-1-sm.webp";
+import petClient2Lg from "@/assets/pet-client-2-lg.webp";
+import petClient2Md from "@/assets/pet-client-2-md.webp";
+import petClient2Sm from "@/assets/pet-client-2-sm.webp";
+import petClient3Lg from "@/assets/pet-client-3-lg.webp";
+import petClient3Md from "@/assets/pet-client-3-md.webp";
+import petClient3Sm from "@/assets/pet-client-3-sm.webp";
+import petClient4Lg from "@/assets/pet-client-4-lg.webp";
+import petClient4Md from "@/assets/pet-client-4-md.webp";
+import petClient4Sm from "@/assets/pet-client-4-sm.webp";
+import petClient5Lg from "@/assets/pet-client-5-lg.webp";
+import petClient5Md from "@/assets/pet-client-5-md.webp";
+import petClient5Sm from "@/assets/pet-client-5-sm.webp";
 
 const placeholderReviews = [
   
 ];
 
-const petPhotos = [petClient1, petClient2, petClient3, petClient4, petClient5];
+const petPhotos = [
+  { lg: petClient1Lg, md: petClient1Md, sm: petClient1Sm },
+  { lg: petClient2Lg, md: petClient2Md, sm: petClient2Sm },
+  { lg: petClient3Lg, md: petClient3Md, sm: petClient3Sm },
+  { lg: petClient4Lg, md: petClient4Md, sm: petClient4Sm },
+  { lg: petClient5Lg, md: petClient5Lg, sm: petClient5Sm },
+];
 
 const ReviewsSection = () => {
   const [currentPet, setCurrentPet] = useState(0);
@@ -67,7 +83,9 @@ const ReviewsSection = () => {
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentPet}
-                  src={petPhotos[currentPet]}
+                  src={petPhotos[currentPet].lg}
+                  srcSet={`${petPhotos[currentPet].sm} 300w, ${petPhotos[currentPet].md} 600w, ${petPhotos[currentPet].lg} 1000w`}
+                  sizes="(max-width: 768px) 100vw, 400px"
                   alt={`Chlupatý klient ${currentPet + 1}`}
                   className="w-full h-full object-cover absolute inset-0"
                   initial={{ opacity: 0, scale: 1.05 }}

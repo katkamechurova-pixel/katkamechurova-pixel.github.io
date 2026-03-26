@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import {
   Stethoscope, Syringe, Bug, Cpu, Droplets, Scissors, MessageCircle, HeartHandshake, HousePlus, ScanLine,
-  BriefcaseMedical
+  BriefcaseMedical, ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -45,13 +45,25 @@ const ServicesSection = () => (
           >
             <Link
               to={`/sluzby/${s.slug}`}
-              className="block bg-card rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow group h-full"
+              className="group block bg-card rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 h-full border border-transparent hover:border-pastel-turquoise/10 flex flex-col"
             >
-              <div className="w-10 h-10 rounded-xl bg-pastel-turquoise-light flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <s.icon className="w-5 h-5 text-pastel-turquoise" />
+              <div className="w-12 h-12 rounded-xl bg-pastel-turquoise-light flex items-center justify-center mb-4 group-hover:bg-pastel-turquoise/20 transition-colors duration-300">
+                <s.icon className="w-6 h-6 text-pastel-turquoise" />
               </div>
-              <h3 className="font-heading font-semibold text-foreground mb-1">{s.title}</h3>
-              <p className="text-sm text-muted-foreground">{s.desc}</p>
+              <h3 className="font-heading font-semibold text-lg text-foreground mb-2 group-hover:text-pastel-turquoise transition-colors duration-300">
+                {s.title}
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                {s.desc}
+              </p>
+              <div className="mt-auto pt-4 flex items-center justify-between">
+                <span className="text-sm font-semibold text-pastel-turquoise opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Více informací
+                </span>
+                <div className="w-8 h-8 rounded-full bg-pastel-turquoise-light flex items-center justify-center text-pastel-turquoise group-hover:bg-pastel-turquoise group-hover:text-white transition-all duration-300">
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </div>
             </Link>
           </motion.div>
         ))}
@@ -59,5 +71,6 @@ const ServicesSection = () => (
     </div>
   </section>
 );
+
 
 export default ServicesSection;
