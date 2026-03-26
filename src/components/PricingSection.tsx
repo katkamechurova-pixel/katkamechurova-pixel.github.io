@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const prices = [
   { service: "Preventivní prohlídka", price: "od 500 Kč" },
   { service: "Vakcinace", price: "od 600 Kč" },
@@ -28,24 +26,14 @@ const prices = [
 const PricingSection = () => (
   <section id="pricing" className="py-20">
     <div className="container mx-auto px-4 max-w-3xl">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-2xl md:text-3xl font-heading font-bold text-center mb-4 text-foreground"
-      >
+      <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-4 text-foreground">
         <span className="text-gradient">Ceník</span> služeb
-      </motion.h2>
+      </h2>
       <p className="text-center text-muted-foreground mb-10 text-sm">
         Ceny jsou orientační a mohou se lišit dle náročnosti ošetření, použitého materiálu a typu léčiv. Pro přesnou cenu mě kontaktujte telefonicky, případně na email.
       </p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="bg-card rounded-2xl shadow-sm overflow-hidden"
-      >
+      <div className="bg-card rounded-2xl shadow-sm overflow-hidden">
         {prices.map((p, i) => (
           <div
             key={p.service}
@@ -66,7 +54,7 @@ const PricingSection = () => (
             <span className="text-pastel-green font-semibold text-sm md:text-base whitespace-nowrap ml-4">{p.price}</span>
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   </section>
 );

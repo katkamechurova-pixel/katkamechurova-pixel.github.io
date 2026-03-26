@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Stethoscope, Syringe, Bug, Cpu, Droplets, Scissors, MessageCircle, HeartHandshake, HousePlus, ScanLine,
   BriefcaseMedical, ArrowRight
@@ -23,25 +22,16 @@ const services = [
 const ServicesSection = () => (
   <section id="services" className="py-20 bg-section-alt">
     <div className="container mx-auto px-4">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-2xl md:text-3xl font-heading font-bold text-center mb-4 text-foreground"
-      >
+      <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-4 text-foreground">
         Nabízené <span className="text-gradient">služby</span>
-      </motion.h2>
+      </h2>
       <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
         Kompletní veterinární péče přímo u vás doma – pro psy, kočky a drobná domácí zvířata.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {services.map((s, i) => (
-          <motion.div
+        {services.map((s) => (
+          <div
             key={s.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
           >
             <Link
               to={`/sluzby/${s.slug}`}
@@ -65,7 +55,7 @@ const ServicesSection = () => (
                 </div>
               </div>
             </Link>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

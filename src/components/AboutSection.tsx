@@ -1,27 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-import aboutPhoto1Lg from "@/assets/about-photo-1-lg.webp";
-import aboutPhoto1Md from "@/assets/about-photo-1-md.webp";
-import aboutPhoto1Sm from "@/assets/about-photo-1-sm.webp";
-import aboutPhoto2Lg from "@/assets/about-photo-2-lg.webp";
-import aboutPhoto2Md from "@/assets/about-photo-2-md.webp";
-import aboutPhoto2Sm from "@/assets/about-photo-2-sm.webp";
-
-const photos = [
-  { lg: aboutPhoto1Lg, md: aboutPhoto1Md, sm: aboutPhoto1Sm },
-  { lg: aboutPhoto2Lg, md: aboutPhoto2Md, sm: aboutPhoto2Sm },
-];
-
 const AboutSection = () => {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % photos.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section id="about" className="py-20">
       <div className="container mx-auto px-4">
@@ -30,38 +7,20 @@ const AboutSection = () => {
           <span className="text-gradient">O</span> <span className="text-foreground">mně</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-lg aspect-[3/4] relative">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={current}
-                  src={photos[current].lg}
-                  srcSet={`${photos[current].sm} 400w, ${photos[current].md} 800w, ${photos[current].lg} 1200w`}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  alt="MVDr. Kateřina Měchurová"
-                  className="w-full h-full object-cover absolute inset-0"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                  loading="lazy"
-                />
-              </AnimatePresence>
+              <img
+                src="/about-photo-1-md.webp"
+                alt="MVDr. Kateřina Měchurová"
+                className="w-full h-full object-cover absolute inset-0"
+                loading="lazy"
+              />
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-pastel-pink-light opacity-60 -z-10" />
             <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-pastel-turquoise-light opacity-60 -z-10" />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h2 className="hidden md:block text-2xl md:text-3xl font-heading font-bold mb-4">
               <span className="text-gradient">O</span> <span className="text-foreground">mně</span>
             </h2>
@@ -74,7 +33,7 @@ const AboutSection = () => {
             <p className="text-muted-foreground leading-relaxed">
               Mou filozofií je přistupovat ke každému pacientovi individuálně, s trpělivostí a empatií. Věřím, že klidné prostředí domova přispívá k lepší diagnostice i léčbě. 🐥
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

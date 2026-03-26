@@ -1,7 +1,7 @@
 import { Instagram, Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import { DuckLogo } from "@/components/HeroSection";
-import { services } from "@/data/services";
+import DuckLogo from "@/components/DuckLogo";
+import { serviceSummaries } from "@/data/serviceSummaries";
 
 const FacebookIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ const Footer = () => (
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Moje služby</h4>
           <ul className="grid grid-cols-1 gap-x-8 gap-y-2.5">
-            {services.slice(0, 8).map((service) => (
+            {serviceSummaries.slice(0, 8).map((service) => (
               <li key={service.slug}>
                 <Link
                   to={`/sluzby/${service.slug}`}

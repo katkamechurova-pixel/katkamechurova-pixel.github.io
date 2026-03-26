@@ -3,11 +3,11 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { articles } from "@/data/articles";
+import { articleDetails } from "@/data/articleDetails";
 
 const ArticleDetail = () => {
   const { articleSlug } = useParams<{ articleSlug: string }>();
-  const article = articles.find((a) => a.slug === articleSlug);
+  const article = articleDetails.find((a) => a.slug === articleSlug);
 
   if (!article) {
     return (
@@ -53,26 +53,28 @@ const ArticleDetail = () => {
             "datePublished": article.date,
             "author": {
               "@type": "Person",
-              "name": "MVDr. Kateřina Měchurová"
+              "name": "MVDr. Kateřina Měchurová",
+              "url": "https://ducktorka.cz"
             },
             "publisher": {
               "@type": "VeterinaryCare",
               "name": "Ducktorka – Výjezdová veterinární péče",
+              "url": "https://ducktorka.cz",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://ducktorka.cz/og-image-1.jpg"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Nezvalova 989",
+                "addressLocality": "Benešov",
+                "postalCode": "25601",
+                "addressCountry": "CZ"
               }
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": `https://ducktorka.cz/clanky/${article.slug}`
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Nezvalova 989",
-              "addressLocality": "Benešov",
-              "postalCode": "25601",
-              "addressCountry": "CZ"
             },
             publicAccess: false
           })}

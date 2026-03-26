@@ -1,18 +1,16 @@
 import { Helmet } from "react-helmet-async";
-import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import PricingSection from "@/components/PricingSection";
+import ReviewsSection from "@/components/ReviewsSection";
+import LatestArticlesSection from "@/components/LatestArticlesSection";
+import Footer from "@/components/Footer";
+import DeferredSection from "@/components/DeferredSection";
 
-const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const PricingSection = lazy(() => import("@/components/PricingSection"));
-const ReviewsSection = lazy(() => import("@/components/ReviewsSection"));
-const LatestArticlesSection = lazy(() => import("@/components/LatestArticlesSection"));
-const ContactSection = lazy(() => import("@/components/ContactSection"));
-const Footer = lazy(() => import("@/components/Footer"));
-
-const SectionFallback = () => <div className="min-h-[200px]" />;
+const loadContactSection = () => import("@/components/ContactSection");
 
 const Index = () => {
   return (
@@ -39,14 +37,14 @@ const Index = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "VeterinaryCare",
-            name: "Ducktorka – MVDr. Kateřina Měchurová",
-            description: "Výjezdová veterinární péče o vaše mazlíčky v pohodlí domova",
-            url: "https://ducktorka.cz",
-            telephone: "+420734231444",
-            email: "ducktorka@outlook.com",
-            areaServed: "Benešov a okolí; Praha ve vyznačených částech, případně dle domluvy",
-            serviceType: "VeterinaryService",
-            priceRange: "$$",
+            "name": "Ducktorka – MVDr. Kateřina Měchurová",
+            "description": "Výjezdová veterinární péče o vaše mazlíčky v pohodlí domova. Profesionální péče opsy, kočky a drobná zvířata.",
+            "url": "https://ducktorka.cz",
+            "logo": "https://ducktorka.cz/og-image-1.jpg",
+            "image": "https://ducktorka.cz/og-image-1.jpg",
+            "telephone": "+420734231444",
+            "email": "ducktorka@outlook.com",
+            "priceRange": "$$",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Nezvalova 989",
@@ -54,6 +52,42 @@ const Index = () => {
               "postalCode": "25601",
               "addressCountry": "CZ"
             },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 49.7813,
+              "longitude": 14.6869
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Benešov",
+                "sameAs": "https://www.wikidata.org/wiki/Q660074"
+              },
+              {
+                "@type": "City",
+                "name": "Praha",
+                "sameAs": "https://www.wikidata.org/wiki/Q1085"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Středočeský kraj",
+                "sameAs": "https://www.wikidata.org/wiki/Q156096"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday"],
+                "opens": "08:00",
+                "closes": "20:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "13:00"
+              }
+            ],
             publicAccess: false
           })}
         </script>
@@ -63,14 +97,16 @@ const Index = () => {
         <HeroSection />
         <BenefitsSection />
         <AboutSection />
-        <Suspense fallback={<SectionFallback />}>
-          <ServicesSection />
-          <PricingSection />
-          <ReviewsSection />
-          <LatestArticlesSection />
-          <ContactSection />
-          <Footer />
-        </Suspense>
+        <ServicesSection />
+        <PricingSection />
+        <ReviewsSection />
+        <LatestArticlesSection />
+        <DeferredSection
+          id="contact"
+          loader={loadContactSection}
+          placeholderClassName="min-h-[980px] bg-section-alt"
+        />
+        <Footer />
       </main>
     </>
   );

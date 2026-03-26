@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-import { z } from "zod";
 
 declare global {
   interface Window {
@@ -9,16 +7,41 @@ declare global {
   }
 }
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Vyplňte jméno").max(100),
-  phone: z.string().trim().min(1, "Vyplňte telefon").max(20),
-  email: z.string().trim().email("Neplatný e-mail").max(255),
-  animalName: z.string().trim().min(1, "Vyplňte jméno zvířete").max(100),
-  animalType: z.string().trim().min(1, "Vyplňte druh zvířete").max(50),
-  description: z.string().trim().min(1, "Popište problém").max(1000),
-});
+type FormData = {
+  name: string;
+  phone: string;
+  email: string;
+  animalName: string;
+  animalType: string;
+  description: string;
+};
 
-type FormData = z.infer<typeof contactSchema>;
+const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+const validateForm = (form: FormData) => {
+  const errors: Partial<Record<keyof FormData, string>> = {};
+
+  if (!form.name.trim()) errors.name = "Vyplňte jméno";
+  else if (form.name.trim().length > 100) errors.name = "Jméno je příliš dlouhé";
+
+  if (!form.phone.trim()) errors.phone = "Vyplňte telefon";
+  else if (form.phone.trim().length > 20) errors.phone = "Telefon je příliš dlouhý";
+
+  if (!form.email.trim()) errors.email = "Vyplňte e-mail";
+  else if (!isValidEmail(form.email.trim())) errors.email = "Neplatný e-mail";
+  else if (form.email.trim().length > 255) errors.email = "E-mail je příliš dlouhý";
+
+  if (!form.animalName.trim()) errors.animalName = "Vyplňte jméno zvířete";
+  else if (form.animalName.trim().length > 100) errors.animalName = "Jméno zvířete je příliš dlouhé";
+
+  if (!form.animalType.trim()) errors.animalType = "Vyplňte druh zvířete";
+  else if (form.animalType.trim().length > 50) errors.animalType = "Druh zvířete je příliš dlouhý";
+
+  if (!form.description.trim()) errors.description = "Popište problém";
+  else if (form.description.trim().length > 1000) errors.description = "Popis je příliš dlouhý";
+
+  return errors;
+};
 
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd-HX-2kgwZI5d1pAkUNUiw64HsgYBA54P-cQ7bRQnjmpUPbg/formResponse";
 const GOOGLE_FORM_ENTRIES = {
@@ -134,13 +157,9 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = contactSchema.safeParse(form);
-    if (!result.success) {
-      const fieldErrors: typeof errors = {};
-      result.error.errors.forEach((err) => {
-        const key = err.path[0] as keyof FormData;
-        fieldErrors[key] = err.message;
-      });
+    const fieldErrors = validateForm(form);
+
+    if (Object.keys(fieldErrors).length > 0) {
       setErrors(fieldErrors);
       return;
     }
@@ -189,22 +208,13 @@ const ContactSection = () => {
   return (
     <section id="contact" ref={sectionRef} className="py-20 bg-section-alt">
       <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-2xl md:text-3xl font-heading font-bold text-center mb-12 text-foreground"
-        >
+        <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-12 text-foreground">
           <span className="text-gradient">Kontakt</span>
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h3 className="font-heading font-semibold text-lg text-foreground mb-6">Kontaktní údaje</h3>
             <div className="space-y-5">
               <div className="flex items-start gap-3">
@@ -256,14 +266,10 @@ const ContactSection = () => {
               <div ref={mapContainerRef} className="w-full h-full" />
             </div>
             <p className="mt-2 text-xs text-muted-foreground">Vyjíždím v rámci vyznačeného okruhu (polygon).</p>
-          </motion.div>
+          </div>
 
           {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div>
             {submitted ? (
               <div className="bg-card rounded-2xl p-8 text-center shadow-sm">
                 <div className="w-16 h-16 rounded-full bg-pastel-green-light flex items-center justify-center mx-auto mb-4">
@@ -314,7 +320,7 @@ const ContactSection = () => {
                 </button>
               </form>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

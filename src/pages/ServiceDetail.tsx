@@ -3,11 +3,11 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { services } from "@/data/services";
+import { serviceDetails } from "@/data/serviceDetails";
 
 const ServiceDetail = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
-  const service = services.find((s) => s.slug === serviceSlug);
+  const service = serviceDetails.find((s) => s.slug === serviceSlug);
 
   if (!service) {
     return (
@@ -52,17 +52,40 @@ const ServiceDetail = () => {
             "provider": {
               "@type": "VeterinaryCare",
               "name": "Ducktorka – MVDr. Kateřina Měchurová",
-              "url": "https://ducktorka.cz"
+              "url": "https://ducktorka.cz",
+              "image": "https://ducktorka.cz/og-image-1.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Nezvalova 989",
+                "addressLocality": "Benešov",
+                "postalCode": "25601",
+                "addressCountry": "CZ"
+              }
             },
-            "areaServed": "Benešov a okolí; Praha ve vyznačených částech",
-            "serviceType": "VeterinaryService",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Nezvalova 989",
-              "addressLocality": "Benešov",
-              "postalCode": "25601",
-              "addressCountry": "CZ"
-            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Benešov"
+              },
+              {
+                "@type": "City",
+                "name": "Praha"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday"],
+                "opens": "08:00",
+                "closes": "20:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "13:00"
+              }
+            ],
             publicAccess: false
           })}
         </script>

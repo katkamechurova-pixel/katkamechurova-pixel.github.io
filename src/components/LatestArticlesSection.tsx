@@ -1,42 +1,28 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { articles } from "@/data/articles";
+import { articleSummaries } from "@/data/articleSummaries";
 import { ArrowRight, Calendar } from "lucide-react";
 
 const LatestArticlesSection = () => {
-  // Take only the latest 3 articles (assuming the array is pre-sorted or we just slice the newest)
-  const recentArticles = articles.slice(0, 3);
+  const recentArticles = articleSummaries.slice(0, 3);
 
   return (
     <section id="articles" className="py-20 lg:py-24">
       <div className="container mx-auto px-4">
         
         <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
-          >
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-foreground">
               Zajímavosti a <span className="text-gradient">články</span>
             </h2>
             <p className="text-muted-foreground">
               Užitečné rady, tipy a informace o veterinární péči a zdraví vašich mazlíčků, psané s láskou a pochopením.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-          {recentArticles.map((article, i) => (
-            <motion.div
-              key={article.slug}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex"
-            >
+          {recentArticles.map((article) => (
+            <div key={article.slug} className="flex">
               <Link
                 to={`/clanky/${article.slug}`}
                 className="flex flex-col bg-card rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border w-full"
@@ -70,7 +56,7 @@ const LatestArticlesSection = () => {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 

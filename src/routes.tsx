@@ -1,11 +1,7 @@
 import type { RouteRecord } from "vite-react-ssg";
 import App from "./App";
-import { services } from "./data/services";
-import { articles } from "./data/articles";
-import Index from "./pages/Index";
-import ServiceDetail from "./pages/ServiceDetail";
-import ArticleDetail from "./pages/ArticleDetail";
-import NotFound from "./pages/NotFound";
+import { serviceSummaries } from "./data/serviceSummaries";
+import { articleSummaries } from "./data/articleSummaries";
 
 export const routes: RouteRecord[] = [
   {
@@ -14,21 +10,33 @@ export const routes: RouteRecord[] = [
     children: [
       {
         index: true,
-        element: <Index />,
+        lazy: async () => {
+          const { default: Component } = await import("./pages/Index");
+          return { Component };
+        },
       },
       {
         path: "sluzby/:serviceSlug",
-        element: <ServiceDetail />,
-        getStaticPaths: () => services.map(s => `/sluzby/${s.slug}`),
+        lazy: async () => {
+          const { default: Component } = await import("./pages/ServiceDetail");
+          return { Component };
+        },
+        getStaticPaths: () => serviceSummaries.map((s) => `/sluzby/${s.slug}`),
       },
       {
         path: "clanky/:articleSlug",
-        element: <ArticleDetail />,
-        getStaticPaths: () => articles.map(a => `/clanky/${a.slug}`),
+        lazy: async () => {
+          const { default: Component } = await import("./pages/ArticleDetail");
+          return { Component };
+        },
+        getStaticPaths: () => articleSummaries.map((a) => `/clanky/${a.slug}`),
       },
       {
         path: "*",
-        element: <NotFound />,
+        lazy: async () => {
+          const { default: Component } = await import("./pages/NotFound");
+          return { Component };
+        },
       },
     ],
   },

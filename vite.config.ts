@@ -5,6 +5,7 @@ import Sitemap from "vite-plugin-sitemap";
 import { plugin as markdown, Mode } from "vite-plugin-markdown";
 import fs from "fs";
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // Discover dynamic routes from content directory at config time
 function getContentSlugs(dir: string): string[] {
@@ -83,6 +84,12 @@ export default defineConfig(({ mode }) => ({
       hostname: 'https://ducktorka.cz',
       dynamicRoutes,
     }),
+    ...(process.env.ANALYZE === 'true' ? [visualizer({
+      open: true,
+      filename: "dist/stats.html",
+      gzipSize: true,
+      brotliSize: true,
+    })] : []),
   ],
   resolve: {
     alias: {

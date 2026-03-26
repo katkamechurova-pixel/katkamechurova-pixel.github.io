@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { DuckLogo } from "@/components/HeroSection";
+import DuckLogo from "@/components/DuckLogo";
 
 const navItems = [
   { label: "Úvod", href: "/#hero" },
