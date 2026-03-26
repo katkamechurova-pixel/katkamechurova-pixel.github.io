@@ -211,3 +211,4 @@ V rámci své mobilní praxe kladu důraz na individuální a šetrný přístup
 </div>
 
 *Ceny jsou uvedené jako finální částky v Kč a mohou se v čase měnit.*
+*Do ceny vakcinace se nezapočítává cestovné – orientační částku si spočítejte ve webové kalkulačce.*

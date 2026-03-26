@@ -1,5 +1,5 @@
 ---
-title: "Odčervení"
+title: "Antiparazitární ochrana"
 shortDesc: "Vnitřní i vnější antiparazitární ošetření."
 metaTitle: "Ošetření proti parazitům a odčervení doma | Ducktorka"
 metaDescription: "Ochrana psů a koček proti vnitřním i vnějším parazitům (klíšťata, blechy, červi) přímo u vás doma."
