@@ -1,11 +1,11 @@
 {
   "\u0000/home/runner/work/katkamechurova-pixel.github.io/katkamechurova-pixel.github.io/node_modules/leaflet/dist/leaflet-src.js?commonjs-module": [
-    "/assets/leaflet-src-DxzAQbHV.js"
+    "/assets/leaflet-src-DuwC6esT.js"
   ],
   "\u0000/home/runner/work/katkamechurova-pixel.github.io/katkamechurova-pixel.github.io/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/home/runner/work/katkamechurova-pixel.github.io/katkamechurova-pixel.github.io/node_modules/react-dom/cjs/react-dom.production.min.js?commonjs-exports": [],
   "\u0000/home/runner/work/katkamechurova-pixel.github.io/katkamechurova-pixel.github.io/node_modules/react-dom/client.js?commonjs-exports": [
-    "/assets/client-CeB-qQXh.js"
+    "/assets/client-CvdZHd52.js"
   ],
   "\u0000/home/runner/work/katkamechurova-pixel.github.io/katkamechurova-pixel.github.io/node_modules/react-dom/index.js?commonjs-module": [],
   "\u0000/home/runner/work/katkamechurova-pixel.github.io/katkamechurova-pixel.github.io/node_modules/react/cjs/react-jsx-runtime.production.min.js?commonjs-exports": [],
@@ -18,40 +18,40 @@
   "\u0000vite/modulepreload-polyfill.js": [],
   "\u0000vite/preload-helper.js": [],
   "content/articles/jak-pripravit-psa-na-preventivni-prohlidku.md": [
-    "/assets/ArticleDetail-YDUIJtCL.js"
+    "/assets/ArticleDetail-3V-xlyXm.js"
   ],
   "content/services/cipovani.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/eutanazie-doma.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/kastrace.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/konzultace.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/odbery-krve.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/odcerveni.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/osetreni-poraneni.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/paliativni-pece.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/preventivni-prohlidky.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/sono-vysetreni.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "content/services/vakcinace.md": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "index.html": [],
   "node_modules/@remix-run/router/dist/router.js": [],
@@ -66,120 +66,120 @@
     "/assets/marker-shadow-DU6CIJ0p.js"
   ],
   "node_modules/leaflet/dist/leaflet-src.js": [
-    "/assets/leaflet-src-DxzAQbHV.js"
+    "/assets/leaflet-src-DuwC6esT.js"
   ],
   "node_modules/lucide-react/dist/esm/Icon.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/createLucideIcon.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/defaultAttributes.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/arrow-left.js": [
-    "/assets/Footer-DeSGRx5M.js"
+    "/assets/Footer-DtWaDFpo.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/arrow-right.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/bug.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/clock.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/cpu.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/droplets.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/heart-handshake.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/heart.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/house-plus.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/house.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/instagram.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/mail.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/map-pin.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/menu.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/message-circle.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/paw-print.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/phone.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/scan-line.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/scissors.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/shield.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/smile.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/star.js": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "node_modules/lucide-react/dist/esm/icons/stethoscope.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/syringe.js": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "node_modules/lucide-react/dist/esm/icons/x.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "node_modules/lucide-react/dist/esm/shared/src/utils.js": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
@@ -188,11 +188,10 @@
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom.production.min.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client-CeB-qQXh.js"
+    "/assets/client-CvdZHd52.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react-fast-compare/index.js": [],
-  "node_modules/react-helmet-async/lib/index.esm.js": [],
   "node_modules/react-router-dom/dist/index.js": [],
   "node_modules/react-router/dist/index.js": [],
   "node_modules/react/cjs/react-jsx-runtime.production.min.js": [],
@@ -205,106 +204,111 @@
   "node_modules/vite-react-ssg/dist/index.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BhGKpaqQ.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C6pK7rvr.mjs": [],
+  "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.CoMLbIiW.mjs": [
+    "/assets/Navbar-BN8AXaFy.js",
+    "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
+    "/assets/duck-watercolor-clean-md-B512qX_I.webp"
+  ],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.DTTf7HZy.mjs": [],
   "node_modules/vite-react-ssg/node_modules/react-helmet-async/lib/index.module.js": [],
   "src/App.tsx": [],
   "src/assets/duck-watercolor-clean-lg.webp": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "src/assets/duck-watercolor-clean-md.webp": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "src/assets/duck-watercolor-clean-sm.webp": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "src/assets/hero-v11-md.webp": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/AboutSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/BenefitsSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/ContactSection.tsx": [
-    "/assets/ContactSection-E2ZBEZjq.js"
+    "/assets/ContactSection-DMMHK4A4.js"
   ],
   "src/components/DeferredSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/DuckLogo.tsx": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "src/components/Footer.tsx": [
-    "/assets/Footer-DeSGRx5M.js"
+    "/assets/Footer-DtWaDFpo.js"
   ],
   "src/components/HeroSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/HomeFooter.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/LatestArticlesSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/Navbar.tsx": [
-    "/assets/Navbar-Bced2cFj.js",
+    "/assets/Navbar-BN8AXaFy.js",
     "/assets/duck-watercolor-clean-lg-DLq3d4y1.webp",
     "/assets/duck-watercolor-clean-md-B512qX_I.webp"
   ],
   "src/components/PricingSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/ReviewsSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/components/ScrollToHash.tsx": [],
   "src/components/ServicesSection.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/data/articleDetails.ts": [
-    "/assets/ArticleDetail-YDUIJtCL.js"
+    "/assets/ArticleDetail-3V-xlyXm.js"
   ],
   "src/data/articleSummaries.ts": [],
   "src/data/serviceDetails.ts": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "src/data/serviceIcons.ts": [
-    "/assets/serviceIcons-CjW48AnP.js"
+    "/assets/serviceIcons-B87VY4jP.js"
   ],
   "src/data/serviceSummaries.ts": [],
   "src/index.css": [],
   "src/main.tsx": [],
   "src/pages/ArticleDetail.tsx": [
-    "/assets/ArticleDetail-YDUIJtCL.js"
+    "/assets/ArticleDetail-3V-xlyXm.js"
   ],
   "src/pages/Index.tsx": [
-    "/assets/Index-C6qaknuT.js",
+    "/assets/Index-CjEziRcu.js",
     "/assets/hero-v11-md-CxlwL-VU.webp"
   ],
   "src/pages/NotFound.tsx": [
-    "/assets/NotFound-D90ORlee.js"
+    "/assets/NotFound-CtBTta-U.js"
   ],
   "src/pages/ServiceDetail.tsx": [
-    "/assets/ServiceDetail-DducLW4C.js"
+    "/assets/ServiceDetail-2DeXLow6.js"
   ],
   "src/routes.tsx": []
 }
