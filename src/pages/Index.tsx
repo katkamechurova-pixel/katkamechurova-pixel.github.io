@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
@@ -15,7 +15,7 @@ const loadContactSection = () => import("@/components/ContactSection");
 const Index = () => {
   return (
     <>
-      <Helmet>
+      <Head>
         <title>Ducktorka – Výjezdová veterinární péče | MVDr. Kateřina Měchurová</title>
         <meta
           name="description"
@@ -25,7 +25,13 @@ const Index = () => {
           name="keywords"
           content="výjezdová veterinární péče, mobilní veterinář, veterinář domů, veterinář bez stresu, veterinář Benešov, veterinář Praha 8"
         />
-        <link rel="canonical" href="https://ducktorka.cz" />
+        <link rel="canonical" href="https://ducktorka.cz/" />
+        <meta property="og:title" content="Ducktorka – Výjezdová veterinární péče | MVDr. Kateřina Měchurová" />
+        <meta property="og:description" content="Mobilní veterinář k vám domů. Profesionální péče bez stresu pro psy, kočky a drobná zvířata." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ducktorka.cz/" />
+        <meta property="og:image" content="https://ducktorka.cz/og-image-1.jpg" />
+        <meta property="og:image:alt" content="Ducktorka – mobilní veterinární péče" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -91,7 +97,7 @@ const Index = () => {
             publicAccess: false
           })}
         </script>
-      </Helmet>
+      </Head>
       <Navbar />
       <main>
         <HeroSection />

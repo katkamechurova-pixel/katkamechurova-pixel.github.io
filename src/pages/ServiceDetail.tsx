@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -24,24 +24,28 @@ const ServiceDetail = () => {
   }
 
   const Icon = getServiceIcon(service.iconName);
+  const pageUrl = `https://ducktorka.cz/sluzby/${service.slug}/`;
 
   return (
     <>
-      <Helmet>
+      <Head>
         <title>{service.metaTitle}</title>
         <meta name="description" content={service.metaDescription} />
-        <link rel="canonical" href={`https://ducktorka.cz/sluzby/${service.slug}`} />
+        <link rel="canonical" href={pageUrl} />
 
         {/* Open Graph */}
         <meta property="og:title" content={service.metaTitle} />
         <meta property="og:description" content={service.metaDescription} />
-        <meta property="og:url" content={`https://ducktorka.cz/sluzby/${service.slug}`} />
+        <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://ducktorka.cz/og-image-1.jpg" />
+        <meta property="og:image:alt" content={service.title} />
 
         {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={service.metaTitle} />
         <meta name="twitter:description" content={service.metaDescription} />
+        <meta name="twitter:image" content="https://ducktorka.cz/og-image-1.jpg" />
 
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -90,7 +94,7 @@ const ServiceDetail = () => {
             publicAccess: false
           })}
         </script>
-      </Helmet>
+      </Head>
 
       <Navbar />
 

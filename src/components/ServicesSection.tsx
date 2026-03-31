@@ -21,7 +21,7 @@ const ServicesSection = () => (
           return (
           <div key={service.slug}>
             <Link
-              to={`/sluzby/${service.slug}`}
+              to={`/sluzby/${service.slug}/`}
               className="group block bg-card rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 h-full border border-transparent hover:border-pastel-turquoise/10 flex flex-col"
             >
               <div className="w-12 h-12 rounded-xl bg-pastel-turquoise-light flex items-center justify-center mb-4 group-hover:bg-pastel-turquoise/20 transition-colors duration-300">

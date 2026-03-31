@@ -21,7 +21,7 @@ export const routes: RouteRecord[] = [
           const { default: Component } = await import("./pages/ServiceDetail");
           return { Component };
         },
-        getStaticPaths: () => serviceSummaries.map((s) => `/sluzby/${s.slug}`),
+        getStaticPaths: () => serviceSummaries.map((s) => `/sluzby/${s.slug}/`),
       },
       {
         path: "clanky/:articleSlug",
@@ -29,7 +29,7 @@ export const routes: RouteRecord[] = [
           const { default: Component } = await import("./pages/ArticleDetail");
           return { Component };
         },
-        getStaticPaths: () => articleSummaries.map((a) => `/clanky/${a.slug}`),
+        getStaticPaths: () => articleSummaries.map((a) => `/clanky/${a.slug}/`),
       },
       {
         path: "*",

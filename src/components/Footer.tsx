@@ -46,7 +46,7 @@ const Footer = () => (
             {serviceSummaries.slice(0, 8).map((service) => (
               <li key={service.slug}>
                 <Link
-                  to={`/sluzby/${service.slug}`}
+                  to={`/sluzby/${service.slug}/`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary transition-colors shrink-0" />

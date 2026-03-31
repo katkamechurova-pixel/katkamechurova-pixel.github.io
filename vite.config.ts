@@ -20,8 +20,8 @@ const serviceSlugs = getContentSlugs('content/services');
 const articleSlugs = getContentSlugs('content/articles');
 
 const dynamicRoutes = [
-  ...serviceSlugs.map(s => `/sluzby/${s}`),
-  ...articleSlugs.map(a => `/clanky/${a}`),
+  ...serviceSlugs.map(s => `/sluzby/${s}/`),
+  ...articleSlugs.map(a => `/clanky/${a}/`),
 ];
 
 // https://vitejs.dev/config/

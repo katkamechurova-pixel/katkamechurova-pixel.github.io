@@ -31,7 +31,7 @@ const LatestArticlesSection = () => {
           {recentArticles.map((article) => (
             <div key={article.slug} className="flex">
               <Link
-                to={`/clanky/${article.slug}`}
+                to={`/clanky/${article.slug}/`}
                 className="flex flex-col bg-card rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border w-full"
               >
                 <div className="h-56 relative overflow-hidden">

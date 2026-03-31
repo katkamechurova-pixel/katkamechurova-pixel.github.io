@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite-react-ssg build && cp dist/index.html dist/404.html",
-    "build:dev": "vite-react-ssg build --mode development && cp dist/index.html dist/404.html",
+    "build": "vite-react-ssg build && node scripts/normalize-sitemap.mjs",
+    "build:dev": "vite-react-ssg build --mode development && node scripts/normalize-sitemap.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "analyze": "ANALYZE=true vite build --mode production",

@@ -43,7 +43,7 @@ const HomeFooter = () => (
             {serviceSummaries.slice(0, 8).map((service) => (
               <li key={service.slug}>
                 <a
-                  href={`/sluzby/${service.slug}`}
+                  href={`/sluzby/${service.slug}/`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary transition-colors shrink-0" />

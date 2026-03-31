@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -29,22 +29,25 @@ const ArticleDetail = () => {
     );
   }
 
+  const pageUrl = `https://ducktorka.cz/clanky/${article.slug}/`;
+
   return (
     <>
-      <Helmet>
+      <Head>
         <title>{article.metaTitle}</title>
         <meta name="description" content={article.metaDescription} />
-        <link rel="canonical" href={`https://ducktorka.cz/clanky/${article.slug}`} />
+        <link rel="canonical" href={pageUrl} />
 
         {/* Open Graph */}
         <meta property="og:title" content={article.metaTitle} />
         <meta property="og:description" content={article.metaDescription} />
-        <meta property="og:url" content={`https://ducktorka.cz/clanky/${article.slug}`} />
+        <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={article.imageUrl} />
         <meta property="article:published_time" content={article.date} />
 
         {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.metaTitle} />
         <meta name="twitter:description" content={article.metaDescription} />
         <meta name="twitter:image" content={article.imageUrl} />
@@ -81,12 +84,12 @@ const ArticleDetail = () => {
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://ducktorka.cz/clanky/${article.slug}`
+              "@id": pageUrl
             },
             publicAccess: false
           })}
         </script>
-      </Helmet>
+      </Head>
 
       <Navbar />
 
