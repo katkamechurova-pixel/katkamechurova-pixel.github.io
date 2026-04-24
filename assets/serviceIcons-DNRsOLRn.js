@@ -1,4 +1,4 @@
-import{c as e}from"./Navbar-Dsdvr1Gc.js";import{M as h}from"./message-circle-q_xMJdIQ.js";/**
+import{c as e}from"./Navbar-C2ANi9NL.js";import{M as h}from"./message-circle-r-ATdzlt.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
