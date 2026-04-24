@@ -360,7 +360,7 @@ export const locations: LocationData[] = [
     uniqueText: "Při výjezdech v rámci Prahy 8 obsluhujeme klienty v Karlíně, Libni, Kobylisích i Bohnicích. Naše služba je absolutní spásou pro majitele stresovaných koček z panelových sídlišť. Víte, jak hrozné je zvíře nutit do přepravky? U nás nemusíte – my zkrátka přijedeme k vám.",
     localTip: "Upozorňujeme všechny majitele psů v Praze 8, že zimní údržba (posypová sůl na chodnících) je pro polštářky na tlapkách extrémně agresivní. Poctivá kontrola, důkladné opláchnutí a promaštění tlapek speciální mastí je v zimě nezbytností.",
     keywords: ["veterinář Praha 8", "mobilní veterina Praha 8", "ošetření psa doma Praha 8"],
-    distanceKm: 45,
+    distanceKm: 5,
     neighbors: [],
   },
 ];
