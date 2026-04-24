@@ -1,4 +1,4 @@
-import { Instagram, Phone, Mail, MapPin } from "lucide-react";
+import { Instagram, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import DuckLogo from "@/components/DuckLogo";
 import { serviceSummaries } from "@/data/serviceSummaries";
@@ -34,7 +34,14 @@ const Footer = () => (
             <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
             <div>
               <p className="font-semibold text-sm text-foreground">Oblast působnosti:</p>
-              <p className="text-sm text-muted-foreground">Benešov a okolí + Praha ve vyznačených částech, případně dle domluvy.</p>
+              <p className="text-sm text-muted-foreground mb-2">Benešov a okolí + Praha ve vyznačených částech, případně dle domluvy.</p>
+              <Link
+                to="/vyjezdova-veterina"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
+              >
+                Seznam nejčastějších výjezdových lokalit
+                <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
         </div>
@@ -42,7 +49,17 @@ const Footer = () => (
         {/* Column 2: Quick Links (Services) */}
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Moje služby</h4>
-          <ul className="grid grid-cols-1 gap-x-8 gap-y-2.5">
+          <ul className="grid grid-cols-1 gap-x-8 gap-y-2.5 w-full">
+            {/* Odkaz na lokality přidaný i sem pro lepší přístupnost */}
+            <li className="mb-2 pb-2 border-b border-border/30">
+              <Link
+                to="/vyjezdova-veterina"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+              >
+                <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                Výjezdové lokality a mapa
+              </Link>
+            </li>
             {serviceSummaries.slice(0, 8).map((service) => (
               <li key={service.slug}>
                 <Link
