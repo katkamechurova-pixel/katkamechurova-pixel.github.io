@@ -6,6 +6,7 @@ import { plugin as markdown, Mode } from "vite-plugin-markdown";
 import fs from "fs";
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { visualizer } from 'rollup-plugin-visualizer';
+import { locations } from './src/data/locations';
 
 // Discover dynamic routes from content directory at config time
 function getContentSlugs(dir: string): string[] {
@@ -19,9 +20,16 @@ function getContentSlugs(dir: string): string[] {
 const serviceSlugs = getContentSlugs('content/services');
 const articleSlugs = getContentSlugs('content/articles');
 
+// Location routes for sitemap
+const locationRoutes = [
+  '/vyjezdova-veterina/',
+  ...locations.map(l => `/vyjezdova-veterina/${l.pageSlug}/`),
+];
+
 const dynamicRoutes = [
   ...serviceSlugs.map(s => `/sluzby/${s}/`),
   ...articleSlugs.map(a => `/clanky/${a}/`),
+  ...locationRoutes,
 ];
 
 // https://vitejs.dev/config/

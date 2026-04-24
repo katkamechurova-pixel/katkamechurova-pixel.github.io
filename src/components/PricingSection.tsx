@@ -1,3 +1,5 @@
+import { FIXED_FEE, KILOMETER_FEE } from "../data/constants";
+
 const prices = [
   { service: "Preventivní prohlídka", price: "od 500 Kč" },
   { service: "Vakcinace", price: "od 600 Kč" },
@@ -6,14 +8,14 @@ const prices = [
   { service: "Odběr krve + laboratorní vyšetření", price: "od 800 Kč" },
   { service: "Ošetření drobného poranění", price: "od 500 Kč" },
   { service: "Konzultace zdravotního stavu", price: "od 400 Kč" },
-  { service: "Eutanazie v domácím prostředí", price: "od 1 500 Kč" }, 
+  { service: "Eutanazie v domácím prostředí", price: "od 1 500 Kč" },
   { service: "Kastrace", price: "kocour od 1000 Kč, kočka od 1400 Kč" },
   { service: "Paliativní péče", price: "individuálně" },
-  
+
 
   {
     service: "Výjezdový poplatek",
-    price: "280 Kč + 9 Kč/km",
+    price: `${FIXED_FEE} Kč + ${KILOMETER_FEE} Kč/km`,
     details: [
       "Kilometry jsou účtovány od výchozího místa, které je k Vám blíže.",
       "Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna. ",
@@ -37,9 +39,8 @@ const PricingSection = () => (
         {prices.map((p, i) => (
           <div
             key={p.service}
-            className={`flex justify-between items-center px-6 py-4 ${
-              i !== prices.length - 1 ? "border-b border-border" : ""
-            } ${i === prices.length - 1 ? "bg-pastel-green-light font-semibold" : ""}`}
+            className={`flex justify-between items-center px-6 py-4 ${i !== prices.length - 1 ? "border-b border-border" : ""
+              } ${i === prices.length - 1 ? "bg-pastel-green-light font-semibold" : ""}`}
           >
             <div className="min-w-0">
               <div className="text-foreground text-sm md:text-base">{p.service}</div>
