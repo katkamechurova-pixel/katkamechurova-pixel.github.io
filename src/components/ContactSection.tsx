@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 declare global {
   interface Window {
@@ -163,7 +164,7 @@ const ContactSection = () => {
       setErrors(fieldErrors);
       return;
     }
-    
+
     setErrors({});
     setIsSubmitting(true);
 
@@ -242,8 +243,14 @@ const ContactSection = () => {
                 <MapPin className="w-5 h-5 text-pastel-pink mt-0.5" />
                 <div>
                   <p className="font-semibold text-foreground">Oblast působnosti</p>
-                  <p className="text-muted-foreground">Benešov a okolí</p>
-                  <p className="text-muted-foreground">Praha ve vyznačených částech, případně dle domluvy</p>
+                  <p className="text-muted-foreground">Benešov, Praha, Říčany, Vlašim, Týnec n. S. a okolí.</p>
+                  <Link
+                    to="/vyjezdova-veterina"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors group mt-1.5"
+                  >
+                    Detailní mapa a ceník výjezdů
+                    <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
               <div className="flex items-start gap-3">

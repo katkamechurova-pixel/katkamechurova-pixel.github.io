@@ -1,7 +1,15 @@
 import { Instagram, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import DuckLogo from "@/components/DuckLogo";
 import { serviceSummaries } from "@/data/serviceSummaries";
-import { Link } from "react-router-dom";
+
+const topLocations = [
+  { name: "Benešov", slug: "veterinar-benesov" },
+  { name: "Praha 8", slug: "veterinar-praha-8" },
+  { name: "Říčany", slug: "veterinar-ricany" },
+  { name: "Vlašim", slug: "veterinar-vlasim" },
+  { name: "Jesenice", slug: "veterinar-jesenice" },
+];
 
 const FacebookIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -15,10 +23,12 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const HomeFooter = () => (
+const Footer = () => (
   <footer className="bg-card border-t border-border/50 pt-16 pb-8">
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+
+        {/* Sloupec 1: Brand & Area */}
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <div className="flex items-center gap-2">
             <DuckLogo className="w-8 h-8" />
@@ -33,35 +43,56 @@ const HomeFooter = () => (
             <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
             <div>
               <p className="font-semibold text-sm text-foreground">Oblast působnosti:</p>
-              <p className="text-sm text-muted-foreground mb-2">Benešov a okolí + Praha ve vyznačených částech, případně dle domluvy.</p>
-              <Link
-                to="/vyjezdova-veterina"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
-              >
-                Seznam nejčastějších výjezdových lokalit
-                <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <p className="text-sm text-muted-foreground">Benešov, Praha a okolí.</p>
             </div>
           </div>
         </div>
 
+        {/* Sloupec 2: Služby */}
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Moje služby</h4>
-          <ul className="grid grid-cols-1 gap-x-8 gap-y-2.5">
-            {serviceSummaries.slice(0, 8).map((service) => (
+          <ul className="flex flex-col gap-2.5">
+            {serviceSummaries.slice(0, 5).map((service) => (
               <li key={service.slug}>
-                <a
-                  href={`/sluzby/${service.slug}/`}
+                <Link
+                  to={`/sluzby/${service.slug}/`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary transition-colors shrink-0" />
                   {service.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
+        {/* Sloupec 3: Kde působím */}
+        <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
+          <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Kde působím</h4>
+          <ul className="flex flex-col gap-2.5">
+            {topLocations.map((loc) => (
+              <li key={loc.slug}>
+                <Link
+                  to={`/vyjezdova-veterina/${loc.slug}/`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+                >
+                  <MapPin className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity shrink-0" />
+                  Veterina {loc.name}
+                </Link>
+              </li>
+            ))}
+            <li className="mt-2 pt-2 border-t border-border/30 w-full flex justify-center md:justify-start">
+              <Link
+                to="/vyjezdova-veterina"
+                className="text-xs font-bold text-primary uppercase tracking-tight hover:underline flex items-center gap-1 group"
+              >
+                Všechny lokality <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Sloupec 4: Kontakt & Socials */}
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Rychlý kontakt</h4>
           <div className="flex flex-col gap-4">
@@ -111,7 +142,7 @@ const HomeFooter = () => (
       </div>
 
       <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-muted-foreground text-center md:text-left">
           © {new Date().getFullYear()} Ducktorka.cz — MVDr. Kateřina Měchurová. Všechna práva vyhrazena.
         </p>
         <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-medium opacity-50">
@@ -122,4 +153,4 @@ const HomeFooter = () => (
   </footer>
 );
 
-export default HomeFooter;
+export default Footer;

@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import DuckLogo from "@/components/DuckLogo";
 import { serviceSummaries } from "@/data/serviceSummaries";
 
+const topLocations = [
+  { name: "Benešov", slug: "veterinar-benesov" },
+  { name: "Praha 8", slug: "veterinar-praha-8" },
+  { name: "Říčany", slug: "veterinar-ricany" },
+  { name: "Vlašim", slug: "veterinar-vlasim" },
+  { name: "Jesenice", slug: "veterinar-jesenice" },
+];
+
 const FacebookIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -18,8 +26,9 @@ const WhatsAppIcon = () => (
 const Footer = () => (
   <footer className="bg-card border-t border-border/50 pt-16 pb-8">
     <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-        {/* Column 1: Brand & Area */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+
+        {/* Sloupec 1: Brand & Area */}
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <div className="flex items-center gap-2">
             <DuckLogo className="w-8 h-8" />
@@ -34,33 +43,16 @@ const Footer = () => (
             <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
             <div>
               <p className="font-semibold text-sm text-foreground">Oblast působnosti:</p>
-              <p className="text-sm text-muted-foreground mb-2">Benešov a okolí + Praha ve vyznačených částech, případně dle domluvy.</p>
-              <Link
-                to="/vyjezdova-veterina"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
-              >
-                Seznam nejčastějších výjezdových lokalit
-                <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <p className="text-sm text-muted-foreground">Benešov, Praha a okolí.</p>
             </div>
           </div>
         </div>
 
-        {/* Column 2: Quick Links (Services) */}
+        {/* Sloupec 2: Služby */}
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Moje služby</h4>
-          <ul className="grid grid-cols-1 gap-x-8 gap-y-2.5 w-full">
-            {/* Odkaz na lokality přidaný i sem pro lepší přístupnost */}
-            <li className="mb-2 pb-2 border-b border-border/30">
-              <Link
-                to="/vyjezdova-veterina"
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center gap-2 group"
-              >
-                <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
-                Výjezdové lokality a mapa
-              </Link>
-            </li>
-            {serviceSummaries.slice(0, 8).map((service) => (
+          <ul className="flex flex-col gap-2.5">
+            {serviceSummaries.slice(0, 5).map((service) => (
               <li key={service.slug}>
                 <Link
                   to={`/sluzby/${service.slug}/`}
@@ -74,7 +66,33 @@ const Footer = () => (
           </ul>
         </div>
 
-        {/* Column 3: Contact & Socials */}
+        {/* Sloupec 3: Kde působím */}
+        <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
+          <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Kde působím</h4>
+          <ul className="flex flex-col gap-2.5">
+            {topLocations.map((loc) => (
+              <li key={loc.slug}>
+                <Link
+                  to={`/vyjezdova-veterina/${loc.slug}/`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+                >
+                  <MapPin className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity shrink-0" />
+                  Veterina {loc.name}
+                </Link>
+              </li>
+            ))}
+            <li className="mt-2 pt-2 border-t border-border/30 w-full flex justify-center md:justify-start">
+              <Link
+                to="/vyjezdova-veterina"
+                className="text-xs font-bold text-primary uppercase tracking-tight hover:underline flex items-center gap-1 group"
+              >
+                Všechny lokality <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Sloupec 4: Kontakt & Socials */}
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Rychlý kontakt</h4>
           <div className="flex flex-col gap-4">
@@ -124,7 +142,7 @@ const Footer = () => (
       </div>
 
       <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-muted-foreground text-center md:text-left">
           © {new Date().getFullYear()} Ducktorka.cz — MVDr. Kateřina Měchurová. Všechna práva vyhrazena.
         </p>
         <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-medium opacity-50">
