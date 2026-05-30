@@ -394,6 +394,7 @@ const EnglishPage = () => (
         name="description"
         content="English-speaking mobile vet in Prague. Dr. Měchurová visits your home in Praha 2, 3, 7, 8 and surrounding areas. Professional care for dogs & cats. Book via WhatsApp."
       />
+      <link rel="canonical" href="https://ducktorka.cz/en/" />
       <link rel="alternate" hrefLang="cs" href="https://ducktorka.cz/" />
       <link rel="alternate" hrefLang="en" href="https://ducktorka.cz/en/" />
       <link rel="alternate" hrefLang="x-default" href="https://ducktorka.cz/" />
