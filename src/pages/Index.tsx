@@ -26,6 +26,9 @@ const Index = () => {
           content="výjezdová veterinární péče, mobilní veterinář, veterinář domů, veterinář bez stresu, veterinář Benešov, veterinář Praha 8"
         />
         <link rel="canonical" href="https://ducktorka.cz/" />
+        <link rel="alternate" hrefLang="cs" href="https://ducktorka.cz/" />
+        <link rel="alternate" hrefLang="en" href="https://ducktorka.cz/en/" />
+        <link rel="alternate" hrefLang="x-default" href="https://ducktorka.cz/" />
         <meta property="og:title" content="Ducktorka – Výjezdová veterinární péče | MVDr. Kateřina Měchurová" />
         <meta property="og:description" content="Mobilní veterinář k vám domů. Profesionální péče bez stresu pro psy, kočky a drobná zvířata." />
         <meta property="og:type" content="website" />
