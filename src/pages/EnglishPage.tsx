@@ -233,7 +233,101 @@ const EnServices = () => (
   </section>
 );
 
-// Remaining sections added in Tasks 5–6
+// ─── Coverage ────────────────────────────────────────────────────────────────
+
+const pragueAreas = [
+  { district: "Praha 2", neighborhoods: ["Vinohrady", "Vyšehrad", "Nové Město"] },
+  { district: "Praha 3", neighborhoods: ["Žižkov", "Jarov"] },
+  { district: "Praha 7", neighborhoods: ["Holešovice", "Letná", "Bubny"] },
+  { district: "Praha 8", neighborhoods: ["Karlín", "Libeň", "Kobylisy", "Bohnice"] },
+];
+
+const EnCoverage = () => (
+  <section id="coverage" className="py-20 bg-section-alt">
+    <div className="container mx-auto px-4 max-w-4xl">
+      <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-4">
+        <span className="text-gradient">Where</span>{" "}
+        <span className="text-foreground">we travel</span>
+      </h2>
+      <p className="text-center text-muted-foreground mb-10">
+        We cover Prague and the surrounding region. Below are the Prague districts we visit most often.
+      </p>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {pragueAreas.map((area) => (
+          <div key={area.district} className="bg-card rounded-2xl border border-border p-5">
+            <h3 className="font-heading font-bold text-foreground mb-3">{area.district}</h3>
+            <ul className="space-y-1">
+              {area.neighborhoods.map((n) => (
+                <li key={n} className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  {n}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p className="text-center text-sm text-muted-foreground">
+        We also cover areas around Prague — Jesenice, Říčany, Průhonice, Benešov and more.{" "}
+        <a
+          href="https://wa.me/420734231444"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent hover:underline"
+        >
+          Ask us about your area.
+        </a>
+      </p>
+    </div>
+  </section>
+);
+
+// ─── Pricing ─────────────────────────────────────────────────────────────────
+
+const EnPricing = () => {
+  const pragueEstimate = FIXED_FEE + 7 * KILOMETER_FEE; // Praha 7 example (~7 km)
+  return (
+    <section id="pricing" className="py-20">
+      <div className="container mx-auto px-4 max-w-2xl text-center">
+        <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
+          <span className="text-gradient">Transparent</span>{" "}
+          <span className="text-foreground">pricing</span>
+        </h2>
+        <p className="text-muted-foreground mb-10">No surprises. The exact fee is confirmed at booking.</p>
+        <div className="bg-card rounded-3xl border border-border p-8 text-left space-y-5">
+          <div className="flex justify-between items-center pb-5 border-b border-border">
+            <div>
+              <p className="font-heading font-bold text-foreground">Base visit fee</p>
+              <p className="text-sm text-muted-foreground">Examination + call-out charge</p>
+            </div>
+            <span className="font-heading font-bold text-xl text-foreground">{FIXED_FEE} CZK</span>
+          </div>
+          <div className="flex justify-between items-center pb-5 border-b border-border">
+            <div>
+              <p className="font-heading font-bold text-foreground">Travel fee</p>
+              <p className="text-sm text-muted-foreground">Per kilometre from Benešov</p>
+            </div>
+            <span className="font-heading font-bold text-xl text-foreground">{KILOMETER_FEE} CZK/km</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="font-heading font-bold text-foreground">Prague visit (example)</p>
+              <p className="text-sm text-muted-foreground">
+                Praha 7 — {FIXED_FEE} + 7&thinsp;&times;&thinsp;{KILOMETER_FEE} CZK
+              </p>
+            </div>
+            <span className="font-heading font-bold text-xl text-accent">~{pragueEstimate} CZK</span>
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground mt-4">
+          Prices for individual procedures confirmed on request. 1 EUR ≈ 25 CZK.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+// Remaining sections added in Task 6
 
 const EnglishPage = () => (
   <>
@@ -253,6 +347,8 @@ const EnglishPage = () => (
       <EnBenefits />
       <EnAbout />
       <EnServices />
+      <EnCoverage />
+      <EnPricing />
     </main>
   </>
 );
