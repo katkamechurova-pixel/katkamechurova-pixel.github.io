@@ -190,7 +190,50 @@ const EnAbout = () => (
   </section>
 );
 
-// Remaining sections added in Tasks 4–6
+// ─── Services ────────────────────────────────────────────────────────────────
+
+const enServices: { Icon: LucideIcon; name: string; desc: string }[] = [
+  { Icon: Stethoscope, name: "Wellness Exams",       desc: "Routine health checks for dogs and cats" },
+  { Icon: Syringe,     name: "Vaccinations",          desc: "Up-to-date vaccines following current protocols" },
+  { Icon: Bug,         name: "Parasite Prevention",   desc: "Internal and external antiparasitic treatment" },
+  { Icon: Cpu,         name: "Microchipping",         desc: "Chip implantation and EU pet passport" },
+  { Icon: Droplets,    name: "Blood Tests",            desc: "Lab diagnostics with same-day results" },
+  { Icon: ScanLine,    name: "Ultrasound (Sono)",     desc: "Portable ultrasound diagnostics at your home" },
+  { Icon: Scissors,    name: "Wound Care",             desc: "Treatment of minor injuries and wounds" },
+  { Icon: MessageCircle, name: "Consultations",       desc: "Health, nutrition, and prevention advice" },
+  { Icon: HeartHandshake, name: "Palliative Care",    desc: "Compassionate support for sick and aging animals" },
+  { Icon: HousePlus,   name: "Home Euthanasia",       desc: "Peaceful, dignified farewell in familiar surroundings" },
+  { Icon: Scissors,    name: "Neutering/Spaying",     desc: "Preventive procedure — at the Benešov clinic only" },
+];
+
+const EnServices = () => (
+  <section id="services" className="py-20">
+    <div className="container mx-auto px-4">
+      <h2 className="text-2xl md:text-3xl font-heading font-bold text-center mb-12">
+        <span className="text-gradient">Our</span>{" "}
+        <span className="text-foreground">services</span>
+      </h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        {enServices.map((s) => (
+          <div
+            key={s.name}
+            className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border"
+          >
+            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+              <s.Icon className="w-5 h-5 text-accent" />
+            </div>
+            <div>
+              <h3 className="font-heading font-semibold text-foreground mb-1">{s.name}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// Remaining sections added in Tasks 5–6
 
 const EnglishPage = () => (
   <>
@@ -209,6 +252,7 @@ const EnglishPage = () => (
       <EnHero />
       <EnBenefits />
       <EnAbout />
+      <EnServices />
     </main>
   </>
 );
