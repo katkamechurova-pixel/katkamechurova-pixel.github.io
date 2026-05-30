@@ -97,8 +97,8 @@ export const serviceSummaries: ServiceSummary[] = [
     iconName: "HousePlus",
     title: "Eutanazie doma",
     shortDesc: "Důstojný a klidný odchod v domácím prostředí.",
-    metaTitle: "Eutanazie doma | Ducktorka",
-    metaDescription: "Citlivě vedená domácí eutanazie v bezpečí známého prostředí vašeho mazlíčka.",
+    metaTitle: "Eutanázie psa doma | Klidné a důstojné rozloučení | Ducktorka",
+    metaDescription: "Eutanázie psa nebo kočky doma v Praze, Benešově a okolí. Bezbolestný a klidný odchod v domácím prostředí. Zjistěte, jak domácí eutanázie krok za krokem probíhá.",
   },
   {
     slug: "kastrace",

@@ -1,5 +1,10 @@
 import { FIXED_FEE, KILOMETER_FEE } from './constants'
 
+export interface LocationFaq {
+  question: string;
+  answer: string;
+}
+
 export interface LocationData {
   name: string;
   slug: string;
@@ -16,6 +21,8 @@ export interface LocationData {
   keywords: string[];
   distanceKm: number;
   neighbors: string[];
+  subAreas?: string[];
+  faq?: LocationFaq[];
 }
 
 export function calcTransport(distanceKm: number): number {
@@ -39,6 +46,21 @@ export const locations: LocationData[] = [
     keywords: ["očkování psů Říčany", "vakcinace koček Říčany", "veterinář Říčany"],
     distanceKm: 29,
     neighbors: ["jesenice", "pruhonice", "strancice", "mnichovice"],
+    subAreas: ["Radošovice", "Pacov u Říčan", "Kuří", "Strašín"],
+    faq: [
+      {
+        question: "Do jakých obcí v okolí Říčan dojíždíte?",
+        answer: "Vedle samotných Říčan obsluhuji i přilehlé obce jako Radošovice, Pacov u Říčan, Kuří a Strašín. Pokrývám celý říčanský mikroregion v okrese Praha-východ.",
+      },
+      {
+        question: "Jak rychle dojedete do Říčan z Prahy nebo Benešova?",
+        answer: "Z Prahy do Říčan dojedeme obvykle do 30–40 minut, z Benešova přibližně za 35–45 minut dle dopravní situace. Výjezd plánuji flexibilně dle vaší dostupnosti.",
+      },
+      {
+        question: "Jaké veterinární služby jsou dostupné přímo v Říčanech?",
+        answer: "V Říčanech a okolí nabízíme kompletní výjezdovou péči: pravidelné preventivní prohlídky, očkování (vakcinace), antiparazitární ochranu, odběry krve a ošetření drobných poranění – vše přímo u vás doma bez nutnosti dojíždět do ordinace.",
+      },
+    ],
   },
   {
     name: "Jesenice",
@@ -73,23 +95,53 @@ export const locations: LocationData[] = [
     keywords: ["veterinář Benešov", "veterina domů Benešov", "ošetření zvířat Benešov"],
     distanceKm: 0,
     neighbors: ["tynec-nad-sazavou", "vlasim", "pysely", "cercany"],
+    subAreas: ["Bystřice", "Neveklov", "Mrač", "Václavice"],
+    faq: [
+      {
+        question: "Jak rychle přijede výjezdová veterinářka v Benešově?",
+        answer: "Vždy záleží na dni a vytíženosti, někdy mohu přijet do už do 45 minut od zavolání. Za cestu se neplatí žádný příplatek za vzdálenost.",
+      },
+      {
+        question: "Které části Benešova a okolí pokrýváte?",
+        answer: "Pokrýváme celý Benešov a přilehlé obce – Bystřici, Neveklov, Mrač i Václavice.",
+      },
+      {
+        question: "Je možná domácí eutanazie v Benešově?",
+        answer: "Ano, domácí eutanazie psa nebo kočky je v Benešově a okolí plně dostupná. Přijedeme k vám domů, aby vaše zvíře mohlo důstojně odejít ve známém prostředí, v náručí rodiny.",
+      },
+    ],
   },
   {
     name: "Černošice",
     slug: "cernosice",
     pageSlug: "veterinar-cernosice",
-    seoTitle: "Veterinář Černošice | Diskrétní mobilní veterinární péče Ducktorka",
-    metaDescription: "Prémiová veterinární péče s výjezdem do Černošic. MVDr. Měchurová zajistí ošetření vašeho psa či kočky v pohodlí a diskrétnosti domova.",
-    h1: "Veterinář Černošice: Komfortní a diskrétní ošetření u vás doma",
+    seoTitle: "Výjezdová veterina Černošice | Komfortní ošetření přímo doma | Ducktorka",
+    metaDescription: "Výjezdová veterinářka v Černošicích – prémiová péče o psy a kočky přímo u vás doma. MVDr. Měchurová přijede diskrétně, bez čekání v ordinaci.",
+    h1: "Výjezdová veterina Černošice – Komfortní ošetření přímo u vás doma",
     serviceTitle: "Výjezdová veterina",
     description: "Klidná lokalita s blízkostí přírody, kde chovatelé ocení soukromí a prémiový přístup.",
     localParks: "Blízkost CHKO Český kras, silná komunita chovatelů.",
     specificFocus: "diskrétní a vysoce komfortní služby šité na míru náročným chovatelům",
-    uniqueText: "Černošice jsou lokalitou s náročnou klientelou, která si cení soukromí, úspory času a individuálního přístupu. Naše mobilní praxe vám přiveze plně vybavenou ambulanci přímo před dům. Vyhnete se tak nepohodlí veřejných čekáren a anonymnímu prostředí velkých klinik.",
-    localTip: "V blízkosti CHKO Český kras a řeky Berounky je příroda nádherná, ale plná nástrah pro psy. Doporučujeme důslednou antiparazitární ochranu – klíšťata a další paraziti jsou zde v krásové krajině velmi houževnatí.",
-    keywords: ["veterinář Černošice", "mobilní veterina Černošice", "ošetření psa Černošice"],
+    uniqueText: "Černošice jsou lokalitou, kde klienti oceňují především diskrétnost, individuální přístup a úsporu času. Naše plně vybavená mobilní veterina přijede přímo před váš dům – bez anonymní čekárny, bez stresu z přepravy mazlíčka a bez ztráty drahocenného času. Obsluhujeme celé Černošice a blízké okolí včetně přírody CHKO Český kras.",
+    localTip: "V blízkosti CHKO Český kras a řeky Berounky je příroda nádherná, ale pro psy plná nástrah. Antiparazitární ochrana je zde nutností celoročně. Jsme dostupní rychle z Jesenice i Dolních Břežan – zavolejte a domluvíme výjezd přímo k vám.",
+    keywords: ["výjezdová veterina Černošice", "veterinář Černošice", "mobilní veterina Černošice", "ošetření psa Černošice"],
     distanceKm: 52,
     neighbors: ["jesenice", "dolni-brezany", "mnisek-pod-brdy", "pruhonice"],
+    subAreas: ["Dobřichovice", "Všenory", "Řevnice", "Mokropsy"],
+    faq: [
+      {
+        question: "Do jakých obcí v okolí Černošic dojíždíte?",
+        answer: "Kromě Černošic obsluhujeme i Dobřichovice, Všenory, Řevnice a Mokropsy. Pokrývám celou oblast při CHKO Český kras a údolí řeky Berounky.",
+      },
+      {
+        question: "Jak rychle dojedete do Černošic?",
+        answer: "Do Černošic dojedu z Prahy obvykle do 45 minut. Termín přizpůsobím vaší pracovní době – domlouváme se přes WhatsApp nebo telefon.",
+      },
+      {
+        question: "Je výjezdová veterina v Černošicích vhodná i pro kočky z rodinných domů?",
+        answer: "Rozhodně ano. Pro kočky je přeprava k veterináři obrovským stresem. Díky výjezdu přímo do vašeho domu v Černošicích zůstane vaše kočka ve svém teritoriu a vyšetření proběhne v naprostém klidu.",
+      },
+    ],
   },
   {
     name: "Mnichovice",
@@ -129,18 +181,33 @@ export const locations: LocationData[] = [
     name: "Jílové u Prahy",
     slug: "jilove-u-prahy",
     pageSlug: "veterinar-jilove-u-prahy",
-    seoTitle: "Veterinář Jílové u Prahy | Mobilní veterinární výjezd Ducktorka",
-    metaDescription: "Výjezdová veterinářka v Jílovém u Prahy. Řešíme ošetření drobných poranění z terénu i prevenci. Přijedeme k vám domů i na chatu.",
-    h1: "Mobilní veterinář Jílové u Prahy: Ošetření doma i na chatě",
+    seoTitle: "Výjezdová veterina Jílové u Prahy | Přijedeme přímo k vám | Ducktorka",
+    metaDescription: "Výjezdová veterinářka MVDr. Měchurová přijede do Jílového u Prahy – ošetření, prevence i akutní péče přímo u vás doma nebo na chatě. Dojezd do 30 minut.",
+    h1: "Výjezdová veterina Jílové u Prahy – Přijedeme přímo k vám",
     serviceTitle: "Péče o rekreační psy",
     description: "Brána do Posázaví, oblíbená pejskaři i chalupáři, za kterými přijedeme až na chatu.",
     localParks: "Naučné stezky, Jílovské zlaté doly, outdoorové aktivity.",
     specificFocus: "ošetření případných poranění z přírody a kvalitní ochranu před parazity",
-    uniqueText: "Jílové u Prahy a údolí Posázaví jsou vyhledávanou destinací pejskařů, turistů i chalupářů. Naše mobilní veterina je tu pro vás, když potřebujete ošetřit drobná poranění z terénu nebo zajistit prevenci. S plnou výbavou dorazíme přímo k vašemu domu nebo na rekreační chatu.",
-    localTip: "Oblast Posázaví a zlatodolů je skvělá pro outdoor, ale členitý terén pro psy znamená vyšší riziko poranění tlapek či očí od větví. Stejně tak je zde vysoký tlak vnějších parazitů. Kvalitní ochrana se zde opravdu vyplatí.",
-    keywords: ["veterinář Jílové u Prahy", "mobilní vet Jílové", "ošetření psa Posázaví"],
+    uniqueText: "Jílové u Prahy a krásné údolí Posázaví jsou vyhledávanou destinací pejskařů, turistů i chalupářů z celé Prahy. Z naší základny v Benešově dorazíme do Jílového přibližně za 25 minut. Ošetříme drobná poranění z terénu, zajistíme prevenci před parazity i pravidelné kontroly – u vás doma nebo přímo na chalupě. S plnou výbavou přijedeme tam, kde právě jste.",
+    localTip: "Oblast Posázaví a zlatodolů je skvělá pro outdoor s pejsky, ale členitý terén zvyšuje riziko poranění tlapek, uší a očí. Z Benešova k vám dorazíme do 30 minut – v případě zranění nebo akutní potřeby neváhejte zavolat, přijíždíme rychle.",
+    keywords: ["výjezdová veterina Jílové u Prahy", "veterinář Jílové u Prahy", "mobilní vet Jílové", "ošetření psa Posázaví"],
     distanceKm: 24,
     neighbors: ["sazava", "tynec-nad-sazavou", "dolni-brezany"],
+    subAreas: ["Kamenný Přívoz", "Hradišťko", "Luka pod Medníkem", "Klínec"],
+    faq: [
+      {
+        question: "Přijede výjezdová veterinářka i na chatu v oblasti Jílového u Prahy?",
+        answer: "Ano, přijíždím nejen k rodinným domům, ale i na rekreační chaty v celém údolí Posázaví. Pokud se váš mazlíček zraní nebo onemocní na chatě, stačí zavolat a dorazím přímo za vámi.",
+      },
+      {
+        question: "Do jakých obcí v okolí Jílového u Prahy dojíždíte?",
+        answer: "Obsluhuji celé Jílové u Prahy a přilehlé obce jako Kamenný Přívoz, Hradišťko, Luku pod Medníkem a Klínec. Přijedu i do vzdálenějších rekreačních oblastí Posázaví.",
+      },
+      {
+        question: "Jak rychle dojedete do Jílového u Prahy?",
+        answer: "Do Jílového u Prahy přibližně do 60 minut.",
+      },
+    ],
   },
   {
     name: "Vlašim",
@@ -197,18 +264,33 @@ export const locations: LocationData[] = [
     name: "Kamenice",
     slug: "kamenice",
     pageSlug: "veterinar-kamenice",
-    seoTitle: "Veterinář Kamenice | Mobilní veterinární péče Ducktorka",
-    metaDescription: "Veterinární ošetření s výjezdem do Kamenice. Specializujeme se na péči po pohybu v lese a silnou antiparazitární ochranu. Objednejte návštěvu.",
-    h1: "Veterinář Kamenice: Spolehlivá péče s výjezdem domů",
+    seoTitle: "Výjezdová veterina Kamenice | Přijedeme k vám domů | Ducktorka",
+    metaDescription: "Výjezdová veterinářka MVDr. Měchurová přijede do Kamenice – ošetření a prevence pro psy v lese přímo u vás doma. Bez čekání, bez stresu z ordinace.",
+    h1: "Výjezdová veterina Kamenice – Přijedeme přímo k vám domů",
     serviceTitle: "Ošetření uší a očí",
     description: "Městečko obklopené hustými lesy, kde klademe velký důraz na kvalitní prevenci.",
     localParks: "Rozhledna Ládví, Zámek Štiřín s parkem a rhododendrony.",
     specificFocus: "důslednou antiparazitární ochranu v oblastech obklopených rozsáhlými lesy",
-    uniqueText: "Kamenice je zasazena do rozsáhlých a krásných lesů, které ale pro mazlíčky představují zvýšené riziko (klíšťata, osiny v uších a očích). Dorazíme až k vám domů a poskytneme vašemu psovi či kočce precizní ošetření i prevenci – bez stresování v autě cestou do města.",
-    localTip: "V okolí Kamenice se často setkáváme s loveckými plemeny. Po intenzivním pohybu v podrostu vždy zkontrolujte uši, oční okolí a meziprstí psa. Jsou to nejčastější místa, kde uvízne cizí těleso nebo se přisaje parazit.",
-    keywords: ["veterinář Kamenice", "ošetření psa Kamenice", "veterina Kamenice"],
+    uniqueText: "Kamenice je zasazena do rozsáhlých a krásných lesů, které ale pro mazlíčky představují zvýšené riziko – klíšťata, osiny v uších a očích nebo drobná zranění z podrostu. Z Prahy i okolí dorazíme do Kamenice rychle. Ošetření proběhne u vás doma v klidu, bez stresování zvířete cestou do města na kliniku. Přijedeme tam, kde váš mazlíček zná každý koutek.",
+    localTip: "V okolí Kamenice se setkáváme zejména s loveckými a aktivními plemeny. Po pohybu v lese u zámku Štiřín vždy zkontrolujte uši, oční okolí a meziprstí – klíšťata i osiny se nejčastěji ukrývají právě tam. Zavolejte – přijedeme ošetřit nebo zkontrolovat přímo k vám.",
+    keywords: ["výjezdová veterina Kamenice", "veterinář Kamenice", "ošetření psa Kamenice", "veterina Kamenice"],
     distanceKm: 22,
     neighbors: ["mnichovice", "strancice", "velke-popovice", "ricany"],
+    subAreas: ["Štiřín", "Olešovice", "Těptín", "Ládví"],
+    faq: [
+      {
+        question: "Do jakých části Kamenice a okolí dojíždíte?",
+        answer: "Obsluhuji celou Kamenici a přilehlé části jako Štiřín, Olešovice, Těptín a Ládví. Pokrýváme celou oblast kolem zámku Štiřín a říčanských lesů.",
+      },
+      {
+        question: "Jak rychle dojedete do Kamenice?",
+        answer: "Z Prahy nebo z okolí dojedu do Kamenice obvykle do 30–45 minut. Výjezd plánujeme tak, abychom se k vám dostali co nejdříve – konkrétní odhad vám sdělíme při objednání.",
+      },
+      {
+        question: "Musím kvůli ošetření psa v Kamenici jezdit do veterinární kliniky ve městě?",
+        answer: "Nemusíte. Výjezdová ordinace přijede přímo k vám domů v Kamenici nebo okolí s plnou výbavou: preventivní prohlídky, očkování, antiparazitární ochrana, odběry krve i ošetření drobných zranění – vše bez dojíždění.",
+      },
+    ],
   },
   {
     name: "Votice",
@@ -260,6 +342,21 @@ export const locations: LocationData[] = [
     keywords: ["eutanázie doma Čerčany", "uspání psa doma", "veterinář Čerčany"],
     distanceKm: 12,
     neighbors: ["benesov", "senohraby", "tynec-nad-sazavou", "pysely"],
+    subAreas: ["Tehov u Čerčan", "Mrač", "Bystřice"],
+    faq: [
+      {
+        question: "Je možná domácí eutanazie v Čerčanech a okolí?",
+        answer: "Ano, domácí eutanazie psa nebo kočky je v Čerčanech plně dostupná. Přijedu přímo k vám, aby váš mazlíček mohl důstojně odejít doma ve svém pelíšku, v kruhu rodiny – bez stresující cesty do ordinace.",
+      },
+      {
+        question: "Jak rychle dojedete do Čerčan?",
+        answer: "Z Benešova dojedu do Čerčan přibližně za 20 minut. Výjezd plánuji co nejdříve, zejména v případech paliativní péče nebo domácí eutanazie.",
+      },
+      {
+        question: "Jaké veterinární služby jsou dostupné v Čerčanech doma?",
+        answer: "V Čerčanech nabízíme kompletní výjezdovou péči – preventivní prohlídky, očkování, antiparazitární ochranu, paliativní péči pro stárnoucí mazlíčky i domácí eutanazii. Vše proběhne v pohodlí vašeho domova.",
+      },
+    ],
   },
   {
     name: "Mníšek pod Brdy",
@@ -347,20 +444,131 @@ export const locations: LocationData[] = [
     neighbors: ["tynec-nad-sazavou", "jilove-u-prahy"],
   },
   {
-    name: "Praha - Karlín",
-    slug: "praha-karlin",
+    name: "Praha 8 - Karlín, Libeň, Kobylisy",
+    slug: "praha-8",
     pageSlug: "veterinar-praha-8",
-    seoTitle: "Veterinář Praha 8 | Mobilní veterinární péče doma Ducktorka",
-    metaDescription: "Veterinář u vás doma v Praze 8 (Karlín, Libeň, Kobylisy). Šetříme stres vaší kočce a vám hledání parkování. Objednejte si výjezd.",
-    h1: "Veterinář Praha 8: Pohodlné ošetření bez stresu v čekárně",
+    seoTitle: "Výjezdová veterina Praha 8 | Přijedeme přímo k vám domů | Ducktorka",
+    metaDescription: "Výjezdová veterinářka v Praze 8 – Karlín, Libeň, Kobylisy, Bohnice. Ošetření a prevence přímo u vás doma. Žádné parkování, žádná čekárna.",
+    h1: "Výjezdová veterina Praha 8 – Přijedeme přímo k vám domů",
     serviceTitle: "Mobilní veterinář",
     description: "Pražská čtvrť, kde vás ušetříme hledání parkování i cesty do plné ordinace.",
     localParks: "Parky u Invalidovny, omezené parkování (výhoda mobilní praxe).",
     specificFocus: "výhodu v podobě snadného parkování a přístupu přímo k vám, bez nutnosti přepravy mazlíčka",
-    uniqueText: "Při výjezdech v rámci Prahy 8 obsluhujeme klienty v Karlíně, Libni, Kobylisích i Bohnicích. Naše služba je absolutní spásou pro majitele stresovaných koček z panelových sídlišť. Víte, jak hrozné je zvíře nutit do přepravky? U nás nemusíte – my zkrátka přijedeme k vám.",
-    localTip: "Upozorňujeme všechny majitele psů v Praze 8, že zimní údržba (posypová sůl na chodnících) je pro polštářky na tlapkách extrémně agresivní. Poctivá kontrola, důkladné opláchnutí a promaštění tlapek speciální mastí je v zimě nezbytností.",
-    keywords: ["veterinář Praha 8", "mobilní veterina Praha 8", "ošetření psa doma Praha 8"],
+    uniqueText: "Výjezdová ordinace MVDr. Měchurové obsluhuje celou Prahu 8 – Karlín, Libeň, Kobylisy i Bohnice. Přijedeme přímo k vám domů a ošetříme vašeho psa nebo kočku tam, kde se cítí v bezpečí. Žádné hledání parkování, žádné čekání s úzkostnou kočkou v přepravce. Ideální řešení pro stresovaná zvířata i vytížené majitele z pražských bytů.",
+    localTip: "V Praze 8 ošetřujeme nejčastěji stresované kočky z panelákových bytů, pro které je každá cesta do přepravky noční můrou. V zimě pamatujte i na tlapky psů – posypová sůl na pražských chodnících je velmi agresivní, doporučujeme pravidelné oplachování a ochrannou mast.",
+    keywords: ["výjezdová veterina Praha 8", "veterinář Praha 8", "mobilní veterina Praha 8", "ošetření psa doma Praha 8"],
     distanceKm: 5,
     neighbors: [],
+    subAreas: ["Karlín", "Libeň", "Kobylisy", "Bohnice", "Čimice", "Dolní Chabry"],
+    faq: [
+      {
+        question: "Do jakých čtvrtí Prahy 8 dojíždíte?",
+        answer: "Obsluhuji celou Prahu 8 – Karlín, Libeň, Kobylisy, Bohnice, Čimice i Dolní Chabry. Přijíždím přímo k vám domů bez ohledu na to, zda bydlíte v panelovém domě nebo vilové čtvrti.",
+      },
+      {
+        question: "Je výjezdová veterina v Praze 8 vhodná pro stresované kočky z bytů?",
+        answer: "Rozhodně ano – a právě pro ně je naše služba ideální. Kočky jsou velmi citlivé na změnu prostředí a přepravku. Ošetření u vás doma v Praze 8 eliminuje veškerý zbytečný stres a vyšetření proběhne v klidu jejich přirozeného teritoria.",
+      },
+      {
+        question: "Jak rychle dojedete do Prahy 8?",
+        answer: "Dojezd do Prahy 8 závisí na dopravní situaci a denní době. Obvykle přijedeme do 45–60 minut od zavolání. Přesný časový odhad vám sdělíme při domluvě termínu přes WhatsApp nebo telefon.",
+      },
+    ],
+  },
+  {
+    name: "Praha 7 - Holešovice, Letná",
+    slug: "praha-7",
+    pageSlug: "veterinar-praha-7",
+    seoTitle: "Výjezdová veterina Praha 7 | Ošetření doma Holešovice a Letná | Ducktorka",
+    metaDescription: "Hledáte veterináře na Praze 7? MVDr. Měchurová nabízí kompletní veterinární ošetření a očkování přímo u vás doma v Holešovicích či na Letné. Bez stresu a čekání.",
+    h1: "Mobilní veterinář Praha 7: Profesionální péče u vás doma",
+    serviceTitle: "Péče v městských bytech",
+    description: "Živá městská čtvrť s nádhernými parky, kde majitelé psů a koček oceňují prémiové služby a úsporu času.",
+    localParks: "Letenské sady, Stromovka (Královská obora).",
+    specificFocus: "bezstresové ošetření citlivých zvířat v domácím prostředí a flexibilní termíny pro vytížené majitele",
+    uniqueText: "Na Praze 7, ať už v Holešovicích nebo na Letné, je koncentrace domácích mazlíčků obrovská. Cesta na klasickou kliniku ale často znamená stres z městského ruchu, plné čekárny a složité řešení parkování v modrých zónách. Naše mobilní veterina přijede s plnou výbavou přímo k vám domů. Ošetření psa nebo kočky tak proběhne v naprostém klidu, bez narušení jejich pocitu bezpečí.",
+    localTip: "Stromovka a Letná jsou kynologickým centrem Prahy. Kvůli extrémní koncentraci psů je zde však zvýšené riziko přenosu infekcí (např. psincového kašle) a parazitů. Doporučujeme důsledné dodržování očkovacího schématu a celoroční antiparazitární ochranu.",
+    keywords: ["veterinář Praha 7", "veterina Holešovice", "výjezdová veterina Letná", "očkování psa Praha 7"],
+    distanceKm: 7,
+    neighbors: ["praha-8"],
+    subAreas: ["Holešovice", "Letná", "Bubny"],
+    faq: [
+      {
+        question: "Jak řešíte parkování v modrých zónách na Praze 7?",
+        answer: "Parkování v Holešovicích i na Letné kompletně zajišťujeme my v rámci naší mobilní praxe. Nemusíte nám držet místo ani nic platit – přijedeme a zaparkujeme tak, abychom byli u vás včas.",
+      },
+      {
+        question: "Je výjezdová veterina na Praze 7 vhodná pro bytové kočky?",
+        answer: "Ano, pro kočky je naše služba ideální. Kočky nesou transport v přepravce a cizí pachy na klinikách velmi těžce. Vyšetření a očkování přímo ve vašem bytě na Praze 7 eliminuje veškerý zbytečný stres.",
+      },
+      {
+        question: "Jaké služby v Holešovicích a na Letné nejčastěji provádíte?",
+        answer: "Nejčastěji zajišťujeme preventivní prohlídky, pravidelnou vakcinaci, čipování, vystavování pasů, odběry krve pro laboratorní diagnostiku a ošetření drobných poranění.",
+      },
+    ],
+  },
+  {
+    name: "Praha 3 - Žižkov, Vinohrady",
+    slug: "praha-3",
+    pageSlug: "veterinar-praha-3",
+    seoTitle: "Výjezdový veterinář Praha 3 | Mobilní veterina Žižkov | Ducktorka",
+    metaDescription: "Veterinární výjezdy na Praze 3. MVDr. Měchurová ošetří vašeho psa či kočku přímo u vás doma na Žižkově nebo Vinohradech. Zapomeňte na plné čekárny.",
+    h1: "Mobilní veterinář Praha 3: Výjezdová péče přímo k vám domů",
+    serviceTitle: "Veterinární výjezd",
+    description: "Tradiční pražská čtvrť s kopcovitým terénem a činžovními domy, kde je domácí ošetření maximálním komfortem.",
+    localParks: "Vrch Vítkov, Parukářka, Mahlerovy sady.",
+    specificFocus: "komfortní péči pro starší, hůře pohyblivá nebo úzkostná zvířata přímo v jejich revíru",
+    uniqueText: "Bydlení v činžovních domech na Žižkově nebo na Vinohradech má své kouzlo, ale snášet nemocného či staršího pejska po schodech nebo ho stresovat hlučnou městskou dopravou je náročné. Naše výjezdová ordinace přijede až před vaše dveře na Praze 3. Vyšetření, odběry krve nebo očkování vyřešíme přímo ve vašem obýváku, bez jakéhokoliv spěchu.",
+    localTip: "Parky jako Parukářka nebo Vítkov jsou skvělé na venčení, ale členitý terén a městské prostředí s sebou nesou rizika drobných poranění tlapek či potkání divokých zvířat (např. ježků, kteří přenášejí blechy). Mějte antiparazitární ochranu vždy aktivní.",
+    keywords: ["veterinář Praha 3", "veterina Žižkov", "výjezdová veterina Vinohrady", "ošetření psa Praha 3"],
+    distanceKm: 8,
+    neighbors: ["praha-8"],
+    subAreas: ["Žižkov", "Vinohrady", "Jarov"],
+    faq: [
+      {
+        question: "Dojíždíte na Praze 3 i do starších domů bez výtahu?",
+        answer: "Samozřejmě. Naše vybavení je plně mobilní a přenosné, takže vyjdeme i do vyšších pater žižkovských činžáků. Pro majitele velkých nebo hůře pohyblivých psů je to obrovská úleva.",
+      },
+      {
+        question: "Jak rychle dokážete na Žižkov nebo Vinohrady dorazit?",
+        answer: "Standardní výjezdy plánujeme 1–2 dny předem. Pokud je to naléhavé, v rámci našich aktuálních tras po Praze se snažíme dorazit přibližně do hodiny od zavolání.",
+      },
+      {
+        question: "Nabízíte na Praze 3 také paliativní péči nebo eutanázii doma?",
+        answer: "Ano. Pro staré a nevyléčitelně nemocné mazlíčky poskytujeme citlivou paliativní péči. V případě potřeby provádíme i domácí eutanázii, aby zvíře mohlo odejít důstojně a v klidu, ve svém pelíšku.",
+      },
+    ],
+  },
+  {
+    name: "Praha 2 - Vinohrady, Vyšehrad, Nové Město",
+    slug: "praha-2",
+    pageSlug: "veterinar-praha-2",
+    seoTitle: "Výjezdová veterina Praha 2 | Ošetření doma Vinohrady a Vyšehrad | Ducktorka",
+    metaDescription: "Hledáte veterináře na Praze 2? Mobilní veterina MVDr. Měchurové nabízí kompletní ošetření, očkování a diagnostiku přímo u vás doma na Vinohradech či Vyšehradě.",
+    h1: "Mobilní veterinář Praha 2: Komfortní péče přímo ve vašem bytě",
+    serviceTitle: "Prémiová domácí péče",
+    description: "Prestižní historická čtvrť s hustou zástavbou, kde je parkování kritické a domácí ošetření představuje pro majitele nejvyšší možný komfort.",
+    localParks: "Riegrovy sady, Havlíčkovy sady (Grébovka), Vyšehradské sady, Folimanka.",
+    specificFocus: "kompletní veterinární péči bez stresu z městského hluku, dopravy a přeplněných čekáren",
+    uniqueText: "Bydlení v srdci Prahy 2 nabízí krásné prostředí, ale doprava nemocného mazlíčka na kliniku přes rušné ulice nebo shánění parkování v modrých zónách bývá pro majitele noční můrou. Naše mobilní ordinace přijede s veškerým potřebným vybavením přímo k vám domů. V klidu vašeho bytu na Vinohradech, Vyšehradě či Novém Městě vyřešíme vše od očkování až po odběry krve.",
+    localTip: "Riegrovy sady a Grébovka jsou plné psů, což výrazně zvyšuje riziko šíření infekčních onemocnění (např. paratuberkulózy, psincového kašle) a přenosu blech. Pokud se svým psem navštěvujete tyto frekventované parky, dbejte na pravidelnou vakcinaci a spolehlivá, moderní antiparazitika.",
+    keywords: ["veterinář Praha 2", "veterina Vinohrady", "výjezdová veterina Vyšehrad", "ošetření psa Praha 2"],
+    distanceKm: 9,
+    neighbors: ["praha-3", "praha-8"],
+    subAreas: ["Vinohrady", "Vyšehrad", "Nové Město", "Nusle"],
+    faq: [
+      {
+        question: "Jak zvládáte parkování v modrých zónách na Praze 2?",
+        answer: "Parkování na Vinohradech i v okolí Vyšehradu plně řešíme sami v rámci naší mobilní praxe. Jako majitel zvířete nemusíte nic zařizovat ani nám držet místo – přijedeme a zaparkujeme tak, abychom byli u vašich dveří v domluvený čas.",
+      },
+      {
+        question: "Je výjezd vhodný i pro starší psy z činžovních domů bez výtahu?",
+        answer: "Určitě ano, a pro majitele velkých nebo hůře pohyblivých psů je to obrovská úleva. Nemusíte pejska složitě snášet po schodech nebo ho stresovat manipulací do auta – veškeré ošetření i diagnostiku provedeme přímo v bezpečí vašeho obýváku.",
+      },
+      {
+        question: "Provádíte na Praze 2 také odběry krve a sono?",
+        answer: "Ano, naše výjezdová praxe je vybavena pro odběry krve na laboratorní diagnostiku i pro vyšetření přenosným ultrazvukem (sono) – vše probíhá přímo na místě, v naprostém klidu a bez zbytečného spěchu.",
+      },
+    ],
   },
 ];

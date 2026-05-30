@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import DuckLogo from "@/components/DuckLogo";
 import { serviceSummaries } from "@/data/serviceSummaries";
 
+const FOOTER_SERVICE_SLUGS = ["preventivni-prohlidky", "vakcinace", "odcerveni", "odbery-krve", "eutanazie-doma"];
+
 const topLocations = [
-  { name: "Benešov", slug: "veterinar-benesov" },
   { name: "Praha 8", slug: "veterinar-praha-8" },
+  { name: "Benešov", slug: "veterinar-benesov" },
   { name: "Říčany", slug: "veterinar-ricany" },
-  { name: "Vlašim", slug: "veterinar-vlasim" },
-  { name: "Jesenice", slug: "veterinar-jesenice" },
+  { name: "Praha 3", slug: "veterinar-praha-3" },
+  { name: "Černošice", slug: "veterinar-cernosice" },
 ];
 
 const FacebookIcon = () => (
@@ -52,7 +54,7 @@ const Footer = () => (
         <div className="flex flex-col gap-5 text-center md:text-left items-center md:items-start">
           <h4 className="font-heading font-bold text-base text-foreground uppercase tracking-wider">Moje služby</h4>
           <ul className="flex flex-col gap-2.5">
-            {serviceSummaries.slice(0, 5).map((service) => (
+            {serviceSummaries.filter((s) => FOOTER_SERVICE_SLUGS.includes(s.slug)).map((service) => (
               <li key={service.slug}>
                 <Link
                   to={`/sluzby/${service.slug}/`}

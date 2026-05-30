@@ -26,6 +26,38 @@ const ServiceDetail = () => {
   const Icon = getServiceIcon(service.iconName);
   const pageUrl = `https://ducktorka.cz/sluzby/${service.slug}/`;
 
+  const faqSchema = service.slug === "eutanazie-doma" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Je domácí eutanázie psa nebo kočky bolestivá?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Ne. Celý proces je navržen tak, aby byl pro zvíře zcela bezbolestný. První sedativní injekce je aplikována do svalu. Zvíře poté upadne do hlubokého a klidného spánku, aniž by cokoli vnímalo." }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak dlouho domácí eutanázie trvá?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Obvykle 30–60 minut, včetně úvodního rozhovoru a rozloučení. Nikam nespěcháme – máte dostatek času se se svým mazlíčkem v klidu rozloučit." }
+      },
+      {
+        "@type": "Question",
+        "name": "Musím být přítomen při eutanázii doma?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Není to povinností – rozhodnutí je čistě na vás. Velká část majitelů přítomna být chce a tato možnost je vždy k dispozici. Přítomnost bývá pro mazlíčka i pro majitele uklidňující." }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak poznám, že je správný čas pro eutanázii?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zaměřte se na kvalitu života vašeho zvířete: přijímá stále potravu? Má zájem o okolí a vaši přítomnost? Nebo jeho dny provází jen neustávající bolest a apatie? Veterinářka vám ráda pomůže situaci objektivně zhodnotit." }
+      },
+      {
+        "@type": "Question",
+        "name": "Kolik stojí eutanázie psa doma?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Cena se skládá ze základního poplatku za výjezd a poplatku za provedení eutanázie. Přesnou cenu sdělíme telefonicky nebo přes WhatsApp dle vaší lokality." }
+      },
+    ],
+  } : null;
+
   return (
     <>
       <Head>
@@ -48,6 +80,10 @@ const ServiceDetail = () => {
         <meta name="twitter:image" content="https://ducktorka.cz/og-image-1.jpg" />
 
         {/* Structured Data */}
+        {faqSchema && (
+          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        )}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

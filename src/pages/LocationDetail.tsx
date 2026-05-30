@@ -1,11 +1,35 @@
 import { useParams, Link } from "react-router-dom";
 import { Head } from "vite-react-ssg";
-import { ArrowLeft, MapPin, Phone, MessageCircle, Lightbulb, Car } from "lucide-react";
+import { ArrowLeft, MapPin, Phone, MessageCircle, Lightbulb, Car, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { locations, calcTransport } from "@/data/locations";
 import { serviceSummaries } from "@/data/serviceSummaries";
 import { FIXED_FEE, KILOMETER_FEE } from "@/data/constants";
+
+const FaqItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-border rounded-2xl overflow-hidden">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-section-alt transition-colors"
+        aria-expanded={open}
+      >
+        <span className="font-semibold text-foreground text-sm leading-snug">{question}</span>
+        <ChevronDown
+          className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed border-t border-border pt-4">
+          {answer}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const HIGHLIGHT_SERVICES = [
   "preventivni-prohlidky",
@@ -46,6 +70,16 @@ const LocationDetail = () => {
   const highlightedServices = serviceSummaries.filter((s) =>
     HIGHLIGHT_SERVICES.includes(s.slug)
   );
+
+  const faqSchema = location.faq && location.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": location.faq.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer },
+    })),
+  } : null;
 
   const schema = {
     "@context": "https://schema.org",
@@ -118,6 +152,9 @@ const LocationDetail = () => {
         <meta name="twitter:description" content={location.metaDescription} />
         <meta name="twitter:image" content="https://ducktorka.cz/og-image-1.jpg" />
 
+        {faqSchema && (
+          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        )}
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Head>
 
@@ -301,21 +338,54 @@ const LocationDetail = () => {
               </p>
             </section>
 
-            {/* Neighboring locations */}
-            {neighborLocations.length > 0 && (
+            {/* Sub-areas + Neighboring locations */}
+            {(neighborLocations.length > 0 || (location.subAreas && location.subAreas.length > 0)) && (
               <section className="bg-card rounded-[2rem] p-8 md:p-10 shadow-sm border border-border">
                 <h2 className="text-xl font-heading font-bold mb-4">
-                  Obsluhujeme i okolní obce
+                  Obsluhujeme i okolní obce a části
                 </h2>
-                <div className="flex flex-wrap gap-3">
-                  {neighborLocations.map((neighbor) => (
-                    <Link
-                      key={neighbor.slug}
-                      to={`/vyjezdova-veterina/${neighbor.pageSlug}/`}
-                      className="px-4 py-2 rounded-full border border-border hover:border-pastel-turquoise hover:bg-pastel-turquoise/10 transition-colors text-sm font-medium"
-                    >
-                      {neighbor.name}
-                    </Link>
+                {location.subAreas && location.subAreas.length > 0 && (
+                  <div className="mb-4">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Pokrýváme {location.name} a přilehlé části:
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {location.subAreas.map((area) => (
+                        <span
+                          key={area}
+                          className="px-3 py-1.5 rounded-full bg-section-alt border border-border text-sm text-muted-foreground"
+                        >
+                          {area}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {neighborLocations.length > 0 && (
+                  <div className="flex flex-wrap gap-3">
+                    {neighborLocations.map((neighbor) => (
+                      <Link
+                        key={neighbor.slug}
+                        to={`/vyjezdova-veterina/${neighbor.pageSlug}/`}
+                        className="px-4 py-2 rounded-full border border-border hover:border-pastel-turquoise hover:bg-pastel-turquoise/10 transition-colors text-sm font-medium"
+                      >
+                        {neighbor.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </section>
+            )}
+
+            {/* FAQ section */}
+            {location.faq && location.faq.length > 0 && (
+              <section className="bg-card rounded-[2rem] p-8 md:p-10 shadow-sm border border-border">
+                <h2 className="text-2xl font-heading font-bold mb-6">
+                  Časté otázky – {location.name}
+                </h2>
+                <div className="space-y-3">
+                  {location.faq.map((item, i) => (
+                    <FaqItem key={i} question={item.question} answer={item.answer} />
                   ))}
                 </div>
               </section>
