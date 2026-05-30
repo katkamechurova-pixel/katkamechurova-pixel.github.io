@@ -1,5 +1,4 @@
 import { Head } from "vite-react-ssg";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {
   Bug, Cpu, Droplets, HeartHandshake, HousePlus,
   MessageCircle, ScanLine, Scissors, Stethoscope, Syringe,
@@ -7,7 +6,6 @@ import {
 } from "lucide-react";
 import DuckLogo from "@/components/DuckLogo";
 import heroImageMd from "@/assets/hero-v11-md.webp";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FIXED_FEE, KILOMETER_FEE } from "@/data/constants";
 
 // WhatsApp SVG — same as used in Footer.tsx
@@ -327,7 +325,62 @@ const EnPricing = () => {
   );
 };
 
-// Remaining sections added in Task 6
+// ─── Contact ─────────────────────────────────────────────────────────────────
+
+const EnContact = () => (
+  <section id="contact" className="py-20 bg-section-alt">
+    <div className="container mx-auto px-4 text-center max-w-2xl">
+      <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
+        <span className="text-gradient">Book</span>{" "}
+        <span className="text-foreground">an appointment</span>
+      </h2>
+      <p className="text-muted-foreground mb-10">
+        We respond in English — usually within a few hours on business days.
+      </p>
+      <div className="mb-10">
+        <a
+          href="https://wa.me/420734231444"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex justify-center items-center gap-3 px-10 py-4 rounded-full bg-accent text-accent-foreground font-semibold text-lg hover:opacity-90 transition-all hover:scale-105 shadow-md"
+        >
+          <WhatsAppIcon />
+          Message us on WhatsApp
+        </a>
+      </div>
+      <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm text-muted-foreground">
+        <a href="tel:+420734231444" className="hover:text-foreground transition-colors">
+          📞 +420 734 231 444
+        </a>
+        <a href="mailto:ducktorka@outlook.com" className="hover:text-foreground transition-colors">
+          ✉️ ducktorka@outlook.com
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── Footer ──────────────────────────────────────────────────────────────────
+
+const EnFooter = () => (
+  <footer className="bg-card border-t border-border/50 py-8">
+    <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+      <div className="flex items-center gap-2">
+        <DuckLogo className="w-6 h-6" />
+        <span className="font-heading font-semibold text-foreground">Ducktorka.cz</span>
+        <span>— MVDr. Kateřina Měchurová</span>
+      </div>
+      <div className="flex items-center gap-4">
+        <span>© {new Date().getFullYear()}</span>
+        <a href="/" className="hover:text-foreground transition-colors">
+          Česká verze
+        </a>
+      </div>
+    </div>
+  </footer>
+);
+
+// ─── Page ────────────────────────────────────────────────────────────────────
 
 const EnglishPage = () => (
   <>
@@ -349,7 +402,9 @@ const EnglishPage = () => (
       <EnServices />
       <EnCoverage />
       <EnPricing />
+      <EnContact />
     </main>
+    <EnFooter />
   </>
 );
 
