@@ -49,6 +49,14 @@ export const routes: RouteRecord[] = [
           locations.map((l) => `/vyjezdova-veterina/${l.pageSlug}/`),
       },
       {
+        path: "en",
+        lazy: async () => {
+          const { default: Component } = await import("./pages/EnglishPage");
+          return { Component };
+        },
+        getStaticPaths: () => ["/en/"],
+      },
+      {
         path: "*",
         lazy: async () => {
           const { default: Component } = await import("./pages/NotFound");

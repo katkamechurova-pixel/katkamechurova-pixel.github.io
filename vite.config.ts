@@ -27,6 +27,7 @@ const locationRoutes = [
 ];
 
 const dynamicRoutes = [
+  '/en/',
   ...serviceSlugs.map(s => `/sluzby/${s}/`),
   ...articleSlugs.map(a => `/clanky/${a}/`),
   ...locationRoutes,
