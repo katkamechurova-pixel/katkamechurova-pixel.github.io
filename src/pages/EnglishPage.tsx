@@ -113,6 +113,10 @@ const benefits: { Icon: LucideIcon; title: string; desc: string }[] = [
 const EnBenefits = () => (
   <section className="py-16 bg-section-alt">
     <div className="container mx-auto px-4">
+      <h2 className="text-2xl font-heading font-bold text-center mb-10">
+        <span className="text-gradient">Why</span>{" "}
+        <span className="text-foreground">a home visit?</span>
+      </h2>
       <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         {benefits.map((b) => (
           <div
