@@ -92,7 +92,105 @@ const EnHero = () => (
   </section>
 );
 
-// Remaining sections added in Tasks 3–6
+// ─── Benefits ────────────────────────────────────────────────────────────────
+
+const benefits: { Icon: LucideIcon; title: string; desc: string }[] = [
+  {
+    Icon: Home,
+    title: "No waiting room",
+    desc: "Your pet stays calm in the comfort of their own home.",
+  },
+  {
+    Icon: MessageCircle,
+    title: "Communication in English",
+    desc: "Full consultation and follow-up in English.",
+  },
+  {
+    Icon: Heart,
+    title: "Less stress for your pet",
+    desc: "Familiar surroundings mean better diagnostics and easier treatment.",
+  },
+];
+
+const EnBenefits = () => (
+  <section className="py-16 bg-section-alt">
+    <div className="container mx-auto px-4">
+      <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {benefits.map((b) => (
+          <div
+            key={b.title}
+            className="flex flex-col items-center text-center gap-3 p-6 bg-card rounded-2xl border border-border"
+          >
+            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+              <b.Icon className="w-6 h-6 text-accent" />
+            </div>
+            <h3 className="font-heading font-bold text-foreground">{b.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// ─── About ───────────────────────────────────────────────────────────────────
+
+const EnAbout = () => (
+  <section id="about" className="py-20">
+    <div className="container mx-auto px-4">
+      <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        <div className="relative">
+          <div className="rounded-3xl overflow-hidden shadow-lg aspect-[3/4] relative">
+            <img
+              src="/about-photo-1-md.webp"
+              alt="MVDr. Kateřina Měchurová"
+              className="w-full h-full object-cover absolute inset-0"
+              loading="lazy"
+            />
+          </div>
+          <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-pastel-pink-light opacity-60 -z-10" />
+          <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-pastel-turquoise-light opacity-60 -z-10" />
+        </div>
+        <div>
+          <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
+            <span className="text-gradient">About</span>{" "}
+            <span className="text-foreground">the vet</span>
+          </h2>
+          <p className="text-muted-foreground mb-4 leading-relaxed">
+            I'm{" "}
+            <strong className="text-foreground">MVDr. Kateřina Měchurová</strong>,
+            a veterinarian with a passion for animals and a belief that veterinary
+            care can be gentle and stress-free.
+          </p>
+          <p className="text-muted-foreground mb-6 leading-relaxed">
+            I graduated from the Veterinary University of Brno and gained
+            experience in both clinical and field practice. During my studies I
+            completed two internships in the USA — at the{" "}
+            <strong className="text-foreground">
+              Animal Wellness and Rehabilitation Center
+            </strong>{" "}
+            and the{" "}
+            <strong className="text-foreground">
+              Blackford Veterinary Referral Hospital
+            </strong>
+            , both in Tennessee. Witnessing how stressful vet visits can be for
+            animals inspired me to found Ducktorka.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold">
+              🇺🇸 Trained in Tennessee, USA
+            </span>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold">
+              🇬🇧 Speaks English
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// Remaining sections added in Tasks 4–6
 
 const EnglishPage = () => (
   <>
@@ -109,6 +207,8 @@ const EnglishPage = () => (
     <EnNavbar />
     <main>
       <EnHero />
+      <EnBenefits />
+      <EnAbout />
     </main>
   </>
 );
