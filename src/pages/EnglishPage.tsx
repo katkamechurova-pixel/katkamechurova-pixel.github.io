@@ -1,4 +1,5 @@
 import { Head } from "vite-react-ssg";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {
   Bug, Cpu, Droplets, HeartHandshake, HousePlus,
   MessageCircle, ScanLine, Scissors, Stethoscope, Syringe,
@@ -6,6 +7,7 @@ import {
 } from "lucide-react";
 import DuckLogo from "@/components/DuckLogo";
 import heroImageMd from "@/assets/hero-v11-md.webp";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FIXED_FEE, KILOMETER_FEE } from "@/data/constants";
 
 // WhatsApp SVG — same as used in Footer.tsx
