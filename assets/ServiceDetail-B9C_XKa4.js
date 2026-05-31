@@ -1,4 +1,4 @@
-import{s as p,u as d,j as e}from"./app-Bat-jWQ6.js";import{N as s}from"./Navbar-CCvNuw9e.js";import{F as r}from"./Footer-Bbnpy-SR.js";import{g as m}from"./serviceIcons-DZG9Cuwg.js";import{A as i}from"./arrow-left-pTCu-35u.js";import{H as c}from"./DuckLogo-CrtWc7Wr.js";import"./syringe-CRxazgeM.js";import"./message-circle-eiSYbRi-.js";const u=`<h1>Čipování psů a koček v pohodlí domova</h1>
+import{s as p,u as d,j as e}from"./app-BQIDj9W9.js";import{N as s}from"./Navbar-CY396enb.js";import{F as r}from"./Footer-4R38Seho.js";import{g as m}from"./serviceIcons-DoB2RSsq.js";import{A as i}from"./arrow-left-BtzS7Ffh.js";import{H as c}from"./DuckLogo-uW-DEaMQ.js";import"./syringe-DK5pRr6r.js";import"./message-circle-BFCbp6Y-.js";const u=`<h1>Čipování psů a koček v pohodlí domova</h1>
 <p>Hledáte rychlý a bezstresový způsob, jak splnit zákonnou povinnost nebo připravit mazlíčka na cestu do zahraničí? <strong>Čipování psa</strong> je od roku 2020 v České republice povinné. S výjezdovou veterinou Ducktorka proběhne celý proces v klidu vašeho domova, bez nutnosti cestování a čekání v přeplněných ordinacích.</p>
 <h2>Proč je čipování důležité?</h2>
 <ul>
