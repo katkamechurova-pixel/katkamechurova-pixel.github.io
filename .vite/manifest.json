@@ -1,6 +1,6 @@
 {
-  "_DuckLogo-B0JGIHKm.js": {
-    "file": "assets/DuckLogo-B0JGIHKm.js",
+  "_DuckLogo-BDQWcCLg.js": {
+    "file": "assets/DuckLogo-BDQWcCLg.js",
     "name": "DuckLogo",
     "imports": [
       "index.html"
@@ -10,101 +10,101 @@
       "assets/duck-watercolor-clean-md-B512qX_I.webp"
     ]
   },
-  "_Footer-DtDWkTKH.js": {
-    "file": "assets/Footer-DtDWkTKH.js",
+  "_Footer-D5h3w1AZ.js": {
+    "file": "assets/Footer-D5h3w1AZ.js",
     "name": "Footer",
     "imports": [
       "index.html",
-      "_DuckLogo-B0JGIHKm.js",
-      "_Navbar-d0I9UJl-.js"
+      "_DuckLogo-BDQWcCLg.js",
+      "_Navbar-Sq-c8Hof.js"
     ]
   },
-  "_Index-CpEEV5_h.js": {
-    "file": "assets/Index-CpEEV5_h.js",
+  "_Index-Dh6ZHgeG.js": {
+    "file": "assets/Index-Dh6ZHgeG.js",
     "name": "Index",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Navbar-d0I9UJl-.js",
-      "_hero-v11-md-Cdq_vGoe.js",
-      "_DuckLogo-B0JGIHKm.js",
-      "_serviceIcons-BCRjyiLA.js"
+      "_Navbar-Sq-c8Hof.js",
+      "_hero-v11-md-Bb23LofC.js",
+      "_DuckLogo-BDQWcCLg.js",
+      "_serviceIcons-BHWqGodT.js"
     ],
     "dynamicImports": [
       "src/components/ContactSection.tsx"
     ]
   },
-  "_Navbar-d0I9UJl-.js": {
-    "file": "assets/Navbar-d0I9UJl-.js",
+  "_Navbar-Sq-c8Hof.js": {
+    "file": "assets/Navbar-Sq-c8Hof.js",
     "name": "Navbar",
     "imports": [
-      "_DuckLogo-B0JGIHKm.js",
+      "_DuckLogo-BDQWcCLg.js",
       "index.html"
     ]
   },
-  "_arrow-left-CgD56EFs.js": {
-    "file": "assets/arrow-left-CgD56EFs.js",
+  "_arrow-left-DbVMrWIf.js": {
+    "file": "assets/arrow-left-DbVMrWIf.js",
     "name": "arrow-left",
     "imports": [
-      "_DuckLogo-B0JGIHKm.js"
+      "_DuckLogo-BDQWcCLg.js"
     ]
   },
-  "_client-R4bAWE3j.js": {
-    "file": "assets/client-R4bAWE3j.js",
+  "_client-BFdfSNoi.js": {
+    "file": "assets/client-BFdfSNoi.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
       "index.html"
     ]
   },
-  "_hero-v11-md-Cdq_vGoe.js": {
-    "file": "assets/hero-v11-md-Cdq_vGoe.js",
+  "_hero-v11-md-Bb23LofC.js": {
+    "file": "assets/hero-v11-md-Bb23LofC.js",
     "name": "hero-v11-md",
     "imports": [
-      "_DuckLogo-B0JGIHKm.js"
+      "_DuckLogo-BDQWcCLg.js"
     ],
     "assets": [
       "assets/hero-v11-md-CxlwL-VU.webp"
     ]
   },
-  "_leaflet-src-DD1jQ4U9.js": {
-    "file": "assets/leaflet-src-DD1jQ4U9.js",
+  "_leaflet-src-COCZ7TmI.js": {
+    "file": "assets/leaflet-src-COCZ7TmI.js",
     "name": "leaflet-src",
     "isDynamicEntry": true,
     "imports": [
       "index.html"
     ]
   },
-  "_message-circle-BdXXyHXX.js": {
-    "file": "assets/message-circle-BdXXyHXX.js",
+  "_message-circle-Di48iqL_.js": {
+    "file": "assets/message-circle-Di48iqL_.js",
     "name": "message-circle",
     "imports": [
-      "_DuckLogo-B0JGIHKm.js"
+      "_DuckLogo-BDQWcCLg.js"
     ]
   },
-  "_serviceIcons-BCRjyiLA.js": {
-    "file": "assets/serviceIcons-BCRjyiLA.js",
+  "_serviceIcons-BHWqGodT.js": {
+    "file": "assets/serviceIcons-BHWqGodT.js",
     "name": "serviceIcons",
     "imports": [
-      "_syringe-C57WNJrI.js",
-      "_message-circle-BdXXyHXX.js"
+      "_syringe-Blots1a2.js",
+      "_message-circle-Di48iqL_.js"
     ]
   },
-  "_syringe-C57WNJrI.js": {
-    "file": "assets/syringe-C57WNJrI.js",
+  "_syringe-Blots1a2.js": {
+    "file": "assets/syringe-Blots1a2.js",
     "name": "syringe",
     "imports": [
-      "_DuckLogo-B0JGIHKm.js"
+      "_DuckLogo-BDQWcCLg.js"
     ]
   },
   "index.html": {
-    "file": "assets/app-CrowuQgy.js",
+    "file": "assets/app-DqCF3l5S.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-R4bAWE3j.js",
-      "_Index-CpEEV5_h.js",
+      "_client-BFdfSNoi.js",
+      "_Index-Dh6ZHgeG.js",
       "src/pages/ServiceDetail.tsx",
       "src/pages/ArticleDetail.tsx",
       "src/pages/LocationHub.tsx",
@@ -151,81 +151,81 @@
     "src": "src/assets/hero-v11-md.webp"
   },
   "src/components/ContactSection.tsx": {
-    "file": "assets/ContactSection-C2aiYPQO.js",
+    "file": "assets/ContactSection-CwzxKEIT.js",
     "name": "ContactSection",
     "src": "src/components/ContactSection.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Navbar-d0I9UJl-.js",
-      "_message-circle-BdXXyHXX.js",
-      "_Index-CpEEV5_h.js",
-      "_DuckLogo-B0JGIHKm.js",
-      "_hero-v11-md-Cdq_vGoe.js",
-      "_serviceIcons-BCRjyiLA.js",
-      "_syringe-C57WNJrI.js"
+      "_Navbar-Sq-c8Hof.js",
+      "_message-circle-Di48iqL_.js",
+      "_Index-Dh6ZHgeG.js",
+      "_DuckLogo-BDQWcCLg.js",
+      "_hero-v11-md-Bb23LofC.js",
+      "_serviceIcons-BHWqGodT.js",
+      "_syringe-Blots1a2.js"
     ],
     "dynamicImports": [
-      "_leaflet-src-DD1jQ4U9.js",
+      "_leaflet-src-COCZ7TmI.js",
       "node_modules/leaflet/dist/images/marker-icon-2x.png",
       "node_modules/leaflet/dist/images/marker-icon.png",
       "node_modules/leaflet/dist/images/marker-shadow.png"
     ]
   },
   "src/pages/ArticleDetail.tsx": {
-    "file": "assets/ArticleDetail-CuAPiOWT.js",
+    "file": "assets/ArticleDetail-BqaNjRqy.js",
     "name": "ArticleDetail",
     "src": "src/pages/ArticleDetail.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Navbar-d0I9UJl-.js",
-      "_Footer-DtDWkTKH.js",
-      "_arrow-left-CgD56EFs.js",
-      "_DuckLogo-B0JGIHKm.js"
+      "_Navbar-Sq-c8Hof.js",
+      "_Footer-D5h3w1AZ.js",
+      "_arrow-left-DbVMrWIf.js",
+      "_DuckLogo-BDQWcCLg.js"
     ]
   },
   "src/pages/EnglishPage.tsx": {
-    "file": "assets/EnglishPage-B_FTLr7v.js",
+    "file": "assets/EnglishPage-CHxiopbu.js",
     "name": "EnglishPage",
     "src": "src/pages/EnglishPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_DuckLogo-B0JGIHKm.js",
-      "_hero-v11-md-Cdq_vGoe.js",
-      "_message-circle-BdXXyHXX.js",
-      "_syringe-C57WNJrI.js"
+      "_DuckLogo-BDQWcCLg.js",
+      "_hero-v11-md-Bb23LofC.js",
+      "_message-circle-Di48iqL_.js",
+      "_syringe-Blots1a2.js"
     ]
   },
   "src/pages/LocationDetail.tsx": {
-    "file": "assets/LocationDetail-DuHU4IiF.js",
+    "file": "assets/LocationDetail-DJYZdjvE.js",
     "name": "LocationDetail",
     "src": "src/pages/LocationDetail.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Navbar-d0I9UJl-.js",
-      "_Footer-DtDWkTKH.js",
-      "_arrow-left-CgD56EFs.js",
-      "_DuckLogo-B0JGIHKm.js",
-      "_message-circle-BdXXyHXX.js"
+      "_Navbar-Sq-c8Hof.js",
+      "_Footer-D5h3w1AZ.js",
+      "_arrow-left-DbVMrWIf.js",
+      "_DuckLogo-BDQWcCLg.js",
+      "_message-circle-Di48iqL_.js"
     ]
   },
   "src/pages/LocationHub.tsx": {
-    "file": "assets/LocationHub-BuEqZzO_.js",
+    "file": "assets/LocationHub-BlGjS2Yc.js",
     "name": "LocationHub",
     "src": "src/pages/LocationHub.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Navbar-d0I9UJl-.js",
-      "_Footer-DtDWkTKH.js",
-      "_DuckLogo-B0JGIHKm.js"
+      "_Navbar-Sq-c8Hof.js",
+      "_Footer-D5h3w1AZ.js",
+      "_DuckLogo-BDQWcCLg.js"
     ]
   },
   "src/pages/NotFound.tsx": {
-    "file": "assets/NotFound-C6THF9Ow.js",
+    "file": "assets/NotFound-cobMSOiP.js",
     "name": "NotFound",
     "src": "src/pages/NotFound.tsx",
     "isDynamicEntry": true,
@@ -234,19 +234,19 @@
     ]
   },
   "src/pages/ServiceDetail.tsx": {
-    "file": "assets/ServiceDetail-RSdel3uk.js",
+    "file": "assets/ServiceDetail-CIOzG2iE.js",
     "name": "ServiceDetail",
     "src": "src/pages/ServiceDetail.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Navbar-d0I9UJl-.js",
-      "_Footer-DtDWkTKH.js",
-      "_serviceIcons-BCRjyiLA.js",
-      "_arrow-left-CgD56EFs.js",
-      "_DuckLogo-B0JGIHKm.js",
-      "_syringe-C57WNJrI.js",
-      "_message-circle-BdXXyHXX.js"
+      "_Navbar-Sq-c8Hof.js",
+      "_Footer-D5h3w1AZ.js",
+      "_serviceIcons-BHWqGodT.js",
+      "_arrow-left-DbVMrWIf.js",
+      "_DuckLogo-BDQWcCLg.js",
+      "_syringe-Blots1a2.js",
+      "_message-circle-Di48iqL_.js"
     ]
   }
 }
