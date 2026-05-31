@@ -220,11 +220,11 @@ const LocationDetail = () => {
                   <Car className="w-5 h-5 text-pastel-turquoise mt-0.5 shrink-0" />
                   <div>
                     <p className="text-xs text-muted-foreground mb-0.5 uppercase tracking-wide font-semibold">
-                      Doprava (odhad)
+                      Doprava {location.distanceKm === 0 ? '' : '(odhad)'}
                     </p>
                     <p className="font-bold text-foreground">
                       {location.distanceKm === 0
-                        ? `${FIXED_FEE} Kč (bez km navíc)`
+                        ? <span>${FIXED_FEE} Kč<br/>(žádné km navíc)</span>
                         : `${transportCost} Kč`}
                     </p>
                     {location.distanceKm > 0 && (
