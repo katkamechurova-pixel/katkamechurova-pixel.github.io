@@ -1,4 +1,4 @@
-import{c as r,D as l}from"./DuckLogo-DRnaykTX.js";import{r as o,j as e}from"./app-DxuGdvz0.js";/**
+import{c as r,D as l}from"./DuckLogo-B0JGIHKm.js";import{r as o,j as e}from"./app-CrowuQgy.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
