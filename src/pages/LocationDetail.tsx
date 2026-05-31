@@ -224,7 +224,7 @@ const LocationDetail = () => {
                     </p>
                     <p className="font-bold text-foreground">
                       {location.distanceKm === 0
-                        ? "Zdarma"
+                        ? `${FIXED_FEE} Kč (bez km navíc)`
                         : `${transportCost} Kč`}
                     </p>
                     {location.distanceKm > 0 && (
@@ -262,8 +262,8 @@ const LocationDetail = () => {
               <p className="text-sm text-muted-foreground leading-relaxed mb-8">
                 {location.distanceKm === 0 ? (
                   <>
-                    Naše výjezdová základna se nachází přímo v Benešově, takže k vám dojedeme bez
-                    příplatku za vzdálenost. Platíte pouze základní poplatek za výjezd{" "}
+                    Naše výjezdová základna se nachází v Benešově a Praze 8, takže k vám dojedu bez
+                    příplatku za vzdálenost. 
                     <strong>{transportCost} Kč</strong>.
                   </>
                 ) : (
