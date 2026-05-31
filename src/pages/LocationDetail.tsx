@@ -224,7 +224,7 @@ const LocationDetail = () => {
                     </p>
                     <p className="font-bold text-foreground">
                       {location.distanceKm === 0
-                        ? <span>${FIXED_FEE} Kč<br/>(žádné km navíc)</span>
+                        ? <span>{FIXED_FEE} Kč<br/>(žádné km navíc)</span>
                         : `${transportCost} Kč`}
                     </p>
                     {location.distanceKm > 0 && (
