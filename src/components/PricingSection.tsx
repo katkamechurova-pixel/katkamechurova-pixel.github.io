@@ -14,7 +14,7 @@ const prices = [
 
 
   {
-    service: "Víkendový poplatek",
+    service: "Víkendový poplatek (pouze neobjednaní)",
     price: "500 Kč",
   },
   {
