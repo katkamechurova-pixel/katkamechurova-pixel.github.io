@@ -14,6 +14,14 @@ const prices = [
 
 
   {
+    service: "Víkendový poplatek",
+    price: "500 Kč",
+  },
+  {
+    service: "Noční poplatek (po 20:00, pouze neobjednaní)",
+    price: "600 Kč",
+  },
+  {
     service: "Výjezdový poplatek",
     price: `${FIXED_FEE} Kč + ${KILOMETER_FEE} Kč/km`,
     details: [
