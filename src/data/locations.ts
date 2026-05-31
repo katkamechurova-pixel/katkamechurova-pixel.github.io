@@ -489,7 +489,7 @@ export const locations: LocationData[] = [
     uniqueText: "Na Praze 7, ať už v Holešovicích nebo na Letné, je koncentrace domácích mazlíčků obrovská. Cesta na klasickou kliniku ale často znamená stres z městského ruchu, plné čekárny a složité řešení parkování v modrých zónách. Naše mobilní veterina přijede s plnou výbavou přímo k vám domů. Ošetření psa nebo kočky tak proběhne v naprostém klidu, bez narušení jejich pocitu bezpečí.",
     localTip: "Stromovka a Letná jsou kynologickým centrem Prahy. Kvůli extrémní koncentraci psů je zde však zvýšené riziko přenosu infekcí (např. psincového kašle) a parazitů. Doporučujeme důsledné dodržování očkovacího schématu a celoroční antiparazitární ochranu.",
     keywords: ["veterinář Praha 7", "veterina Holešovice", "výjezdová veterina Letná", "očkování psa Praha 7"],
-    distanceKm: 3,
+    distanceKm: 0,
     neighbors: ["praha-8"],
     subAreas: ["Holešovice", "Letná", "Bubny"],
     faq: [
@@ -521,7 +521,7 @@ export const locations: LocationData[] = [
     uniqueText: "Bydlení v činžovních domech na Žižkově nebo na Vinohradech má své kouzlo, ale snášet nemocného či staršího pejska po schodech nebo ho stresovat hlučnou městskou dopravou je náročné. Naše výjezdová ordinace přijede až před vaše dveře na Praze 3. Vyšetření, odběry krve nebo očkování vyřešíme přímo ve vašem obýváku, bez jakéhokoliv spěchu.",
     localTip: "Parky jako Parukářka nebo Vítkov jsou skvělé na venčení, ale členitý terén a městské prostředí s sebou nesou rizika drobných poranění tlapek či potkání divokých zvířat (např. ježků, kteří přenášejí blechy). Mějte antiparazitární ochranu vždy aktivní.",
     keywords: ["veterinář Praha 3", "veterina Žižkov", "výjezdová veterina Vinohrady", "ošetření psa Praha 3"],
-    distanceKm: 3,
+    distanceKm: 0,
     neighbors: ["praha-8"],
     subAreas: ["Žižkov", "Vinohrady", "Jarov"],
     faq: [
@@ -553,7 +553,7 @@ export const locations: LocationData[] = [
     uniqueText: "Bydlení v srdci Prahy 2 nabízí krásné prostředí, ale doprava nemocného mazlíčka na kliniku přes rušné ulice nebo shánění parkování v modrých zónách bývá pro majitele noční můrou. Naše mobilní ordinace přijede s veškerým potřebným vybavením přímo k vám domů. V klidu vašeho bytu na Vinohradech, Vyšehradě či Novém Městě vyřešíme vše od očkování až po odběry krve.",
     localTip: "Riegrovy sady a Grébovka jsou plné psů, což výrazně zvyšuje riziko šíření infekčních onemocnění (např. paratuberkulózy, psincového kašle) a přenosu blech. Pokud se svým psem navštěvujete tyto frekventované parky, dbejte na pravidelnou vakcinaci a spolehlivá, moderní antiparazitika.",
     keywords: ["veterinář Praha 2", "veterina Vinohrady", "výjezdová veterina Vyšehrad", "ošetření psa Praha 2"],
-    distanceKm: 6,
+    distanceKm: 0,
     neighbors: ["praha-3", "praha-8"],
     subAreas: ["Vinohrady", "Vyšehrad", "Nové Město", "Nusle"],
     faq: [
