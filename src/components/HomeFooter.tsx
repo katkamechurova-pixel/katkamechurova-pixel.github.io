@@ -1,5 +1,4 @@
-import { Instagram, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import DuckLogo from "@/components/DuckLogo";
 import { serviceSummaries } from "@/data/serviceSummaries";
 
@@ -56,13 +55,13 @@ const Footer = () => (
           <ul className="flex flex-col gap-2.5">
             {serviceSummaries.filter((s) => FOOTER_SERVICE_SLUGS.includes(s.slug)).map((service) => (
               <li key={service.slug}>
-                <Link
-                  to={`/sluzby/${service.slug}/`}
+                <a
+                  href={`/sluzby/${service.slug}/`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary transition-colors shrink-0" />
                   {service.title}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -74,22 +73,22 @@ const Footer = () => (
           <ul className="flex flex-col gap-2.5">
             {topLocations.map((loc) => (
               <li key={loc.slug}>
-                <Link
-                  to={`/vyjezdova-veterina/${loc.slug}/`}
+                <a
+                  href={`/vyjezdova-veterina/${loc.slug}/`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                 >
                   <MapPin className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity shrink-0" />
                   Veterina {loc.name}
-                </Link>
+                </a>
               </li>
             ))}
             <li className="mt-2 pt-2 border-t border-border/30 w-full flex justify-center md:justify-start">
-              <Link
-                to="/vyjezdova-veterina"
+              <a
+                href="/vyjezdova-veterina"
                 className="text-xs font-bold text-primary uppercase tracking-tight hover:underline flex items-center gap-1 group"
               >
                 Všechny lokality <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -112,15 +111,6 @@ const Footer = () => (
             </a>
           </div>
           <div className="flex items-center gap-3 mt-4">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-pastel-pink hover:bg-pastel-pink-light transition-all transform hover:scale-110"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
             <a
               href="https://wa.me/420734231444"
               target="_blank"

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 declare global {
   interface Window {
@@ -244,13 +243,13 @@ const ContactSection = () => {
                 <div>
                   <p className="font-semibold text-foreground">Oblast působnosti</p>
                   <p className="text-muted-foreground">Benešov, Praha, Říčany, Vlašim, Týnec n. S. a okolí.</p>
-                  <Link
-                    to="/vyjezdova-veterina"
+                  <a
+                    href="/vyjezdova-veterina"
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors group mt-1.5"
                   >
                     Detailní mapa a ceník výjezdů
                     <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">

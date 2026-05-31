@@ -15,9 +15,9 @@ const ServiceDetail = () => {
       <div className="min-h-screen flex flex-col items-center justify-center pt-24 pb-12">
         <Navbar />
         <h1 className="text-3xl font-bold mb-4">Služba nenalezena</h1>
-        <Link to="/" className="text-primary hover:underline flex items-center gap-2">
+        <a href="/" className="text-primary hover:underline flex items-center gap-2">
           <ArrowLeft className="w-4 h-4" /> Zpět na úvodní stránku
-        </Link>
+        </a>
         <Footer />
       </div>
     );
@@ -138,9 +138,9 @@ const ServiceDetail = () => {
         <div className="container mx-auto px-4 relative z-10">
 
           {/* Back link */}
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-12 uppercase tracking-wider text-sm font-semibold">
+          <a href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-12 uppercase tracking-wider text-sm font-semibold">
             <ArrowLeft className="w-4 h-4" /> Zpět na přehled
-          </Link>
+          </a>
 
           <article className="max-w-3xl mx-auto bg-card rounded-[2rem] p-8 md:p-14 shadow-sm border border-border relative overflow-hidden">
             {/* Visual background blob */}

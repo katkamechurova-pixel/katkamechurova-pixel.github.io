@@ -21,9 +21,9 @@ const ArticleDetail = () => {
       <div className="min-h-screen flex flex-col items-center justify-center pt-24 pb-12">
         <Navbar />
         <h1 className="text-3xl font-bold mb-4">Článek nenalezen</h1>
-        <Link to="/" className="text-primary hover:underline flex items-center gap-2">
+        <a href="/" className="text-primary hover:underline flex items-center gap-2">
           <ArrowLeft className="w-4 h-4" /> Zpět na úvodní stránku
-        </Link>
+        </a>
         <Footer />
       </div>
     );
@@ -96,9 +96,9 @@ const ArticleDetail = () => {
       <main className="min-h-screen pt-28 md:pt-36 pb-20">
         <div className="container mx-auto px-4 max-w-4xl">
 
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 uppercase tracking-wider text-sm font-semibold">
+          <a href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 uppercase tracking-wider text-sm font-semibold">
             <ArrowLeft className="w-4 h-4" /> Zpět
-          </Link>
+          </a>
 
           <article>
             <div className="mb-10 text-center">

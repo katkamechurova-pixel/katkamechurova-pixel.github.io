@@ -49,12 +49,12 @@ const LocationDetail = () => {
       <div className="min-h-screen flex flex-col items-center justify-center pt-24 pb-12">
         <Navbar />
         <h1 className="text-3xl font-bold mb-4">Lokalita nenalezena</h1>
-        <Link
-          to="/vyjezdova-veterina/"
+        <a
+          href="/vyjezdova-veterina/"
           className="text-primary hover:underline flex items-center gap-2"
         >
           <ArrowLeft className="w-4 h-4" /> Zpět na přehled lokalit
-        </Link>
+        </a>
         <Footer />
       </div>
     );
@@ -187,11 +187,11 @@ const LocationDetail = () => {
 
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
-            <Link to="/" className="hover:text-foreground transition-colors">Domů</Link>
+            <a href="/" className="hover:text-foreground transition-colors">Domů</a>
             <span>/</span>
-            <Link to="/vyjezdova-veterina/" className="hover:text-foreground transition-colors">
+            <a href="/vyjezdova-veterina/" className="hover:text-foreground transition-colors">
               Výjezdová veterina
-            </Link>
+            </a>
             <span>/</span>
             <span className="text-foreground font-medium">{location.name}</span>
           </div>
@@ -315,8 +315,8 @@ const LocationDetail = () => {
               <ul className="grid sm:grid-cols-2 gap-3">
                 {highlightedServices.map((service) => (
                   <li key={service.slug}>
-                    <Link
-                      to={`/sluzby/${service.slug}/`}
+                    <a
+                      href={`/sluzby/${service.slug}/`}
                       className="flex items-start gap-3 p-4 rounded-2xl bg-section-alt hover:bg-pastel-turquoise/10 transition-colors group"
                     >
                       <span className="w-2 h-2 rounded-full bg-pastel-turquoise mt-2 shrink-0 group-hover:scale-125 transition-transform" />
@@ -326,15 +326,15 @@ const LocationDetail = () => {
                           {service.shortDesc}
                         </p>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
               <p className="text-sm text-muted-foreground mt-4">
                 Všechny služby nabízíme přímo u vás doma v {location.name} a okolí.{" "}
-                <Link to="/#services" className="text-pastel-turquoise hover:underline">
+                <a href="/#services" className="text-pastel-turquoise hover:underline">
                   Zobrazit kompletní přehled služeb →
-                </Link>
+                </a>
               </p>
             </section>
 
@@ -364,13 +364,13 @@ const LocationDetail = () => {
                 {neighborLocations.length > 0 && (
                   <div className="flex flex-wrap gap-3">
                     {neighborLocations.map((neighbor) => (
-                      <Link
+                      <a
                         key={neighbor.slug}
-                        to={`/vyjezdova-veterina/${neighbor.pageSlug}/`}
+                        href={`/vyjezdova-veterina/${neighbor.pageSlug}/`}
                         className="px-4 py-2 rounded-full border border-border hover:border-pastel-turquoise hover:bg-pastel-turquoise/10 transition-colors text-sm font-medium"
                       >
                         {neighbor.name}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 )}
@@ -393,12 +393,12 @@ const LocationDetail = () => {
 
             {/* Back link */}
             <div className="pt-2">
-              <Link
-                to="/vyjezdova-veterina/"
+              <a
+                href="/vyjezdova-veterina/"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm font-semibold uppercase tracking-wider"
               >
                 <ArrowLeft className="w-4 h-4" /> Zpět na přehled lokalit
-              </Link>
+              </a>
             </div>
           </div>
         </div>

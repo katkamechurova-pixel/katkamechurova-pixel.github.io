@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { Head } from "vite-react-ssg";
-import { Clock, MapPin, ChevronRight } from "lucide-react";
+import {  ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { locations, calcTransport } from "@/data/locations";
@@ -51,7 +50,7 @@ const LocationHub = () => {
 
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-10">
-            <Link to="/" className="hover:text-foreground transition-colors">Domů</Link>
+            <a href="/" className="hover:text-foreground transition-colors">Domů</a>
             <span>/</span>
             <span className="text-foreground font-medium">Výjezdová veterina</span>
           </div>
@@ -74,9 +73,9 @@ const LocationHub = () => {
             {locations.map((loc) => {
               const cost = calcTransport(loc.distanceKm);
               return (
-                <Link
+                <a
                   key={loc.slug}
-                  to={`/vyjezdova-veterina/${loc.pageSlug}/`}
+                  href={`/vyjezdova-veterina/${loc.pageSlug}/`}
                   className="group bg-card border border-border rounded-[1.5rem] p-6 hover:border-pastel-turquoise hover:shadow-md transition-all relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-pastel-turquoise-light/30 to-transparent rounded-bl-full pointer-events-none" />
@@ -97,7 +96,7 @@ const LocationHub = () => {
                   <span className="inline-flex items-center gap-1 text-sm font-semibold text-pastel-turquoise group-hover:gap-2 transition-all">
                     Více informací <ChevronRight className="w-4 h-4" />
                   </span>
-                </Link>
+                </a>
               );
             })}
           </div>

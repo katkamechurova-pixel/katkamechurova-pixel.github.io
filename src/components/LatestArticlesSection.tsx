@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { articleSummaries } from "@/data/articleSummaries";
 import { ArrowRight } from "lucide-react";
 
@@ -30,8 +29,8 @@ const LatestArticlesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {recentArticles.map((article) => (
             <div key={article.slug} className="flex">
-              <Link
-                to={`/clanky/${article.slug}/`}
+              <a
+                href={`/clanky/${article.slug}/`}
                 className="flex flex-col bg-card rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-border w-full"
               >
                 <div className="h-56 relative overflow-hidden">
@@ -62,7 +61,7 @@ const LatestArticlesSection = () => {
                     Číst celý článek <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </Link>
+              </a>
             </div>
           ))}
         </div>
