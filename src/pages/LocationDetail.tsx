@@ -88,7 +88,7 @@ const LocationDetail = () => {
     description: location.metaDescription,
     url: pageUrl,
     image: "https://ducktorka.cz/og-image-1.jpg",
-    telephone: "+420608061996",
+    telephone: "+420734231444",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Nezvalova 989",
@@ -164,14 +164,14 @@ const LocationDetail = () => {
       <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-card/95 backdrop-blur border-t border-border shadow-lg">
         <div className="flex gap-2 p-3">
           <a
-            href="tel:+420608061996"
+            href="tel:+420734231444"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-pastel-turquoise text-white font-bold text-sm"
           >
             <Phone className="w-4 h-4" />
             Zavolat
           </a>
           <a
-            href="https://wa.me/420608061996"
+            href="https://wa.me/420734231444"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 py-3 rounded-full bg-accent text-accent-foreground font-bold text-sm"
@@ -288,14 +288,14 @@ const LocationDetail = () => {
                 </div>
                 <div className="flex gap-3 shrink-0">
                   <a
-                    href="tel:+420608061996"
+                    href="tel:+420734231444"
                     className="flex items-center gap-2 px-5 py-3 rounded-full bg-pastel-turquoise text-white font-bold hover:opacity-90 transition-all hover:scale-105 shadow-md"
                   >
                     <Phone className="w-4 h-4" />
                     Zavolat
                   </a>
                   <a
-                    href="https://wa.me/420608061996"
+                    href="https://wa.me/420734231444"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-5 py-3 rounded-full bg-accent text-accent-foreground font-bold hover:opacity-90 transition-all hover:scale-105 shadow-md"

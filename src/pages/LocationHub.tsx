@@ -112,7 +112,7 @@ const LocationHub = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="tel:+420608061996"
+                href="tel:+420734231444"
                 className="px-8 py-3 rounded-full bg-pastel-turquoise text-white font-bold hover:opacity-90 transition-all hover:scale-105 shadow-md"
               >
                 Zavolat
