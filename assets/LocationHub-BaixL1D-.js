@@ -1,4 +1,4 @@
-import{j as e,L as o,l as s,c as n}from"./app-CF-2o2IE.js";import{N as i}from"./Navbar-D6bIKeg4.js";import{F as l}from"./Footer-C2Ukl_VJ.js";import{c as d,H as c}from"./DuckLogo-BXL5Zdz1.js";/**
+import{j as e,L as o,l as s,c as n}from"./app-9YSGEbN5.js";import{N as i}from"./Navbar-DxESzF0f.js";import{F as l}from"./Footer-Bxrx9Mlm.js";import{c as d,H as c}from"./DuckLogo-0ue8uFE6.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
