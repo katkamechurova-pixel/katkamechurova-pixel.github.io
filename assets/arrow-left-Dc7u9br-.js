@@ -1,4 +1,4 @@
-import{c as e}from"./DuckLogo-HEV0_-nQ.js";/**
+import{c as e}from"./DuckLogo-CZeBuxWC.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
