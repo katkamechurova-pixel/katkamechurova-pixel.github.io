@@ -261,7 +261,7 @@ const ContactSection = () => {
                   <p className="text-muted-foreground">Středa: dle dohody</p>
                   <p className="text-muted-foreground">Čtvrtek: dle dohody</p>
                   <p className="text-muted-foreground">Pátek: dle dohody</p>
-                  <p className="text-muted-foreground">Sobota: 9:00–13:00</p>
+                  <p className="text-muted-foreground">Sobota a neděle: zavřeno</p>
                   <p className="text-muted-foreground text-sm">Po domluvě i mimo provozní dobu.</p>
                 </div>
               </div>

@@ -89,12 +89,6 @@ const Index = () => {
                 "dayOfWeek": ["Monday", "Tuesday"],
                 "opens": "08:00",
                 "closes": "20:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "09:00",
-                "closes": "13:00"
               }
             ],
             publicAccess: false

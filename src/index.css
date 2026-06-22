@@ -206,7 +206,8 @@
     @apply mt-8 mb-4 font-heading text-lg font-semibold text-foreground;
   }
 
-  .rich-content img {
+  .rich-content img,
+  .rich-content video {
     @apply my-8 rounded-2xl shadow-sm;
   }
 
