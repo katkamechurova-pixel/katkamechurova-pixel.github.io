@@ -91,9 +91,9 @@ No map component (adds complexity, not needed for a focused page).
 
 ### 7. Pricing
 Simple card layout:
-- **Base visit fee:** 350 CZK (~14 EUR)
-- **Travel:** 18 CZK/km from Benešov
-- **Prague note:** Prague districts have a minimal travel surcharge (Praha 7: ~126 CZK, Praha 2: ~162 CZK)
+- **Base visit fee:** 420 CZK (~17 EUR)
+- **Travel:** 20 CZK/km from the nearest base in Benešov or Prague – Invalidovna
+- **Prague note:** Prague districts have a minimal travel surcharge (Praha 7: ~140 CZK, Praha 2: ~180 CZK)
 - Call to action: "Exact travel fee confirmed at booking"
 
 ### 8. Contact / Book
