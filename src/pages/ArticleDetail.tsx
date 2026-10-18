@@ -96,6 +96,11 @@ const ArticleDetail = () => {
 
           <article>
             <div className="mb-10 text-center">
+              {article.category && (
+                <p className="inline-flex items-center rounded-full border border-primary/20 bg-pastel-turquoise-light px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-primary mb-5">
+                  {article.category}
+                </p>
+              )}
               <div className="flex justify-center items-center gap-2 text-pastel-turquoise font-semibold text-sm mb-6">
                 <CalendarIcon />
                 <span>{article.date}</span>
@@ -108,14 +113,41 @@ const ArticleDetail = () => {
               </p>
             </div>
 
-            <div className="w-full aspect-[21/9] md:aspect-[3/1] bg-muted rounded-[2rem] overflow-hidden shadow-lg mb-16 relative">
-              <div className="absolute inset-0 bg-black/10 z-10" />
-              <img
-                src={article.imageUrl}
-                alt={article.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <figure className={`${article.category ? "mx-auto max-w-3xl" : "w-full"} mb-14`}>
+              <div className={`w-full ${article.category ? "aspect-[4/3]" : "aspect-[21/9] md:aspect-[3/1]"} bg-muted rounded-[2rem] overflow-hidden shadow-lg relative`}>
+                <div className={`absolute inset-0 z-10 ${article.category ? "bg-transparent" : "bg-black/10"}`} />
+                <img
+                  src={article.imageUrl}
+                  alt={article.imageAlt ?? article.title}
+                  className={`w-full h-full ${article.category ? "object-contain" : "object-cover"}`}
+                />
+              </div>
+              {article.imageCaption && (
+                <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                  {article.imageCaption}
+                </figcaption>
+              )}
+            </figure>
+
+            {article.caseFacts && (
+              <section aria-label="O případu na první pohled" className="mx-auto mb-14 max-w-3xl">
+                <p className="mb-3 text-center text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                  Co se tehdy dělo
+                </p>
+                <dl className="grid gap-3 sm:grid-cols-3">
+                  {article.caseFacts.map((fact) => (
+                    <div key={fact.label} className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                      <dt className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
+                        {fact.label}
+                      </dt>
+                      <dd className="mt-2 text-sm font-semibold leading-relaxed text-foreground">
+                        {fact.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
 
             <div className="rich-content max-w-3xl mx-auto" dangerouslySetInnerHTML={{ __html: article.html }} />
 
