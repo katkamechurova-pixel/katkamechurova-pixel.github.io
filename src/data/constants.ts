@@ -1,2 +1,1 @@
-export const FIXED_FEE = 420;
-export const KILOMETER_FEE = 20;
+export { FIXED_FEE, KILOMETER_FEE } from "./pricing";

@@ -10,7 +10,7 @@ const HeroSection = () => {
         alt=""
         className="absolute inset-0 w-full h-full object-cover object-[center_top_20%] md:object-bottom"
         loading="eager"
-        fetchpriority="high"
+          fetchPriority="high"
       />
       
       {/* Light/Dark Overlays for Text Readability */}
@@ -31,7 +31,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-foreground/80 mb-8 font-light max-w-xl">
-            Profesionální veterinární péče bez stresu z&nbsp;čekárny
+            Bez cesty a čekárny. S důrazem na klid a šetrné zacházení.
           </p>
           
           <p className="text-xl md:text-2xl font-heading font-bold text-foreground/90 mb-8">

@@ -1,38 +1,31 @@
-import { FIXED_FEE, KILOMETER_FEE } from "../data/constants";
+import { ADDITIONAL_FEES, SERVICE_CATEGORIES, FIXED_FEE, getFreeKilometreAreas, KILOMETER_FEE, formatCzk, getPublishedPrice, PRICING_VARIABILITY_NOTICE } from "@/data/pricing";
 
-const prices = [
-  { service: "Preventivní prohlídka", price: "od 500 Kč" },
-  { service: "Vakcinace", price: "od 600 Kč" },
-  { service: "Antiparazitární ochrana", price: "od 150 Kč" },
-  { service: "Čipování", price: "od 800 Kč" },
-  { service: "Odběr krve + laboratorní vyšetření", price: "od 800 Kč" },
-  { service: "Ošetření drobného poranění", price: "od 500 Kč" },
-  { service: "Konzultace zdravotního stavu", price: "od 400 Kč" },
-  { service: "Eutanazie v domácím prostředí", price: "od 1 500 Kč" },
-  { service: "Kastrace", price: "kocour od 1000 Kč, kočka od 1400 Kč" },
-  { service: "Paliativní péče", price: "individuálně" },
+const priceRows = SERVICE_CATEGORIES.map((entry) => {
+  const price = getPublishedPrice(entry);
+  return {
+    service: entry.labelCs,
+    price: price === null
+      ? "individuálně"
+      : `${entry.priceBasis === "from" ? "od " : ""}${formatCzk(price)}`,
+    details: entry.offeredAtHome ? undefined : ["Ošetření probíhá v ordinaci v Benešově."],
+  };
+});
 
+priceRows.push(...ADDITIONAL_FEES.map((fee) => ({
+  service: fee.labelCs,
+  price: formatCzk(fee.priceCzk),
+  details: undefined,
+})), {
+  service: "Výjezdový poplatek",
+  price: `${formatCzk(FIXED_FEE)} + ${formatCzk(KILOMETER_FEE)}/km/směr`,
+  details: [
+    "Startovní poplatek platí pro všechny výjezdy.",
+    "Základny jsou Praha 8 (Invalidovna) a Benešov. V " + getFreeKilometreAreas("cs") + " se účtuje 0 km; startovní poplatek platí vždy.",
+    "Jinde se podle Google Maps určí jednosměrná vzdálenost od bližší základny; účtuje se za cestu tam i zpět, tedy " + KILOMETER_FEE + " Kč/km v každém směru.",
+  ],
+});
 
-  {
-    service: "Víkendový poplatek (pouze neobjednaní)",
-    price: "500 Kč",
-  },
-  {
-    service: "Noční poplatek (po 20:00, pouze neobjednaní)",
-    price: "600 Kč",
-  },
-  {
-    service: "Výjezdový poplatek",
-    price: `${FIXED_FEE} Kč + ${KILOMETER_FEE} Kč/km/směr`,
-    details: [
-      "Kilometry jsou účtovány od výchozího místa, které je k Vám blíže.",
-      "Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna. ",
-      "Vzdálenost se vždy počítá od té z těchto lokalit, která je k místu výjezdu nejbližší.",
-      "Počet kilometrů je stanoven podle navigace Google Maps.",
-      "Jednosměrná vzdálenost se účtuje za cestu tam i zpět sazbou " + KILOMETER_FEE + " Kč za kilometr v každém směru.",
-    ],
-  },
-];
+const prices = priceRows;
 
 const PricingSection = () => (
   <section id="pricing" className="py-20">
@@ -41,7 +34,7 @@ const PricingSection = () => (
         <span className="text-gradient">Ceník</span> služeb
       </h2>
       <p className="text-center text-muted-foreground mb-10 text-sm">
-        Ceny jsou orientační a mohou se lišit dle náročnosti ošetření, použitého materiálu a typu léčiv. Pro přesnou cenu mě kontaktujte telefonicky, případně na email.
+        {PRICING_VARIABILITY_NOTICE.cs}
       </p>
 
       <div className="bg-card rounded-2xl shadow-sm overflow-hidden">
@@ -65,6 +58,11 @@ const PricingSection = () => (
           </div>
         ))}
       </div>
+      <p className="mt-6 text-center text-sm text-muted-foreground">
+        <a href="/cenik/" className="font-semibold text-pastel-green hover:underline">Podrobný ceník a kalkulačka návštěvy →</a>
+        <span className="mx-3" aria-hidden="true">·</span>
+        <a href="/co-osetrime-doma/" className="font-semibold text-pastel-green hover:underline">Co lze ošetřit doma? →</a>
+      </p>
     </div>
   </section>
 );

@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import { locations, calcTransport } from "@/data/locations";
 import { serviceSummaries } from "@/data/serviceSummaries";
 import { FIXED_FEE, KILOMETER_FEE } from "@/data/constants";
+import { TRAVEL_POLICY } from "@/data/pricing";
+import { breadcrumbSchema, practiceReference, withPracticeGraph } from "@/data/structuredData";
 
 const FaqItem = ({ question, answer }: { question: string; answer: string }) => {
   const [open, setOpen] = useState(false);
@@ -60,7 +62,9 @@ const LocationDetail = () => {
     );
   }
 
-  const transportCost = calcTransport(location.distanceKm);
+  const transportCost = location.distanceKm === null
+    ? null
+    : calcTransport(location.distanceKm);
   const pageUrl = `https://ducktorka.cz/vyjezdova-veterina/${location.pageSlug}/`;
 
   const neighborLocations = location.neighbors
@@ -74,6 +78,9 @@ const LocationDetail = () => {
   const faqSchema = location.faq && location.faq.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    inLanguage: "cs-CZ",
     "mainEntity": location.faq.map((item) => ({
       "@type": "Question",
       "name": item.question,
@@ -81,50 +88,35 @@ const LocationDetail = () => {
     })),
   } : null;
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "VeterinaryCare",
-    name: `Výjezdová veterinářka ${location.name} – MVDr. Kateřina Měchurová`,
-    description: location.metaDescription,
-    url: pageUrl,
-    image: "https://ducktorka.cz/og-image-1.jpg",
-    telephone: "+420734231444",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Nezvalova 989",
-      addressLocality: "Benešov",
-      postalCode: "25601",
-      addressCountry: "CZ",
+  const serviceId = `${pageUrl}#service`;
+  const schema = withPracticeGraph(
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      name: location.seoTitle,
+      description: location.metaDescription,
+      url: pageUrl,
+      inLanguage: "cs-CZ",
+      about: practiceReference,
+      mainEntity: { "@id": serviceId },
     },
-    areaServed: {
-      "@type": "City",
-      name: location.name,
-      addressCountry: "CZ",
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Veterinární služby domů",
-      itemListElement: highlightedServices.map((s, i) => ({
-        "@type": "Offer",
-        position: i + 1,
-        itemOffered: {
-          "@type": "Service",
-          name: s.title,
-          description: s.shortDesc,
-          url: `https://ducktorka.cz/sluzby/${s.slug}/`,
-        },
-      })),
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday"],
-        opens: "08:00",
-        closes: "20:00",
+    {
+      "@type": "Service",
+      "@id": serviceId,
+      name: `Výjezdová veterinární péče v lokalitě ${location.name}`,
+      description: location.metaDescription,
+      provider: practiceReference,
+      areaServed: {
+        "@type": "Place",
+        name: location.name,
       },
-    ],
-    publicAccess: false,
-  };
+    },
+    breadcrumbSchema(pageUrl, [
+      { name: "Domů", url: "https://ducktorka.cz/" },
+      { name: "Výjezdová veterina", url: "https://ducktorka.cz/vyjezdova-veterina/" },
+      { name: location.name, url: pageUrl },
+    ]),
+  );
 
   return (
     <>
@@ -218,12 +210,14 @@ const LocationDetail = () => {
                     </p>
                     <p className="font-bold text-foreground">
                       {location.distanceKm === 0
-                        ? <span>{FIXED_FEE} Kč<br/>(žádné km navíc)</span>
-                        : `${transportCost} Kč`}
+                        ? <span>{FIXED_FEE} Kč<br/>(0 km navíc)</span>
+                        : location.distanceKm === null
+                          ? <span>od {FIXED_FEE} Kč<br/>(km dle adresy)</span>
+                          : `${transportCost} Kč`}
                     </p>
-                    {location.distanceKm > 0 && (
+                    {location.distanceKm !== null && location.distanceKm > 0 && (
                       <p className="text-xs text-muted-foreground">
-                        {FIXED_FEE} + {location.distanceKm} km × 2 × {KILOMETER_FEE} Kč/km (tam i zpět)
+                        {FIXED_FEE} + {location.distanceKm} km × {TRAVEL_POLICY.chargedDirectionsPerVisit} × {KILOMETER_FEE} Kč/km/směr
                       </p>
                     )}
                   </div>
@@ -256,18 +250,33 @@ const LocationDetail = () => {
               <p className="text-sm text-muted-foreground leading-relaxed mb-8">
                 {location.distanceKm === 0 ? (
                   <>
-                    Naše výjezdová základna se nachází v Benešově a Praze 8, takže k vám dojedu bez
-                    příplatku za vzdálenost. 
-                    <strong>{transportCost} Kč</strong>.
+                    V této lokalitě se neúčtují kilometry ani za cestu tam, ani zpět; platí se startovní poplatek
+                    <strong> {FIXED_FEE} Kč</strong>.
+                    Ošetření se účtuje zvlášť.
+                  </>
+                ) : location.distanceKm === null ? (
+                  <>
+                    Cena výjezdu do {location.name} se skládá ze startovního poplatku{" "}
+                    <strong>{FIXED_FEE} Kč</strong> a dopravy{" "}
+                    jednosměrné vzdálenosti podle Google Maps od bližší základny v Benešově nebo Praze 8.
+                    Účtuje se cesta tam i zpět: <strong>{KILOMETER_FEE} Kč za kilometr v každém směru</strong>.
+                    Přesnou vzdálenost a cenu potvrdíme podle adresy; cena ošetření se účtuje zvlášť.
                   </>
                 ) : (
                   <>
-                    Cena dopravy k vám vychází na{" "}
-                    <strong>{transportCost} Kč</strong> (fixní poplatek {FIXED_FEE} Kč +{" "}
-                    {location.distanceKm} km × 2 × {KILOMETER_FEE} Kč/km za cestu tam i zpět). Parkujeme přímo před vaším domem, takže
+                    Orientační výjezdový poplatek k vám vychází na{" "}
+                    <strong>{transportCost} Kč</strong> (startovní poplatek {FIXED_FEE} Kč +{" "}
+                    {location.distanceKm} km × {TRAVEL_POLICY.chargedDirectionsPerVisit} × {KILOMETER_FEE} Kč/km/směr). Jednosměrnou vzdálenost účtujeme tam i zpět. Parkujeme přímo před vaším domem, takže
                     veškeré vybavení včetně přenosného sonografu přineseme až k vašemu mazlíčkovi.
+                    Cena ošetření se účtuje zvlášť.
                   </>
                 )}
+              </p>
+
+              <p className="mb-8 text-sm">
+                <a href="/cenik/" className="text-pastel-turquoise hover:underline">
+                  Zobrazit ceník a spočítat orientační cenu návštěvy →
+                </a>
               </p>
 
               {/* CTA */}
@@ -328,6 +337,10 @@ const LocationDetail = () => {
                 Všechny služby nabízíme přímo u vás doma v {location.name} a okolí.{" "}
                 <a href="/#services" className="text-pastel-turquoise hover:underline">
                   Zobrazit kompletní přehled služeb →
+                </a>
+                {" "}
+                <a href="/co-osetrime-doma/" className="text-pastel-turquoise hover:underline">
+                  Co lze ošetřit doma? →
                 </a>
               </p>
             </section>
