@@ -6,7 +6,7 @@ const navItems = [
   { label: "Úvod", href: "/#hero" },
   { label: "O mně", href: "/#about" },
   { label: "Služby", href: "/#services" },
-  { label: "Ceník", href: "/#pricing" },
+  { label: "Ceník", href: "/cenik/" },
   { label: "Kontakt", href: "/#contact" },
 ];
 
@@ -37,7 +37,7 @@ const Navbar = () => {
               href="/#contact"
               className="inline-block px-5 py-2 rounded-full bg-accent text-accent-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
             >
-              Objednat návštěvu
+              Domluvit návštěvu
             </a>
           </li>
         </ul>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className="inline-block px-5 py-2 rounded-full bg-accent text-accent-foreground font-semibold text-sm"
               >
-                Objednat návštěvu
+                Domluvit návštěvu
               </a>
             </li>
           </ul>

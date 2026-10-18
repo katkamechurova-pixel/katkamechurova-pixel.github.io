@@ -28,6 +28,12 @@ const locationRoutes = [
 
 const dynamicRoutes = [
   '/en/',
+  '/en/pricing/',
+  '/cenik/',
+  '/co-osetrime-doma/',
+  '/casto-kladene-dotazy/',
+  '/veterinar-pro-bazlive-kocky/',
+  '/veterinar-pro-seniory/',
   ...serviceSlugs.map(s => `/sluzby/${s}/`),
   ...articleSlugs.map(a => `/clanky/${a}/`),
   ...locationRoutes,
