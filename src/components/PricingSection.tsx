@@ -23,12 +23,13 @@ const prices = [
   },
   {
     service: "Výjezdový poplatek",
-    price: `${FIXED_FEE} Kč + ${KILOMETER_FEE} Kč/km`,
+    price: `${FIXED_FEE} Kč + ${KILOMETER_FEE} Kč/km/směr`,
     details: [
       "Kilometry jsou účtovány od výchozího místa, které je k Vám blíže.",
       "Výjezdy probíhají ze dvou lokalit: Benešov u Prahy a Praha – Invalidovna. ",
       "Vzdálenost se vždy počítá od té z těchto lokalit, která je k místu výjezdu nejbližší.",
       "Počet kilometrů je stanoven podle navigace Google Maps.",
+      "Jednosměrná vzdálenost se účtuje za cestu tam i zpět sazbou " + KILOMETER_FEE + " Kč za kilometr v každém směru.",
     ],
   },
 ];

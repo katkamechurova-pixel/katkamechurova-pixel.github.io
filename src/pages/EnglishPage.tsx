@@ -287,7 +287,7 @@ const EnCoverage = () => (
 // ─── Pricing ─────────────────────────────────────────────────────────────────
 
 const EnPricing = () => {
-  const pragueEstimate = FIXED_FEE + 9 * KILOMETER_FEE; // Praha 4 example (~9 km)
+  const pragueEstimate = FIXED_FEE + 9 * 2 * KILOMETER_FEE; // one-way distance charged there and back
   return (
     <section id="pricing" className="py-20">
       <div className="container mx-auto px-4 max-w-2xl text-center">
@@ -307,15 +307,15 @@ const EnPricing = () => {
           <div className="flex justify-between items-center pb-5 border-b border-border">
             <div>
               <p className="font-heading font-bold text-foreground">Travel fee</p>
-              <p className="text-sm text-muted-foreground">Per kilometre from Prague 8</p>
+              <p className="text-sm text-muted-foreground">Per kilometre in each direction from Prague 8</p>
             </div>
-            <span className="font-heading font-bold text-xl text-foreground">{KILOMETER_FEE} CZK/km</span>
+            <span className="font-heading font-bold text-xl text-foreground">{KILOMETER_FEE} CZK/km/direction</span>
           </div>
           <div className="flex justify-between items-center">
             <div>
               <p className="font-heading font-bold text-foreground">Prague visit (example)</p>
               <p className="text-sm text-muted-foreground">
-                Praha 4 — {FIXED_FEE} + 9&thinsp;&times;&thinsp;{KILOMETER_FEE} CZK
+                Praha 4 — {FIXED_FEE} + 9&thinsp;&times;&thinsp;2&thinsp;&times;&thinsp;{KILOMETER_FEE} CZK
               </p>
             </div>
             <span className="font-heading font-bold text-xl text-accent">~{pragueEstimate} CZK</span>

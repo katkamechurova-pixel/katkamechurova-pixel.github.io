@@ -19,6 +19,7 @@ export interface LocationData {
   uniqueText: string;
   localTip: string;
   keywords: string[];
+  /** One-way kilometres from Prague 8 – Invalidovna; Benešov is the sole 0 km area. */
   distanceKm: number;
   neighbors: string[];
   subAreas?: string[];
@@ -26,7 +27,7 @@ export interface LocationData {
 }
 
 export function calcTransport(distanceKm: number): number {
-  return FIXED_FEE + distanceKm * KILOMETER_FEE;
+  return FIXED_FEE + distanceKm * 2 * KILOMETER_FEE;
 }
 
 export const locations: LocationData[] = [
@@ -44,7 +45,7 @@ export const locations: LocationData[] = [
     uniqueText: "Říčany jsou rájem pejskařů, ale také místem se zvýšeným výskytem klíšťat. Aby byl váš pes v bezpečí i na procházkách v okolí Jurečku, zajistíme pravidelnou vakcinaci (např. moderními vakcínami Nobivac) v klidu vašeho domova. Nemusíte stresovat zvíře převozem na kliniku – ordinace přijede za vámi.",
     localTip: "Říčany jsou obklopeny lesy a rybníky. Při výjezdech zde nejčastěji řešíme prevenci proti parazitům, kteří se v místní zeleni aktivně vyskytují – zejména od jara do podzimu. Nečekejte na první přisáté klíště.",
     keywords: ["očkování psů Říčany", "vakcinace koček Říčany", "veterinář Říčany"],
-    distanceKm: 29,
+    distanceKm: 28,
     neighbors: ["jesenice", "pruhonice", "strancice", "mnichovice"],
     subAreas: ["Radošovice", "Pacov u Říčan", "Kuří", "Strašín"],
     faq: [
@@ -76,7 +77,7 @@ export const locations: LocationData[] = [
     uniqueText: "V Jesenici u Prahy se rychle rozrůstají nové rezidenční čtvrti plné rodin se zvířaty. Nabízíme rychlou veterinární pomoc a preventivní prohlídky bez stresu z plných čekáren. Jde o ideální volbu pro majitele štěňat, kteří chtějí, aby si jejich mazlíček na lékaře zvykl v bezpečném domácím prostředí.",
     localTip: "V rychle se rozvíjející Jesenici přibývá nových majitelů štěňat. Doporučujeme naše socializační prohlídky u vás doma – štěně si spojí vyšetření s bezpečím svého pelíšku a vyhne se celoživotnímu traumatu z ordinace.",
     keywords: ["veterinář Jesenice", "mobilní ošetření Jesenice", "veterina Jesenice"],
-    distanceKm: 34,
+    distanceKm: 28,
     neighbors: ["ricany", "pruhonice", "dolni-brezany", "cernosice"],
   },
   {
@@ -125,7 +126,7 @@ export const locations: LocationData[] = [
     uniqueText: "Černošice jsou lokalitou, kde klienti oceňují především diskrétnost, individuální přístup a úsporu času. Naše plně vybavená mobilní veterina přijede přímo před váš dům – bez anonymní čekárny, bez stresu z přepravy mazlíčka a bez ztráty drahocenného času. Obsluhujeme celé Černošice a blízké okolí včetně přírody CHKO Český kras.",
     localTip: "V blízkosti CHKO Český kras a řeky Berounky je příroda nádherná, ale pro psy plná nástrah. Antiparazitární ochrana je zde nutností celoročně. Jsme dostupní rychle z Jesenice i Dolních Břežan – zavolejte a domluvíme výjezd přímo k vám.",
     keywords: ["výjezdová veterina Černošice", "veterinář Černošice", "mobilní veterina Černošice", "ošetření psa Černošice"],
-    distanceKm: 52,
+    distanceKm: 27,
     neighbors: ["jesenice", "dolni-brezany", "mnisek-pod-brdy", "pruhonice"],
     subAreas: ["Dobřichovice", "Všenory", "Řevnice", "Mokropsy"],
     faq: [
@@ -157,7 +158,7 @@ export const locations: LocationData[] = [
     uniqueText: "V Mnichovicích a okolí zakládáme naši praxi na osobním a rodinném přístupu ke každému zvířeti. Klidné prostředí vašeho obývacího pokoje či zahrady je absolutně ideální pro ošetření úzkostných nebo nemocných mazlíčků, kteří cestu k veterináři špatně snášejí.",
     localTip: "Mnichovice leží v krásné přírodě nedaleko zámku Berchtold. Při našich výjezdech do této oblasti často řešíme prevenci proti klíšťatům. Nepodceňujte sezónní ochranu, zvláště pokud váš pes tráví hodně času na zahradě nebo v lese.",
     keywords: ["veterinář Mnichovice", "veterina Mnichovice", "preventivní péče pes Mnichovice"],
-    distanceKm: 21,
+    distanceKm: 20,
     neighbors: ["ricany", "senohraby", "strancice", "kamenice"],
   },
   {
@@ -174,7 +175,7 @@ export const locations: LocationData[] = [
     uniqueText: "V Průhonicích spolehlivě zajistíme odborné čipování i vystavení mezinárodního cestovního pasu pro vašeho mazlíčka. Vše proběhne rychle, bez čekání a zbytečného stresu pro zvíře. Tuto zákonnou povinnost můžete vyřešit v klidu u kávy ve vlastním obýváku.",
     localTip: "Ačkoliv je Průhonický park pro psy uzavřen, okolní trasy a Botič jsou velmi oblíbené. Připomínáme, že čipování psů je zákonnou povinností – rádi ho provedeme u vás doma rychle a s maximálním ohledem na zvíře.",
     keywords: ["čipování psů Průhonice", "pas pro psa Průhonice", "veterinář Průhonice"],
-    distanceKm: 33,
+    distanceKm: 20,
     neighbors: ["ricany", "jesenice", "dolni-brezany", "cernosice"],
   },
   {
@@ -191,7 +192,7 @@ export const locations: LocationData[] = [
     uniqueText: "Jílové u Prahy a krásné údolí Posázaví jsou vyhledávanou destinací pejskařů, turistů i chalupářů z celé Prahy. Z naší základny v Benešově dorazíme do Jílového přibližně za 25 minut. Ošetříme drobná poranění z terénu, zajistíme prevenci před parazity i pravidelné kontroly – u vás doma nebo přímo na chalupě. S plnou výbavou přijedeme tam, kde právě jste.",
     localTip: "Oblast Posázaví a zlatodolů je skvělá pro outdoor s pejsky, ale členitý terén zvyšuje riziko poranění tlapek, uší a očí. Z Benešova k vám dorazíme do 30 minut – v případě zranění nebo akutní potřeby neváhejte zavolat, přijíždíme rychle.",
     keywords: ["výjezdová veterina Jílové u Prahy", "veterinář Jílové u Prahy", "mobilní vet Jílové", "ošetření psa Posázaví"],
-    distanceKm: 24,
+    distanceKm: 23,
     neighbors: ["sazava", "tynec-nad-sazavou", "dolni-brezany"],
     subAreas: ["Kamenný Přívoz", "Hradišťko", "Luka pod Medníkem", "Klínec"],
     faq: [
@@ -223,7 +224,7 @@ export const locations: LocationData[] = [
     uniqueText: "Obyvatelům Vlašimi a okolí nabízíme kompletní veterinární služby s výjezdem. Výrazně se zaměřujeme na bezstresové ošetření koček, pro které je narušení teritoria a transport extrémní zátěží. V bezpečí domova zůstanou klidnější a samotné vyšetření proběhne mnohem hladčeji.",
     localTip: "Ve Vlašimi registrujeme velký počet chovatelů koček, pro které je cesta na kliniku noční můrou. Využijte naši službu – ošetříme vaši kočku doma, čímž zcela eliminujete stres z přepravky a cizích pachů v čekárně.",
     keywords: ["veterinář Vlašim", "veterina domů Vlašim", "ošetření kočky Vlašim"],
-    distanceKm: 22,
+    distanceKm: 20,
     neighbors: ["benesov", "votice"],
   },
   {
@@ -240,7 +241,7 @@ export const locations: LocationData[] = [
     uniqueText: "Týnec nad Sázavou žije řekou a aktivním odpočinkem. Psi, kteří tráví čas u vody, v kempech a v lese, jsou bohužel náchylnější k drobným zraněním i parazitickým infekcím. Jako výjezdová veterinářka zajistím rychlou kontrolu a ošetření tam, kde právě jste.",
     localTip: "Pohyb v okolí Týneckého hradu a břehů Sázavy s sebou nese riziko proniknutí cizích těles (osin) do tlapek nebo uší, případně napadení vodními parazity. Nezanedbávejte prevenci a v případě potíží hned volejte.",
     keywords: ["veterinář Týnec nad Sázavou", "veterina Týnec", "ošetření psa řeka Sázava"],
-    distanceKm: 12,
+    distanceKm: 10,
     neighbors: ["benesov", "cercany", "senohraby", "sazava"],
   },
   {
@@ -257,7 +258,7 @@ export const locations: LocationData[] = [
     uniqueText: "Kopcovité okolí Pyšel a místní farmy dobře známe. Rádi k vám přijedeme na odběry krve, laboratorní diagnostiku nebo pravidelný screening starších zvířat. Zvláště majitelé koní ocení naši flexibilitu – psy zvládneme ošetřit a naočkovat přímo v areálu vaší stáje.",
     localTip: "V rezidenčních oblastech Pyšel často ošetřujeme zvířecí seniory. Doporučujeme pravidelné krevní testy, které dokážou včas odhalit selhávající ledviny či cukrovku. U psů nad 7 let je roční screening nutností.",
     keywords: ["veterinář Pyšely", "veterina Pyšely", "odběry krve pes Pyšely"],
-    distanceKm: 15,
+    distanceKm: 13,
     neighbors: ["benesov", "senohraby", "cercany", "mnichovice"],
   },
   {
@@ -274,7 +275,7 @@ export const locations: LocationData[] = [
     uniqueText: "Kamenice je zasazena do rozsáhlých a krásných lesů, které ale pro mazlíčky představují zvýšené riziko – klíšťata, osiny v uších a očích nebo drobná zranění z podrostu. Z Prahy i okolí dorazíme do Kamenice rychle. Ošetření proběhne u vás doma v klidu, bez stresování zvířete cestou do města na kliniku. Přijedeme tam, kde váš mazlíček zná každý koutek.",
     localTip: "V okolí Kamenice se setkáváme zejména s loveckými a aktivními plemeny. Po pohybu v lese u zámku Štiřín vždy zkontrolujte uši, oční okolí a meziprstí – klíšťata i osiny se nejčastěji ukrývají právě tam. Zavolejte – přijedeme ošetřit nebo zkontrolovat přímo k vám.",
     keywords: ["výjezdová veterina Kamenice", "veterinář Kamenice", "ošetření psa Kamenice", "veterina Kamenice"],
-    distanceKm: 22,
+    distanceKm: 19,
     neighbors: ["mnichovice", "strancice", "velke-popovice", "ricany"],
     subAreas: ["Štiřín", "Olešovice", "Těptín", "Ládví"],
     faq: [
@@ -306,7 +307,7 @@ export const locations: LocationData[] = [
     uniqueText: "Do Votic a oblasti České Sibiře vyjíždíme s plně vybavenou mobilní veterinární ambulancí. Naše služby jsou plně přizpůsobené zdejším podmínkám, a to i specifickým zdravotním potřebám hlídacích a hospodářských psů, kteří žijí trvale venku v drsnějším klimatu.",
     localTip: "Zimy na Voticku bývají chladnější. U venkovních psů nezapomínejte na zvýšený přísun kvalitní energie v krmivu a na důkladnou péči o tlapky, které v mrazech trpí rozpraskáním a solí z komunikací.",
     keywords: ["veterinář Votice", "veterina Votice", "mobilní vet Votice"],
-    distanceKm: 20,
+    distanceKm: 19,
     neighbors: ["benesov", "vlasim"],
   },
   {
@@ -340,7 +341,7 @@ export const locations: LocationData[] = [
     uniqueText: "V těch nejtěžších životních chvílích jsme tu pro vás. Přijedeme k vám do Čerčan, abychom zajistili klidný a bezbolestný odchod vašeho věrného přítele v jeho přirozeném prostředí. Bez sterilních zdí ordinace, bez chladného stolu, jen v milujícím kruhu rodiny.",
     localTip: "Eutanázii v domácím prostředí poskytujeme s nejvyšším ohledem na vaše city a diskrétnost. Váš mazlíček může v klidu usnout ve svém oblíbeném pelíšku, s vámi po boku.",
     keywords: ["eutanázie doma Čerčany", "uspání psa doma", "veterinář Čerčany"],
-    distanceKm: 12,
+    distanceKm: 18,
     neighbors: ["benesov", "senohraby", "tynec-nad-sazavou", "pysely"],
     subAreas: ["Tehov u Čerčan", "Mrač", "Bystřice"],
     faq: [
@@ -372,7 +373,7 @@ export const locations: LocationData[] = [
     uniqueText: "Oblast Mníšku pod Brdy se dynamicky rozrůstá a místní lesy jsou obrovským lákadlem pro pejskaře. Nabízíme komplexní veterinární prevenci, očkování i ochranu proti parazitům, a to s pohodlným výjezdem přímo na vaši adresu. Ušetřete si cesty do pražských kolon.",
     localTip: "Brdské hvozdy u areálu Skalka jsou pro psy skvělým hřištěm, ale také domovem velkého množství klíšťat. Silná a spolehlivá antiparazitární ochrana je zde naprostým základem zdraví vašeho zvířete.",
     keywords: ["veterinář Mníšek pod Brdy", "veterina Mníšek", "antiparazitární ochrana Brdy"],
-    distanceKm: 50,
+    distanceKm: 40,
     neighbors: ["cernosice", "dolni-brezany"],
   },
   {
@@ -389,7 +390,7 @@ export const locations: LocationData[] = [
     uniqueText: "Ve Strančicích každým rokem přibývá rodin se psy a kočkami. Naše výjezdová praxe vám šetří čas – pravidelnou prevenci, očkování i drobná ošetření zajistíme přímo u vás. Zejména nové rodiny velmi ocení tzv. socializační prohlídky, kdy si štěně na veterináře zvyká v uvolněné domácí atmosféře.",
     localTip: "Strančice mají výborné napojení na D1, což přináší příliv vytížených majitelů. Nabízíme flexibilní plánování veterinárních výjezdů, které se přizpůsobí rytmu vaší rodiny – k veterináři už se nemusíte složitě uvolňovat z práce.",
     keywords: ["veterinář Strančice", "veterina Strančice", "prevence pes Strančice"],
-    distanceKm: 26,
+    distanceKm: 24,
     neighbors: ["ricany", "kamenice", "mnichovice", "velke-popovice"],
   },
   {
@@ -406,7 +407,7 @@ export const locations: LocationData[] = [
     uniqueText: "Šetřete čas i nervy svých miláčků díky naší plně vybavené mobilní ordinaci. Ošetření, pravidelnou vakcinaci i čipování zajistíme u vás doma ve Velkých Popovicích. Lékařka dorazí za vámi, vaši zvířecí parťáci tak zůstanou v naprostém klidu.",
     localTip: "V parcích a na pastvinách okolo Velkých Popovic je vyšší koncentrace divoké zvěře, s čímž roste riziko přenosu infekcí. Pro psy pohybující se u vodních ploch a na lukách důrazně doporučujeme očkování proti leptospiróze.",
     keywords: ["veterinář Velké Popovice", "vakcinace pes Popovice", "veterina domů Popovice"],
-    distanceKm: 28,
+    distanceKm: 22,
     neighbors: ["strancice", "kamenice", "pysely"],
   },
   {
@@ -423,7 +424,7 @@ export const locations: LocationData[] = [
     uniqueText: "Obyvatelé Dolních Břežan si zakládají na inovacích a nejvyšší kvalitě služeb. Naše výjezdová veterina tento standard splňuje – přivezeme moderní diagnostiku na vysoké úrovni (včetně ultrazvukového vyšetření přenosným přístrojem) přímo do bezpečí a komfortu vašeho domova.",
     localTip: "Okolo keltského oppida a Závisti je oblíbený terén pro venčení. Místní klienti u nás nejvíce kvitují časovou flexibilitu, ochotu domluvit se na výjezdu tak, aby to ladilo s jejich pracovním programem, a detailní vyšetření bez spěchu.",
     keywords: ["veterinář Dolní Břežany", "sono pes Dolní Břežany", "veterina Dolní Břežany"],
-    distanceKm: 40,
+    distanceKm: 27,
     neighbors: ["pruhonice", "jesenice", "cernosice", "mnisek-pod-brdy"],
   },
   {
@@ -440,7 +441,7 @@ export const locations: LocationData[] = [
     uniqueText: "Sázava, jako vyhlášené centrum odpočinku s populárním psím hřištěm na Tyršově nábřeží, je plná psích sportovců. Zajišťujeme poctivou preventivní péči i pohotové ošetření zranění (po intenzivním tréninku agility nebo výletech do okolních kopců) přímo na vaší sázavské adrese.",
     localTip: "Agility hřiště na nábřeží dává psům zabrat. U takto sportujících psů je na místě provádět pravidelnou kontrolu pohybového aparátu a kloubů, abyste předešli trvalým následkům a artróze z přetížení.",
     keywords: ["veterinář Sázava", "veterina Sázava", "ošetření psa řeka Sázava"],
-    distanceKm: 32,
+    distanceKm: 24,
     neighbors: ["tynec-nad-sazavou", "jilove-u-prahy"],
   },
   {
@@ -457,7 +458,7 @@ export const locations: LocationData[] = [
     uniqueText: "Výjezdová ordinace MVDr. Měchurové obsluhuje celou Prahu 8 – Karlín, Libeň, Kobylisy i Bohnice. Přijedeme přímo k vám domů a ošetříme vašeho psa nebo kočku tam, kde se cítí v bezpečí. Žádné hledání parkování, žádné čekání s úzkostnou kočkou v přepravce. Ideální řešení pro stresovaná zvířata i vytížené majitele z pražských bytů.",
     localTip: "V Praze 8 ošetřujeme nejčastěji stresované kočky z panelákových bytů, pro které je každá cesta do přepravky noční můrou. V zimě pamatujte i na tlapky psů – posypová sůl na pražských chodnících je velmi agresivní, doporučujeme pravidelné oplachování a ochrannou mast.",
     keywords: ["výjezdová veterina Praha 8", "veterinář Praha 8", "mobilní veterina Praha 8", "ošetření psa doma Praha 8"],
-    distanceKm: 0,
+    distanceKm: 5,
     neighbors: [],
     subAreas: ["Karlín", "Libeň", "Kobylisy", "Bohnice", "Čimice", "Dolní Chabry"],
     faq: [
@@ -489,7 +490,7 @@ export const locations: LocationData[] = [
     uniqueText: "Na Praze 7, ať už v Holešovicích nebo na Letné, je koncentrace domácích mazlíčků obrovská. Cesta na klasickou kliniku ale často znamená stres z městského ruchu, plné čekárny a složité řešení parkování v modrých zónách. Naše mobilní veterina přijede s plnou výbavou přímo k vám domů. Ošetření psa nebo kočky tak proběhne v naprostém klidu, bez narušení jejich pocitu bezpečí.",
     localTip: "Stromovka a Letná jsou kynologickým centrem Prahy. Kvůli extrémní koncentraci psů je zde však zvýšené riziko přenosu infekcí (např. psincového kašle) a parazitů. Doporučujeme důsledné dodržování očkovacího schématu a celoroční antiparazitární ochranu.",
     keywords: ["veterinář Praha 7", "veterina Holešovice", "výjezdová veterina Letná", "očkování psa Praha 7"],
-    distanceKm: 0,
+    distanceKm: 5,
     neighbors: ["praha-8"],
     subAreas: ["Holešovice", "Letná", "Bubny"],
     faq: [
@@ -521,7 +522,7 @@ export const locations: LocationData[] = [
     uniqueText: "Bydlení v činžovních domech na Žižkově nebo na Vinohradech má své kouzlo, ale snášet nemocného či staršího pejska po schodech nebo ho stresovat hlučnou městskou dopravou je náročné. Naše výjezdová ordinace přijede až před vaše dveře na Praze 3. Vyšetření, odběry krve nebo očkování vyřešíme přímo ve vašem obýváku, bez jakéhokoliv spěchu.",
     localTip: "Parky jako Parukářka nebo Vítkov jsou skvělé na venčení, ale členitý terén a městské prostředí s sebou nesou rizika drobných poranění tlapek či potkání divokých zvířat (např. ježků, kteří přenášejí blechy). Mějte antiparazitární ochranu vždy aktivní.",
     keywords: ["veterinář Praha 3", "veterina Žižkov", "výjezdová veterina Vinohrady", "ošetření psa Praha 3"],
-    distanceKm: 0,
+    distanceKm: 5,
     neighbors: ["praha-8"],
     subAreas: ["Žižkov", "Vinohrady", "Jarov"],
     faq: [
@@ -553,7 +554,7 @@ export const locations: LocationData[] = [
     uniqueText: "Bydlení v srdci Prahy 2 nabízí krásné prostředí, ale doprava nemocného mazlíčka na kliniku přes rušné ulice nebo shánění parkování v modrých zónách bývá pro majitele noční můrou. Naše mobilní ordinace přijede s veškerým potřebným vybavením přímo k vám domů. V klidu vašeho bytu na Vinohradech, Vyšehradě či Novém Městě vyřešíme vše od očkování až po odběry krve.",
     localTip: "Riegrovy sady a Grébovka jsou plné psů, což výrazně zvyšuje riziko šíření infekčních onemocnění (např. paratuberkulózy, psincového kašle) a přenosu blech. Pokud se svým psem navštěvujete tyto frekventované parky, dbejte na pravidelnou vakcinaci a spolehlivá, moderní antiparazitika.",
     keywords: ["veterinář Praha 2", "veterina Vinohrady", "výjezdová veterina Vyšehrad", "ošetření psa Praha 2"],
-    distanceKm: 0,
+    distanceKm: 5,
     neighbors: ["praha-3", "praha-8"],
     subAreas: ["Vinohrady", "Vyšehrad", "Nové Město", "Nusle"],
     faq: [

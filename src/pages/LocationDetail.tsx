@@ -223,7 +223,7 @@ const LocationDetail = () => {
                     </p>
                     {location.distanceKm > 0 && (
                       <p className="text-xs text-muted-foreground">
-                        {FIXED_FEE} + {location.distanceKm} km × {KILOMETER_FEE} Kč
+                        {FIXED_FEE} + {location.distanceKm} km × 2 × {KILOMETER_FEE} Kč/km (tam i zpět)
                       </p>
                     )}
                   </div>
@@ -264,7 +264,7 @@ const LocationDetail = () => {
                   <>
                     Cena dopravy k vám vychází na{" "}
                     <strong>{transportCost} Kč</strong> (fixní poplatek {FIXED_FEE} Kč +{" "}
-                    {location.distanceKm} km x {KILOMETER_FEE} Kč). Parkujeme přímo před vaším domem, takže
+                    {location.distanceKm} km × 2 × {KILOMETER_FEE} Kč/km za cestu tam i zpět). Parkujeme přímo před vaším domem, takže
                     veškeré vybavení včetně přenosného sonografu přineseme až k vašemu mazlíčkovi.
                   </>
                 )}
