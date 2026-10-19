@@ -20,15 +20,15 @@ const copy = {
     destination: "Kde má návštěva proběhnout?",
     base: `${getFreeKilometreAreas("cs")} – bez kilometrovného`,
     elsewhere: "Jiná adresa – zadám vzdálenost",
-    kilometres: "Vzdálenost od bližší základny (jedním směrem)",
-    kilometresHint: `Zadejte vzdálenost podle Google Maps z Prahy 8 – Invalidovny nebo z Benešova, podle toho, odkud je to blíž. Zpáteční cestu připočítá kalkulačka sama. Sazba je ${KILOMETER_FEE} Kč/km v každém směru.`,
+    kilometres: "Vzdálenost z bližší základny (jedním směrem)",
+    kilometresHint: `Zadejte vzdálenost jedním směrem podle Google Maps z Prahy 8 – Invalidovny nebo z Benešova (podle toho, co máte blíž). Cestu tam i zpět kalkulačka dopočítá automaticky (${KILOMETER_FEE} Kč/km za každý směr).`,
     startingFee: "Základní poplatek za výjezd",
     distance: "Doprava",
     estimate: "Orientační cena návštěvy",
-    askForDistance: "Pro výpočet ceny zadejte vzdálenost v km.",
-    individual: "Cena ošetření se stanoví individuálně.",
-    notQuote: `Kalkulačka slouží pro předběžnou představu o ceně návštěvy. ${PRICING_VARIABILITY_NOTICE.cs}`,
-    priceUnavailable: "Cena ošetření není v online ceníku uvedena.",
+    askForDistance: "Pro výpočet ceny dopravy zadejte vzdálenost v km.",
+    individual: "Cena ošetření se stanovuje individuálně.",
+    notQuote: `Kalkulačka slouží pro orientační představu o nákladech na návštěvu. ${PRICING_VARIABILITY_NOTICE.cs}`,
+    priceUnavailable: "Cena tohoto ošetření se stanovuje individuálně.",
   },
   en: {
     service: "Choose a service",
@@ -73,7 +73,7 @@ const TravelPriceCalculator = ({ language = "cs" }: { language?: Language }) => 
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           {language === "cs"
-            ? `Vyberte ošetření a místo návštěvy. K ceně péče připočítáme výjezd. V ${getFreeKilometreAreasIn("cs")} zaplatíte za dopravu jen základní poplatek, bez kilometrovného.`
+            ? `Vyberte ošetření a místo návštěvy. K ceně ošetření se připočítává výjezdové – v ${getFreeKilometreAreasIn("cs")} zaplatíte za dopravu pouze základní poplatek bez kilometrovného.`
             : `Service price plus the call-out fee. 0 km are billed in ${getFreeKilometreAreasIn("en")}; the starting fee always applies.`}
         </p>
       </div>
