@@ -1,1 +1,0 @@
-import{S as e,H as o,a as r,b as c,D as t,C as i,B as n,c as p,d as s}from"./syringe-CjH2JdoY.js";import{M as S}from"./message-circle-5HSR17pk.js";const g={Stethoscope:s,Syringe:p,Bug:n,Cpu:i,Droplets:t,Scissors:c,MessageCircle:S,HeartHandshake:r,HousePlus:o,ScanLine:e},H=a=>g[a]??s;export{H as g};
