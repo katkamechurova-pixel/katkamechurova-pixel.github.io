@@ -9,55 +9,55 @@ export const serviceFaqs: Record<string, ServiceFaq[]> = {
   vakcinace: [
     {
       question: "Kolik stojí očkování psa nebo kočky doma?",
-      answer: "Cena se skládá z ceny vybrané vakcíny a cestovného. Základní výjezdový poplatek je " + FIXED_FEE + " Kč, přičemž v " + getFreeKilometreAreasIn("cs") + " se kilometry neúčtují. Do ostatních míst připočítáváme " + KILOMETER_FEE + " Kč/km z bližší základny (počítá se cesta tam i zpět podle Google Maps). Před každým očkováním pejska nebo kočičku pečlivě prohlédnu a celkovou kalkulaci vám vždy předem potvrdím.",
+      answer: "Ceny v tabulce jsou orientační a závisí na zvolené vakcíně. Celkovou cenu může ovlivnit také potřebný materiál nebo klinické vyšetření; přesný rozsah potvrdíme před návštěvou. Cestovné se účtuje zvlášť: startovní výjezdový poplatek je " + FIXED_FEE + " Kč. V " + getFreeKilometreAreasIn("cs") + " se kilometry neúčtují; jinde se jednosměrná vzdálenost od bližší základny účtuje tam i zpět, za " + KILOMETER_FEE + " Kč/km v každém směru.",
     },
     {
       question: "Jak se vybírá vhodná vakcína?",
-      answer: "Vakcínu a schéma očkování volím vždy individuálně podle věku zvířete, jeho celkového zdravotního stavu a životního stylu – jinak očkujeme kočku žijící výhradně doma v bytě a jinak loveckého psa nebo zvíře, které s vámi cestuje do zahraničí. U koček používám moderní a šetrné vakcíny Purevax bez adjuvantů.",
+      answer: "Vakcína a schéma očkování se volí s ohledem na druh zvířete, jeho zdravotní stav, dosavadní očkování a životní styl. Konkrétní výběr potvrďte s veterinářkou.",
     },
     {
       question: "Co zahrnuje uvedená cena vakcíny?",
-      answer: "Cena v tabulce je orientační cena samotné očkovací látky. K ní se připočítává výjezdové a případný spotřební materiál či podrobnější klinické vyšetření, pokud zrovna řešíme další zdravotní potíže. Přesný rozsah a konečnou částku s vámi vždy otevřeně proberu předem.",
+      answer: "Online ceník u každé vakcíny nerozepisuje, zda uvedená cena zahrnuje aplikaci, potřebný materiál nebo klinické vyšetření. Před návštěvou vám potvrdíme, co bude potřeba a kolik bude stát celá návštěva.",
     },
     {
       question: "Musím zvíře na očkování nějak připravit?",
-      answer: "Žádná složitá příprava není nutná. Hlavní podmínkou je, aby bylo zvířátko v den očkování zdravé a v dobré kondici (nemělo teplotu, průjem, nekašlalo). Připravte si prosím očkovací průkaz nebo pas a nechte mazlíčka před mým příjezdem v klidu v jeho oblíbeném pokoji.",
+      answer: "Při objednání sdělte druh a věk zvířete a datum posledního očkování. Pokud bude potřeba další příprava, veterinářka vám ji upřesní.",
     },
   ],
   "odbery-krve": [
     {
       question: "Lze odebrat krev zvířeti přímo doma?",
-      answer: "Ano, odběr krve v domácím prostředí je pro psy i kočky mnohem příjemnější než v ordinaci. Zvíře zůstává ve svém známém revíru, což usnadňuje klidný průběh a navíc zabraňuje zkreslení některých parametrů stresem (např. glukózy u koček).",
+      answer: "Ano, Ducktorka nabízí domácí odběry krve psů a koček. Rozsah laboratorního vyšetření se domlouvá podle důvodu návštěvy.",
     },
     {
       question: "Kolik stojí odběr krve a laboratorní vyšetření?",
-      answer: "Základní biochemické či hematologické vyšetření včetně odběru začíná od 800 Kč (podle rozsahu požadovaných testů). K ceně se připočítává základní výjezdové " + FIXED_FEE + " Kč (v " + getFreeKilometreAreasIn("cs") + " bez kilometrovného, jinde se účtuje " + KILOMETER_FEE + " Kč/km tam i zpět). Předem se vždy domluvíme, jaké testy jsou pro vaše zvířátko potřeba, a potvrdím vám přesnou cenu.",
+      answer: "Zveřejněná cena začíná na 800 Kč za odběr krve a laboratorní vyšetření. Cestovné se účtuje zvlášť: " + FIXED_FEE + " Kč jako startovní poplatek. V " + getFreeKilometreAreasIn("cs") + " se kilometry neúčtují; jinde se jednosměrná vzdálenost od bližší základny účtuje tam i zpět, za " + KILOMETER_FEE + " Kč/km v každém směru. Přesnou cenu potvrďte podle rozsahu testů.",
     },
     {
-      question: "Kdy bývají k dispozici výsledky?",
-      answer: "Odebrané vzorky odesílám do akreditované veterinární laboratoře. Většinu běžných rozborů (krevní obraz, jaterní a ledvinné testy) máme hotovou hned následující pracovní den. Jakmile mám výsledky k dispozici, zavolám vám a vše srozumitelně vysvětlím.",
+      question: "Kdy bývají výsledky?",
+      answer: "Podle informací na stránce služby bývá většina výsledků dostupná následující den. Konkrétní čas závisí na zvoleném laboratorním vyšetření.",
     },
     {
       question: "Musí být zvíře před odběrem nalačno?",
-      answer: "U většiny biochemických profilů je ideální lačnění zhruba 8 až 12 hodin (čerstvou vodu může zvířátko pít bez omezení). U štěňat, koťat nebo diabetiků však mohou platit jiná pravidla. Přesné pokyny si řekneme předem při domluvě termínu – bez předchozí domluvy krmení sami neomezujte.",
+      answer: "Potřeba lačnění závisí na konkrétním testu a zdravotním stavu. Nedržte zvíře nalačno bez pokynu; ověřte přípravu s veterinářkou při objednání.",
     },
   ],
   "sono-vysetreni": [
     {
-      question: "Provádíte ultrazvuk přímo u nás doma?",
-      answer: "Ano, na výjezdy vozím moderní přenosný ultrazvuk. Vyšetření probíhá v klidu na podlaze, na dece nebo v pelíšku vašeho mazlíčka, bez zbytečného přenášení a nervozity.",
+      question: "Provádí Ducktorka ultrazvuk přímo doma?",
+      answer: "Ano. K domácím návštěvám používá přenosný ultrazvukový přístroj. Rozsah a vhodnost vyšetření se domlouvají podle konkrétního případu.",
     },
     {
-      question: "Co všechno lze ultrazvukem doma vyšetřit?",
-      answer: "Přenosným sonem nejčastěji vyšetřuji orgány dutiny břišní (ledviny, močový měchýř, játra, slezinu či střeva) při zažívacích a urologických potížích, a také spolehlivě diagnostikuji a potvrzuji březost.",
+      question: "Jaká vyšetření lze provést ultrazvukem?",
+      answer: "Stránka služby uvádí vyšetření břišní dutiny, močových cest a diagnostiku březosti. Veterinářka potvrdí, zda je ultrazvuk vhodný pro potíže vašeho zvířete.",
     },
     {
-      question: "Kolik stojí domácí ultrazvukové vyšetření?",
-      answer: "Cena ultrazvuku se odvíjí od rozsahu a náročnosti vyšetření (zda kontrolujeme jeden orgán, nebo celé bříško). K ceně péče se připočítává startovní výjezd " + FIXED_FEE + " Kč (v " + getFreeKilometreAreasIn("cs") + " je doprava bez dalších poplatků za kilometry, jinde platí sazba " + KILOMETER_FEE + " Kč/km tam i zpět). Přesnou částku vám ráda spočítám předem podle konkrétních obtíží zvířete.",
+      question: "Kolik stojí domácí ultrazvuk?",
+      answer: "Cena ultrazvukového vyšetření není v online ceníku uvedena. Cestovné tvoří startovní poplatek " + FIXED_FEE + " Kč; v " + getFreeKilometreAreasIn("cs") + " se další kilometry neúčtují. Jinde se jednosměrná vzdálenost podle Google Maps účtuje tam i zpět za " + KILOMETER_FEE + " Kč/km každým směrem. Při objednání si potvrďte konečnou cenu vyšetření i dopravy.",
     },
     {
-      question: "Je před vyšetřením potřeba nějaká příprava?",
-      answer: "Pro přehledné zobrazení břišních orgánů je vhodné, aby bylo zvířátko několik hodin nalačno (plný žaludek může stínit ostatní orgány). Při kontrole močového měchýře je naopak ideální zvíře těsně před návštěvou nevenčit. Aby měl ultrazvuk dobrý kontakt s kůží, bývá také nutné vyholit malé okénko na srsti – vše vám dopředu vysvětlím při domluvě.",
+      question: "Je před ultrazvukovým vyšetřením potřeba příprava?",
+      answer: "Příprava může záviset na vyšetřované oblasti. Popište potíže při objednání a veterinářka vám sdělí, zda je potřeba se na návštěvu připravit.",
     },
   ],
 };

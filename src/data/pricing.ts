@@ -30,12 +30,12 @@ export const FIXED_FEE = TRAVEL_POLICY.startingFeeCzk;
 export const KILOMETER_FEE = TRAVEL_POLICY.perKmEachDirectionCzk;
 
 export const PRICING_VARIABILITY_NOTICE = {
-  cs: "Ceny jsou orientační. Konečná částka se odvíjí od spotřebovaného materiálu a konkrétních léků – jejich dávkování se totiž vždy počítá na míru podle hmotnosti a zdravotního stavu vašeho mazlíčka. Před návštěvou se vždy domluvíme na rozsahu péče a předpokládané ceně, abyste předem přesně věděli, s čím počítat.",
+  cs: "Ceny jsou orientační. Výsledná částka závisí na rozsahu ošetření, vyšetření a použitém materiálu i na aktuálních cenách léčiv. U řady léků se účtuje skutečně použité množství, například v mililitrech nebo tabletách. Potřebná dávka se liší podle druhu a hmotnosti zvířete, jeho zdravotního stavu a zvoleného přípravku. Před návštěvou s vámi probereme cenu plánované péče i to, zda zahrnuje klinické vyšetření.",
   en: "Prices in this list are indicative. The final total may vary depending on the care needed, your pet’s weight and dosage, current medicine prices, and materials used. The list may not state whether every item includes a clinical examination. I will confirm the care required and total before the visit.",
 } as const;
 
 export const VACCINE_PRICE_NOTICE = {
-  cs: "Ceny vakcín jsou orientační a odvíjejí se od aktuálních cen od dodavatele. K ceně vakcíny se připočítává cestovné a případně další materiál či vyšetření, pokud ho zvířátko potřebuje. Předem vám vždy na rovinu potvrdím celkovou předpokládanou částku.",
+  cs: "Ceny vakcín jsou orientační a mohou se měnit podle aktuální ceny přípravku. Před očkováním vám potvrdíme, zda uvedená cena zahrnuje i aplikaci, materiál a klinické vyšetření, nebo zda se některá z těchto položek připočítává. Cestovné se účtuje zvlášť.",
   en: "Vaccine prices are indicative and may change with the current price of the product. The list does not specify whether the price for each vaccine includes administration, materials or a clinical examination. Travel is charged separately. I will confirm the scope and total before the visit.",
 } as const;
 
@@ -160,7 +160,7 @@ export const PRICING_EXAMPLES: PricingExample[] = [
     "dog-rabies-at-base",
     "Pes — očkování proti vzteklině",
     "Dog — rabies vaccination",
-    "Příklad počítá s orientační cenou vakcíny Nobivac R v oblasti bez kilometrovného (Praha 2, 3, 7, 8 nebo Benešov). Zahrnuje základní výjezd a vakcínu. Přesnou celkovou cenu si potvrdíme předem při domluvě termínu.",
+    "Příklad počítá s orientační cenou vakcíny Nobivac R. Konečná cena očkování se může lišit podle potřebného materiálu a případného klinického vyšetření; přesný rozsah a cenu potvrdíme před návštěvou.",
     "This example uses the indicative listed price for Nobivac R. The final vaccination price may vary depending on materials and any clinical examination; I will confirm the scope and total before the visit.",
     [
       { labelCs: "Vakcína Nobivac R — orientační cena", labelEn: "Nobivac R vaccine — indicative price", amountCzk: 510 },
@@ -172,7 +172,7 @@ export const PRICING_EXAMPLES: PricingExample[] = [
     "cat-vaccine-and-exam-at-base",
     "Kočka — Purevax RCP a klinické vyšetření",
     "Cat — Purevax RCP vaccination and clinical examination",
-    "Modelový příklad pro kočku v oblasti bez kilometrovného. Zahrnuje základní výjezdový poplatek, vakcínu Purevax RCP a klinické posouzení zdravotního stavu před očkováním.",
+    "Modelový příklad zahrnuje očkování Purevax RCP a klinické vyšetření. Další potřebný materiál nebo úkony mohou cenu změnit; přesný rozsah a cenu potvrdíme před návštěvou.",
     "This example includes Purevax RCP vaccination and a clinical examination. Additional materials or procedures may change the price; I will confirm the scope and total before the visit.",
     [
       { labelCs: "Očkování Purevax RCP a klinické vyšetření", labelEn: "Purevax RCP vaccination and clinical examination", amountCzk: 850 },
@@ -184,7 +184,7 @@ export const PRICING_EXAMPLES: PricingExample[] = [
     "blood-panel-at-base",
     "Starší pes nebo kočka — odběr a vyšetření krve",
     "Senior pet — blood draw and selected blood tests",
-    "Příklad preventivního rozboru krve pro psího nebo kočičího seniora v bezkilometrové zóně: zahrnuje odběr krve, biochemický panel V, hematologii a základní výjezd.",
+    "Příklad zahrnuje odběr krve, biochemii (panel V) a hematologii. Další vyšetření, léčiva nebo potřebný materiál mohou cenu změnit; rozsah testů a celkovou cenu potvrdíme před návštěvou.",
     "This example includes a blood draw, biochemistry (panel V) and haematology. Additional tests, medicines or materials may change the price; I will confirm the tests and total before the visit.",
     [
       { labelCs: "Odběr krve", labelEn: "Blood draw", amountCzk: 125 },

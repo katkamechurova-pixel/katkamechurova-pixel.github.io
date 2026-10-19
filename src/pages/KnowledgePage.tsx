@@ -17,7 +17,7 @@ const KnowledgePage = () => {
         <main className="min-h-screen pt-36 pb-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl font-heading font-bold">Stránka nenalezena</h1>
-            <a href="/" className="mt-5 inline-block text-emerald-700 hover:text-emerald-800 underline font-semibold">Zpět na úvodní stránku</a>
+            <a href="/" className="mt-5 inline-block text-pastel-turquoise hover:underline">Zpět na úvodní stránku</a>
           </div>
         </main>
         <Footer />
@@ -112,7 +112,7 @@ const KnowledgePage = () => {
           </nav>
           <header className="max-w-4xl mx-auto mb-10">
             <h1 className="text-3xl md:text-5xl font-heading font-bold leading-tight text-foreground">{page.title}</h1>
-            <p className="mt-5 text-lg md:text-xl leading-relaxed text-foreground/85">{page.intro}</p>
+            <p className="mt-5 text-lg md:text-xl leading-relaxed text-muted-foreground">{page.intro}</p>
           </header>
 
           {page.capabilityRows && (
@@ -123,16 +123,16 @@ const KnowledgePage = () => {
                   <article key={row.service} className="rounded-2xl bg-card border border-border p-5 shadow-sm">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <h3 className="font-heading font-bold text-foreground">
-                        {row.href ? <a href={row.href} className="hover:text-emerald-700 transition-colors">{row.service}</a> : row.service}
+                        {row.href ? <a href={row.href} className="hover:text-pastel-turquoise">{row.service}</a> : row.service}
                       </h3>
                       <span className="rounded-full bg-pastel-turquoise-light px-3 py-1 text-xs font-semibold text-foreground">{row.availability}</span>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-foreground/85">{row.note}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{row.note}</p>
                   </article>
                 ))}
               </div>
-              <p className="mt-4 text-xs leading-relaxed text-foreground/75">
-                Zda je domácí ošetření pro vaše zvíře bezpečné a vhodné, vždy předem společně posoudíme podle jeho aktuálního zdravotního stavu.
+              <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                O tom, zda je domácí ošetření pro vaše zvíře vhodné, rozhodne veterinářka podle jeho zdravotního stavu.
               </p>
             </section>
           )}
@@ -143,7 +143,7 @@ const KnowledgePage = () => {
                 <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground">{section.heading}</h2>
                 <div className="mt-4 space-y-4">
                   {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph} className="text-foreground/85 leading-relaxed">{paragraph}</p>
+                    <p key={paragraph} className="text-muted-foreground leading-relaxed">{paragraph}</p>
                   ))}
                 </div>
               </section>
@@ -166,12 +166,12 @@ const KnowledgePage = () => {
               <div className="space-y-8">
                 {page.faqGroups.map((group) => (
                   <div key={group.heading}>
-                    <h3 className="text-lg font-heading font-bold mb-3 text-emerald-800">{group.heading}</h3>
+                    <h3 className="text-lg font-heading font-bold mb-3 text-pastel-turquoise">{group.heading}</h3>
                     <div className="grid gap-3">
                       {group.items.map((item) => (
                         <article key={item.question} className="rounded-2xl bg-card border border-border p-5">
                           <h4 className="font-semibold text-foreground">{item.question}</h4>
-                          <p className="mt-2 text-sm leading-relaxed text-foreground/85">{item.answer}</p>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
                         </article>
                       ))}
                     </div>
@@ -183,8 +183,8 @@ const KnowledgePage = () => {
 
           <section className="max-w-4xl mx-auto mt-10 rounded-3xl bg-section-alt border border-border p-6 md:p-8">
             <h2 className="text-xl font-heading font-bold">Domluvíme návštěvu u vás doma?</h2>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-              Zavolejte mi nebo napište, kde bydlíte, jakého máte mazlíčka a co ho trápí. Společně probereme možnosti vyšetření, termín i cenu návštěvy.
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Zavolejte nám nebo napište, kde bydlíte, jaké zvíře máte a co ho trápí. Společně probereme vhodnou péči, termín i cenu návštěvy.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a href="tel:+420734231444" className="rounded-full bg-pastel-turquoise px-6 py-3 font-semibold text-white hover:opacity-90">Zavolat</a>

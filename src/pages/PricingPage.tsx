@@ -39,7 +39,7 @@ const PricingPage = () => {
   const title = isEnglish ? "What does a home visit cost?" : "Kolik stojí veterinář domů?";
   const description = isEnglish
     ? "See published service prices and calculate the call-out fee and return travel from the nearer base for an English-speaking mobile vet in Prague and the surrounding area."
-    : "Podívejte se na přehled cen ošetření a spočítejte si návštěvu v kalkulačce. K péči se připočítává základní výjezdové od " + FIXED_FEE + " Kč a mimo bezplatné zóny také kilometrovné.";
+    : "Podívejte se na ceny ošetření a spočítejte si cenu návštěvy. K péči se připočítává výjezd od " + FIXED_FEE + " Kč a mimo vybrané oblasti také cesta tam i zpět.";
   const pricedEntries = [...SERVICE_CATEGORIES, ...VACCINE_PRICES]
     .filter((entry) => getPublishedPrice(entry) !== null)
     .map((entry) => ({
@@ -52,9 +52,9 @@ const PricingPage = () => {
         priceCurrency: "CZK",
         price: getPublishedPrice(entry),
         description: entry.kind === "vaccine"
-          ? (isEnglish ? "Indicative vaccine price; travel is charged separately. The total may vary with materials or examination." : "Orientační cena vakcíny; cestovné se účtuje zvlášť. Celková částka se odvíjí od potřebného vyšetření a spotřebního materiálu.")
+          ? (isEnglish ? "Indicative vaccine price; travel is charged separately. The total may vary with materials or examination." : "Orientační cena vakcíny; cestovné se účtuje zvlášť. Celková cena se může lišit podle potřebného materiálu či vyšetření.")
           : entry.priceBasis === "from"
-            ? (isEnglish ? "Published starting price; final price depends on the service." : "Orientační cena od; konečná částka závisí na rozsahu ošetření.")
+            ? (isEnglish ? "Published starting price; final price depends on the service." : "Orientační cena od; konečná cena závisí na rozsahu služby.")
             : (isEnglish ? "Published treatment price; travel is charged separately." : "Orientační cena ošetření; cestovné se účtuje zvlášť."),
         seller: practiceReference,
       },
@@ -141,7 +141,7 @@ const PricingPage = () => {
             <p className="mt-2 mb-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">
               {isEnglish
                 ? "These examples show how listed treatment prices and travel charges add up. Each total includes only the items shown; any additional examination, medicine or materials may change the final price. I will confirm the scope and total before the visit."
-                : "Na těchto modelových příkladech vidíte, jak se cena skládá. Všechny počítají s návštěvou v oblasti bez kilometrovného (Praha 2, 3, 7, 8 a Benešov). Před každou návštěvou vám vždy předem potvrdím předpokládanou celkovou částku."}
+                : "Na těchto příkladech uvidíte, z čeho se cena skládá. Počítají s návštěvou v oblasti bez kilometrovného a zahrnují jen uvedené položky. Další vyšetření, léky nebo materiál mohou cenu změnit. Plánovanou péči a její cenu s vámi probereme před návštěvou."}
             </p>
             <div className="grid gap-5 lg:grid-cols-2">
               {PRICING_EXAMPLES.map((example) => (
@@ -256,13 +256,13 @@ const PricingPage = () => {
               {isEnglish ? (
                 <>The starting call-out fee is <strong>{FIXED_FEE} CZK</strong>. In {freeKmAreasIn}, no kilometres are charged and only the starting fee applies. Elsewhere, the one-way Google Maps distance from the nearer base is charged in both directions at <strong>{KILOMETER_FEE} CZK per kilometre each way</strong>.</>
               ) : (
-                <>Základní poplatek za výjezd je <strong>{FIXED_FEE} Kč</strong>. V {freeKmAreasIn} se další kilometrovné neúčtuje – platíte pouze tento základní výjezd. Do ostatních míst připočítáváme cestu tam i zpět z bližší základny (Praha 8 – Invalidovna nebo Benešov) podle Google Maps se sazbou <strong>{KILOMETER_FEE} Kč za kilometr</strong>.</>
+                <>Základní poplatek za výjezd je <strong>{FIXED_FEE} Kč</strong>. V {freeKmAreasIn} se kilometrovné neplatí. Jinde připočítáváme cestu tam i zpět od bližší základny v Praze 8 – Invalidovně nebo Benešově. Vzdálenost určujeme podle Google Maps. Sazba je <strong>{KILOMETER_FEE} Kč za kilometr v každém směru</strong>.</>
               )}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               {isEnglish
                 ? "This page is an indicative price guide, not a final quote. The exact service, availability, any extra charges and total price are confirmed before the visit."
-                : "Při domluvě návštěvy mi stačí popsat stav vašeho mazlíčka a uvést přesnou adresu. Vždy vám předem potvrdím termín i konečnou kalkulaci dopravy a péče."}
+                : "Při objednání nám sdělte přesnou adresu a popište, co vaše zvíře potřebuje. Potvrdíme vám termín, cenu plánované péče i případné příplatky."}
             </p>
           </section>
 
