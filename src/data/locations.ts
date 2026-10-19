@@ -1,4 +1,4 @@
-import { calculateTravelFee, FIXED_FEE } from './pricing'
+import { calculateTravelFee, FIXED_FEE, KILOMETER_FEE } from './pricing'
 
 export interface LocationFaq {
   question: string;
@@ -19,7 +19,7 @@ export interface LocationData {
   uniqueText: string;
   localTip: string;
   keywords: string[];
-  /** One-way Google Maps distance from the nearer base. Zero means no per-kilometre charge. */
+  /** One-way Google Maps distance from the nearer base. Zero is reserved for Benešov. */
   distanceKm: number | null;
   neighbors: string[];
   subAreas?: string[];
@@ -481,7 +481,7 @@ export const locations: LocationData[] = [
     slug: "praha-7",
     pageSlug: "veterinar-praha-7",
     seoTitle: "Výjezdová veterina Praha 7 | Ošetření doma Holešovice a Letná | Ducktorka",
-    metaDescription: "Hledáte veterináře na Praze 7? MVDr. Měchurová nabízí kompletní veterinární ošetření a očkování přímo u vás doma v Holešovicích či na Letné. Bez příplatku za kilometry, platí startovní poplatek.",
+    metaDescription: "Hledáte veterináře na Praze 7? MVDr. Měchurová nabízí kompletní veterinární ošetření a očkování přímo u vás doma v Holešovicích či na Letné. Účtujeme startovní poplatek a kilometry podle adresy.",
     h1: "Mobilní veterinář Praha 7: Profesionální péče u vás doma",
     serviceTitle: "Péče v městských bytech",
     description: "Živá městská čtvrť s nádhernými parky, kde majitelé psů a koček oceňují prémiové služby a úsporu času.",
@@ -496,7 +496,7 @@ export const locations: LocationData[] = [
     faq: [
       {
         question: "Účtujete v Praze 7 kilometry za výjezd?",
-        answer: "Ne, v Praze 7 se účtuje 0 km. Platí startovní výjezdový poplatek " + FIXED_FEE + " Kč a cena ošetření zvlášť.",
+        answer: "Ano, účtujeme " + KILOMETER_FEE + " Kč za kilometr v každém směru podle jednosměrné vzdálenosti od bližší základny, plus startovní výjezdový poplatek " + FIXED_FEE + " Kč a cenu ošetření.",
       },
       {
         question: "Jak řešíte parkování v modrých zónách na Praze 7?",
@@ -517,7 +517,7 @@ export const locations: LocationData[] = [
     slug: "praha-3",
     pageSlug: "veterinar-praha-3",
     seoTitle: "Výjezdový veterinář Praha 3 | Mobilní veterina Žižkov | Ducktorka",
-    metaDescription: "Veterinární výjezdy na Praze 3. MVDr. Měchurová ošetří vašeho psa či kočku přímo u vás doma na Žižkově nebo Vinohradech. Bez příplatku za kilometry, platí startovní poplatek.",
+    metaDescription: "Veterinární výjezdy na Praze 3. MVDr. Měchurová ošetří vašeho psa či kočku přímo u vás doma na Žižkově nebo Vinohradech. Účtujeme startovní poplatek a kilometry podle adresy.",
     h1: "Mobilní veterinář Praha 3: Výjezdová péče přímo k vám domů",
     serviceTitle: "Veterinární výjezd",
     description: "Tradiční pražská čtvrť s kopcovitým terénem a činžovními domy, kde je domácí ošetření maximálním komfortem.",
@@ -532,7 +532,7 @@ export const locations: LocationData[] = [
     faq: [
       {
         question: "Účtujete na Praze 3 kilometry za výjezd?",
-        answer: "Ne, v Praze 3 se účtuje 0 km. Platí startovní výjezdový poplatek " + FIXED_FEE + " Kč a cena ošetření zvlášť.",
+        answer: "Ano, účtujeme " + KILOMETER_FEE + " Kč za kilometr v každém směru podle jednosměrné vzdálenosti od bližší základny, plus startovní výjezdový poplatek " + FIXED_FEE + " Kč a cenu ošetření.",
       },
       {
         question: "Dojíždíte na Praze 3 i do starších domů bez výtahu?",
@@ -553,7 +553,7 @@ export const locations: LocationData[] = [
     slug: "praha-2",
     pageSlug: "veterinar-praha-2",
     seoTitle: "Výjezdová veterina Praha 2 | Ošetření doma Vinohrady a Vyšehrad | Ducktorka",
-    metaDescription: "Hledáte veterináře na Praze 2? Mobilní veterina MVDr. Měchurové nabízí kompletní ošetření, očkování a diagnostiku přímo u vás doma na Vinohradech či Vyšehradě. Bez příplatku za kilometry, platí startovní poplatek.",
+    metaDescription: "Hledáte veterináře na Praze 2? Mobilní veterina MVDr. Měchurové nabízí kompletní ošetření, očkování a diagnostiku přímo u vás doma na Vinohradech či Vyšehradě. Účtujeme startovní poplatek a kilometry podle adresy.",
     h1: "Mobilní veterinář Praha 2: Komfortní péče přímo ve vašem bytě",
     serviceTitle: "Prémiová domácí péče",
     description: "Prestižní historická čtvrť s hustou zástavbou, kde je parkování kritické a domácí ošetření představuje pro majitele nejvyšší možný komfort.",
@@ -568,7 +568,7 @@ export const locations: LocationData[] = [
     faq: [
       {
         question: "Účtujete na Praze 2 kilometry za výjezd?",
-        answer: "Ne, v Praze 2 se účtuje 0 km. Platí startovní výjezdový poplatek " + FIXED_FEE + " Kč a cena ošetření zvlášť.",
+        answer: "Ano, účtujeme " + KILOMETER_FEE + " Kč za kilometr v každém směru podle jednosměrné vzdálenosti od bližší základny, plus startovní výjezdový poplatek " + FIXED_FEE + " Kč a cenu ošetření.",
       },
       {
         question: "Jak zvládáte parkování v modrých zónách na Praze 2?",

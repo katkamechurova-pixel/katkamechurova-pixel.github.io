@@ -36,7 +36,7 @@ const copy = {
     base: `${getFreeKilometreAreas("en")} – 0 billed km`,
     elsewhere: "Another address – I will enter the billed kilometres",
     kilometres: "One-way distance from the nearer base (Google Maps)",
-    kilometresHint: `Enter the one-way distance from Google Maps. Kilometres are charged there and back: CZK ${KILOMETER_FEE}/km each way. The bases are Prague 8 – Invalidovna and Benešov; no kilometres are charged in Prague 2, 3 or 7.`,
+    kilometresHint: `Enter the one-way distance from Google Maps. Kilometres are charged there and back: CZK ${KILOMETER_FEE}/km each way. The bases are Prague 8 – Invalidovna and Benešov; kilometres are charged in Prague.`,
     startingFee: "Starting call-out fee",
     distance: "Travel",
     estimate: "Indicative visit total",

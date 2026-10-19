@@ -141,7 +141,7 @@ const PricingPage = () => {
             <p className="mt-2 mb-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">
               {isEnglish
                 ? "These examples show how listed treatment prices and travel charges add up. Each total includes only the items shown; any additional examination, medicine or materials may change the final price. I will confirm the scope and total before the visit."
-                : "Na těchto modelových příkladech vidíte, jak se cena skládá. Všechny počítají s návštěvou v oblasti bez kilometrovného (Praha 2, 3, 7, 8 a Benešov). Před každou návštěvou vám vždy předem potvrdím předpokládanou celkovou částku."}
+                : "Na těchto modelových příkladech vidíte, jak se cena skládá. Všechny počítají s návštěvou v Benešově, kde se neúčtuje kilometrovné. Před každou návštěvou vám vždy předem potvrdím předpokládanou celkovou částku."}
             </p>
             <div className="grid gap-5 lg:grid-cols-2">
               {PRICING_EXAMPLES.map((example) => (

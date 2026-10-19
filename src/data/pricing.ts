@@ -8,10 +8,6 @@ export const TRAVEL_POLICY = {
     { id: "benesov", nameCs: "Benešov", nameEn: "Benešov" },
   ],
   freeKilometreAreas: [
-    { id: "prague-2", nameCs: "Praha 2", nameEn: "Prague 2" },
-    { id: "prague-3", nameCs: "Praha 3", nameEn: "Prague 3" },
-    { id: "prague-7", nameCs: "Praha 7", nameEn: "Prague 7" },
-    { id: "prague-8", nameCs: "Praha 8", nameEn: "Prague 8" },
     { id: "benesov", nameCs: "Benešov", nameEn: "Benešov" },
   ],
 } as const;
@@ -23,7 +19,7 @@ export function getFreeKilometreAreas(language: "cs" | "en"): string {
 }
 
 export function getFreeKilometreAreasIn(language: "cs" | "en"): string {
-  return language === "cs" ? "Praze 2, 3, 7, 8 a Benešově" : getFreeKilometreAreas("en");
+  return language === "cs" ? "Benešově" : getFreeKilometreAreas("en");
 }
 
 export const FIXED_FEE = TRAVEL_POLICY.startingFeeCzk;
@@ -160,38 +156,38 @@ export const PRICING_EXAMPLES: PricingExample[] = [
     "dog-rabies-at-base",
     "Pes — očkování proti vzteklině",
     "Dog — rabies vaccination",
-    "Příklad počítá s orientační cenou vakcíny Nobivac R v oblasti bez kilometrovného (Praha 2, 3, 7, 8 nebo Benešov). Zahrnuje základní výjezd a vakcínu. Přesnou celkovou cenu si potvrdíme předem při domluvě termínu.",
+    "Příklad počítá s orientační cenou vakcíny Nobivac R při návštěvě v Benešově, kde se neúčtuje kilometrovné. Zahrnuje základní výjezd a vakcínu. Přesnou celkovou cenu si potvrdíme předem při domluvě termínu.",
     "This example uses the indicative listed price for Nobivac R. The final vaccination price may vary depending on materials and any clinical examination; I will confirm the scope and total before the visit.",
     [
       { labelCs: "Vakcína Nobivac R — orientační cena", labelEn: "Nobivac R vaccine — indicative price", amountCzk: 510 },
       { labelCs: "Startovní výjezdový poplatek", labelEn: "Starting call-out fee", amountCzk: FIXED_FEE },
-      { labelCs: "Doprava v oblasti bez kilometrovného", labelEn: "Per-kilometre charge in a 0 km area", amountCzk: 0 },
+      { labelCs: "Doprava v Benešově", labelEn: "Travel in Benešov", amountCzk: 0 },
     ],
   ),
   makePricingExample(
     "cat-vaccine-and-exam-at-base",
     "Kočka — Purevax RCP a klinické vyšetření",
     "Cat — Purevax RCP vaccination and clinical examination",
-    "Modelový příklad pro kočku v oblasti bez kilometrovného. Zahrnuje základní výjezdový poplatek, vakcínu Purevax RCP a klinické posouzení zdravotního stavu před očkováním.",
+    "Modelový příklad pro kočku v Benešově, kde se kilometrovné neúčtuje. Zahrnuje základní výjezdový poplatek, vakcínu Purevax RCP a klinické posouzení zdravotního stavu před očkováním.",
     "This example includes Purevax RCP vaccination and a clinical examination. Additional materials or procedures may change the price; I will confirm the scope and total before the visit.",
     [
       { labelCs: "Očkování Purevax RCP a klinické vyšetření", labelEn: "Purevax RCP vaccination and clinical examination", amountCzk: 850 },
       { labelCs: "Startovní výjezdový poplatek", labelEn: "Starting call-out fee", amountCzk: FIXED_FEE },
-      { labelCs: "Doprava v oblasti bez kilometrovného", labelEn: "Per-kilometre charge in a 0 km area", amountCzk: 0 },
+      { labelCs: "Doprava v Benešově", labelEn: "Travel in Benešov", amountCzk: 0 },
     ],
   ),
   makePricingExample(
     "blood-panel-at-base",
     "Starší pes nebo kočka — odběr a vyšetření krve",
     "Senior pet — blood draw and selected blood tests",
-    "Příklad preventivního rozboru krve pro psího nebo kočičího seniora v bezkilometrové zóně: zahrnuje odběr krve, biochemický panel V, hematologii a základní výjezd.",
+    "Příklad preventivního rozboru krve pro psího nebo kočičího seniora v Benešově, kde se kilometrovné neúčtuje: zahrnuje odběr krve, biochemický panel V, hematologii a základní výjezd.",
     "This example includes a blood draw, biochemistry (panel V) and haematology. Additional tests, medicines or materials may change the price; I will confirm the tests and total before the visit.",
     [
       { labelCs: "Odběr krve", labelEn: "Blood draw", amountCzk: 125 },
       { labelCs: "Biochemické vyšetření krve — panel V", labelEn: "Blood biochemistry — panel V", amountCzk: 620 },
       { labelCs: "Hematologické vyšetření krve", labelEn: "Blood haematology", amountCzk: 420 },
       { labelCs: "Startovní výjezdový poplatek", labelEn: "Starting call-out fee", amountCzk: FIXED_FEE },
-      { labelCs: "Doprava v oblasti bez kilometrovného", labelEn: "Per-kilometre charge in a 0 km area", amountCzk: 0 },
+      { labelCs: "Doprava v Benešově", labelEn: "Travel in Benešov", amountCzk: 0 },
     ],
   ),
 ];
