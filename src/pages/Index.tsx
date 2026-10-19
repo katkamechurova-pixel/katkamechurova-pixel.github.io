@@ -9,7 +9,6 @@ import ReviewsSection from "@/components/ReviewsSection";
 import LatestArticlesSection from "@/components/LatestArticlesSection";
 import HomeFooter from "@/components/HomeFooter";
 import DeferredSection from "@/components/DeferredSection";
-import { withPracticeGraph } from "@/data/structuredData";
 
 const loadContactSection = () => import("@/components/ContactSection");
 
@@ -44,15 +43,56 @@ const Index = () => {
         <meta name="twitter:image" content="https://ducktorka.cz/og-image-1.jpg" />
 
         <script type="application/ld+json">
-          {JSON.stringify(withPracticeGraph({
-            "@type": "WebPage",
-            "@id": "https://ducktorka.cz/#webpage",
-            name: "Ducktorka – Výjezdová veterinární péče | MVDr. Kateřina Měchurová",
-            description: "Ducktorka – mobilní veterinář k vám domů. Profesionální veterinární péče bez stresu pro psy, kočky a drobná zvířata. MVDr. Kateřina Měchurová, Benešov a okolí + Praha ve vyznačených částech, případně dle domluvy.",
-            url: "https://ducktorka.cz/",
-            inLanguage: "cs-CZ",
-            mainEntity: { "@id": "https://ducktorka.cz/#practice" },
-          }))}
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VeterinaryCare",
+            "name": "Ducktorka – MVDr. Kateřina Měchurová",
+            "description": "Výjezdová veterinární péče o vaše mazlíčky v pohodlí domova. Profesionální péče opsy, kočky a drobná zvířata.",
+            "url": "https://ducktorka.cz",
+            "logo": "https://ducktorka.cz/og-image-1.jpg",
+            "image": "https://ducktorka.cz/og-image-1.jpg",
+            "telephone": "+420734231444",
+            "email": "ducktorka@outlook.com",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nezvalova 989",
+              "addressLocality": "Benešov",
+              "postalCode": "25601",
+              "addressCountry": "CZ"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 49.7813,
+              "longitude": 14.6869
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Benešov",
+                "sameAs": "https://www.wikidata.org/wiki/Q660074"
+              },
+              {
+                "@type": "City",
+                "name": "Praha",
+                "sameAs": "https://www.wikidata.org/wiki/Q1085"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Středočeský kraj",
+                "sameAs": "https://www.wikidata.org/wiki/Q156096"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday"],
+                "opens": "08:00",
+                "closes": "20:00"
+              }
+            ],
+            publicAccess: false
+          })}
         </script>
       </Head>
       <Navbar />

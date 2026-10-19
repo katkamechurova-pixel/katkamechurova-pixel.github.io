@@ -2,37 +2,24 @@ import { Head } from "vite-react-ssg";
 import {  ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { locations } from "@/data/locations";
-import { breadcrumbSchema, practiceReference, withPracticeGraph } from "@/data/structuredData";
+import { locations, calcTransport } from "@/data/locations";
 
 const LocationHub = () => {
   const pageUrl = "https://ducktorka.cz/vyjezdova-veterina/";
 
-  const schema = withPracticeGraph(
-    {
-      "@type": "CollectionPage",
-      "@id": `${pageUrl}#webpage`,
-      name: "Výjezdová veterinářka – oblasti působení",
-      description:
-        "MVDr. Kateřina Měchurová poskytuje výjezdovou veterinární péči v Benešově, Praze-východ a Středočeském kraji.",
-      url: pageUrl,
-      inLanguage: "cs-CZ",
-      about: practiceReference,
-      mainEntity: {
-        "@type": "ItemList",
-        itemListElement: locations.map((location, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: location.name,
-          url: `https://ducktorka.cz/vyjezdova-veterina/${location.pageSlug}/`,
-        })),
-      },
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Výjezdová veterinářka – oblasti působení",
+    description:
+      "MVDr. Kateřina Měchurová poskytuje výjezdovou veterinární péči v Benešově, Praze-východ a Středočeském kraji.",
+    url: pageUrl,
+    publisher: {
+      "@type": "VeterinaryCare",
+      name: "Ducktorka – MVDr. Kateřina Měchurová",
+      url: "https://ducktorka.cz",
     },
-    breadcrumbSchema(pageUrl, [
-      { name: "Domů", url: "https://ducktorka.cz/" },
-      { name: "Výjezdová veterina", url: pageUrl },
-    ]),
-  );
+  };
 
   return (
     <>
@@ -84,6 +71,7 @@ const LocationHub = () => {
           {/* Location grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
             {locations.map((loc) => {
+              const cost = calcTransport(loc.distanceKm);
               return (
                 <a
                   key={loc.slug}

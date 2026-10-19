@@ -5,51 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getServiceIcon } from "@/data/serviceIcons";
 import { serviceDetails } from "@/data/serviceDetails";
-import { formatCzk, VACCINE_PRICE_NOTICE, VACCINE_PRICES } from "@/data/pricing";
-import { serviceFaqs } from "@/data/serviceFaqs";
-import { PRACTICE_AREA_SERVED, practiceReference, withPracticeGraph } from "@/data/structuredData";
-
-const vaccinePriceGroups = [
-  { id: "cat-rabies", title: "Očkování pro kočku · vzteklina", matches: (item: typeof VACCINE_PRICES[number]) => item.tableGroup === "cat-rabies" },
-  { id: "cat-infectious", title: "Očkování pro kočku · infekční nemoci", matches: (item: typeof VACCINE_PRICES[number]) => item.tableGroup === "cat-infectious" },
-  { id: "dog-rabies", title: "Očkování pro psa · vzteklina", matches: (item: typeof VACCINE_PRICES[number]) => item.tableGroup === "dog-rabies" },
-  { id: "dog-infectious", title: "Očkování pro psa · infekční nemoci", matches: (item: typeof VACCINE_PRICES[number]) => item.tableGroup === "dog-infectious" && item.species?.includes("dog") },
-  { id: "ferret", title: "Očkování pro fretku", matches: (item: typeof VACCINE_PRICES[number]) => item.species?.includes("ferret") === true },
-  { id: "rabbit", title: "Očkování pro králíka", matches: (item: typeof VACCINE_PRICES[number]) => item.tableGroup === "rabbit" },
-];
-
-const VaccinationPriceTables = () => (
-  <div className="rich-content max-w-none mb-12 space-y-8">
-    {vaccinePriceGroups.map((group) => {
-      const entries = VACCINE_PRICES.filter(group.matches);
-      if (entries.length === 0) return null;
-      return (
-        <section key={group.id} aria-labelledby={"vaccine-group-" + group.id}>
-          <h3 id={"vaccine-group-" + group.id}>{group.title}</h3>
-          <div className="price-table-wrapper">
-            <table className="price-table price-table--2col">
-              <thead>
-                <tr><th>Název vakcíny</th><th>Orientační cena</th></tr>
-              </thead>
-              <tbody>
-                {entries.map((entry) => (
-                  <tr key={entry.id}>
-                    <td>{entry.productName}</td>
-                    <td>{formatCzk(entry.publishedPriceCzk ?? 0)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      );
-    })}
-    <p className="text-sm text-muted-foreground">
-      {VACCINE_PRICE_NOTICE.cs}{" "}
-      <a href="/cenik/" className="text-pastel-turquoise hover:underline">Kalkulačka cestovného a ceník →</a>
-    </p>
-  </div>
-);
 
 const ServiceDetail = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -102,16 +57,6 @@ const ServiceDetail = () => {
       },
     ],
   } : null;
-  const visibleFaqs = serviceFaqs[service.slug] ?? [];
-  const visibleFaqSchema = visibleFaqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": visibleFaqs.map((item) => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": { "@type": "Answer", "text": item.answer },
-    })),
-  } : null;
 
   return (
     <>
@@ -138,32 +83,46 @@ const ServiceDetail = () => {
         {faqSchema && (
           <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         )}
-        {visibleFaqSchema && (
-          <script type="application/ld+json">{JSON.stringify(visibleFaqSchema)}</script>
-        )}
 
         <script type="application/ld+json">
-          {JSON.stringify(withPracticeGraph(
-            {
-              "@type": "WebPage",
-              "@id": `${pageUrl}#webpage`,
-              name: service.metaTitle,
-              description: service.metaDescription,
-              url: pageUrl,
-              inLanguage: "cs-CZ",
-              about: practiceReference,
-              mainEntity: { "@id": `${pageUrl}#service` },
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": service.title,
+            "description": service.shortDesc,
+            "provider": {
+              "@type": "VeterinaryCare",
+              "name": "Ducktorka – MVDr. Kateřina Měchurová",
+              "url": "https://ducktorka.cz",
+              "image": "https://ducktorka.cz/og-image-1.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Nezvalova 989",
+                "addressLocality": "Benešov",
+                "postalCode": "25601",
+                "addressCountry": "CZ"
+              }
             },
-            {
-              "@type": "Service",
-              "@id": `${pageUrl}#service`,
-              name: service.title,
-              description: service.shortDesc,
-              url: pageUrl,
-              provider: practiceReference,
-              areaServed: PRACTICE_AREA_SERVED,
-            },
-          ))}
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Benešov"
+              },
+              {
+                "@type": "City",
+                "name": "Praha"
+              }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday"],
+                "opens": "08:00",
+                "closes": "20:00"
+              }
+            ],
+            publicAccess: false
+          })}
         </script>
       </Head>
 
@@ -192,21 +151,6 @@ const ServiceDetail = () => {
             </header>
 
             <div className="service-prose rich-content max-w-none mb-12" dangerouslySetInnerHTML={{ __html: service.html }} />
-            {service.slug === "vakcinace" && <VaccinationPriceTables />}
-            {visibleFaqs.length > 0 && (
-              <section className="mb-12 space-y-4" aria-labelledby="service-faq-title">
-                <h2 id="service-faq-title" className="text-2xl font-heading font-bold">Časté dotazy</h2>
-                {visibleFaqs.map((item) => (
-                  <article key={item.question} className="rounded-2xl border border-border bg-section-alt p-5">
-                    <h3 className="font-semibold text-foreground">{item.question}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
-                  </article>
-                ))}
-                <p className="text-sm text-muted-foreground">
-                  <a href="/cenik/" className="text-pastel-turquoise hover:underline">Ceník a kalkulačka výjezdu →</a>
-                </p>
-              </section>
-            )}
 
             <div className="flex flex-col sm:flex-row gap-4 mt-12 bg-section-alt rounded-2xl p-6 items-center justify-between">
               <div>

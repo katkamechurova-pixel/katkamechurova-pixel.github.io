@@ -4,7 +4,6 @@ import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articleDetails } from "@/data/articleDetails";
-import { practiceReference, withPracticeGraph } from "@/data/structuredData";
 
 const CalendarIcon = () => (
   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -55,33 +54,40 @@ const ArticleDetail = () => {
 
         {/* Structured Data */}
         <script type="application/ld+json">
-          {JSON.stringify(withPracticeGraph(
-            {
-              "@type": "WebPage",
-              "@id": `${pageUrl}#webpage`,
-              name: article.metaTitle,
-              description: article.metaDescription,
-              url: pageUrl,
-              inLanguage: "cs-CZ",
-              about: practiceReference,
-              mainEntity: { "@id": `${pageUrl}#article` },
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": article.title,
+            "description": article.excerpt,
+            "image": article.imageUrl,
+            "datePublished": article.date,
+            "author": {
+              "@type": "Person",
+              "name": "MVDr. Kateřina Měchurová",
+              "url": "https://ducktorka.cz"
             },
-            {
-              "@type": "BlogPosting",
-              "@id": `${pageUrl}#article`,
-              headline: article.title,
-              description: article.excerpt,
-              image: article.imageUrl,
-              datePublished: article.date,
-              author: {
-                "@type": "Person",
-                name: "MVDr. Kateřina Měchurová",
-                url: "https://ducktorka.cz/",
+            "publisher": {
+              "@type": "VeterinaryCare",
+              "name": "Ducktorka – Výjezdová veterinární péče",
+              "url": "https://ducktorka.cz",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ducktorka.cz/og-image-1.jpg"
               },
-              publisher: practiceReference,
-              mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Nezvalova 989",
+                "addressLocality": "Benešov",
+                "postalCode": "25601",
+                "addressCountry": "CZ"
+              }
             },
-          ))}
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": pageUrl
+            },
+            publicAccess: false
+          })}
         </script>
       </Head>
 

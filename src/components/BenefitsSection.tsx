@@ -1,11 +1,11 @@
 import { Home, Heart, Clock, Shield, Smile } from "lucide-react";
 
 const benefits = [
-  { icon: Heart, title: "Bez cesty do ordinace", desc: "Žádné nastupování do auta ani cesta v přepravce." },
-  { icon: Home, title: "Pohodlí domova", desc: "Známé prostředí může pomoci zmírnit obavy z vyšetření." },
-  { icon: Smile, title: "Individuální přístup", desc: "Postup přizpůsobíme povaze a potřebám vašeho zvířete." },
-  { icon: Shield, title: "Šetrné zacházení", desc: "Důraz na citlivou manipulaci a klidný průběh návštěvy." },
-  { icon: Clock, title: "Časová flexibilita", desc: "Termín domluvíme podle vašich potřeb a našich možností." },
+  { icon: Heart, title: "Bez stresu z převozu", desc: "Váš mazlíček zůstává v bezpečí domova." },
+  { icon: Home, title: "Pohodlí domova", desc: "Péče tam, kde se váš miláček cítí nejlépe." },
+  { icon: Smile, title: "Individuální přístup", desc: "Plná pozornost jen vašemu zvířátku." },
+  { icon: Shield, title: "Šetrné zacházení", desc: "Empatická péče s důrazem na klid." },
+  { icon: Clock, title: "Časová flexibilita", desc: "Termíny přizpůsobené vašemu rozvrhu." },
 ];
 
 const BenefitsSection = () => (

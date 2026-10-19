@@ -133,15 +133,6 @@ const Footer = () => (
         </div>
       </div>
 
-      <nav aria-label="Užitečné informace" className="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-border/30 pt-6 text-sm">
-        <a href="/cenik/" className="text-muted-foreground hover:text-primary">Ceník a kalkulačka</a>
-        <a href="/co-osetrime-doma/" className="text-muted-foreground hover:text-primary">Co ošetříme doma</a>
-        <a href="/casto-kladene-dotazy/" className="text-muted-foreground hover:text-primary">Časté dotazy</a>
-        <a href="/veterinar-pro-bazlive-kocky/" className="text-muted-foreground hover:text-primary">Péče o plaché kočky</a>
-        <a href="/veterinar-pro-seniory/" className="text-muted-foreground hover:text-primary">Péče o seniory</a>
-        <a href="/en/pricing/" className="text-muted-foreground hover:text-primary">English pricing</a>
-      </nav>
-
       <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground text-center md:text-left">
           © {new Date().getFullYear()} Ducktorka.cz — MVDr. Kateřina Měchurová. Všechna práva vyhrazena.

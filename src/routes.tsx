@@ -3,7 +3,6 @@ import App from "./App";
 import { serviceSummaries } from "./data/serviceSummaries";
 import { articleSummaries } from "./data/articleSummaries";
 import { locations } from "./data/locations";
-import { knowledgePages } from "./data/knowledgePages";
 
 export const routes: RouteRecord[] = [
   {
@@ -57,30 +56,6 @@ export const routes: RouteRecord[] = [
         },
         getStaticPaths: () => ["/en/"],
       },
-      {
-        path: "cenik",
-        lazy: async () => {
-          const { default: Component } = await import("./pages/PricingPage");
-          return { Component };
-        },
-        getStaticPaths: () => ["/cenik/"],
-      },
-      {
-        path: "en/pricing",
-        lazy: async () => {
-          const { default: Component } = await import("./pages/PricingPage");
-          return { Component };
-        },
-        getStaticPaths: () => ["/en/pricing/"],
-      },
-      ...knowledgePages.map(({ slug }) => ({
-        path: slug,
-        lazy: async () => {
-          const { default: Component } = await import("./pages/KnowledgePage");
-          return { Component };
-        },
-        getStaticPaths: () => ["/" + slug + "/"],
-      })),
       {
         path: "*",
         lazy: async () => {
