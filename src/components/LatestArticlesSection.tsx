@@ -18,10 +18,10 @@ const LatestArticlesSection = () => {
         <div className="text-center mb-12">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-foreground">
-              Zajímavosti a <span className="text-gradient">články</span>
+              Rady a <span className="text-gradient">příběhy z praxe</span>
             </h2>
             <p className="text-muted-foreground">
-              Užitečné rady, tipy a informace o veterinární péči a zdraví vašich mazlíčků, psané s láskou a pochopením.
+              Příběhy z terénu, skutečné případy z praxe a užitečné rady pro zdraví a spokojenost vašich mazlíčků.
             </p>
           </div>
         </div>
@@ -44,7 +44,12 @@ const LatestArticlesSection = () => {
                 </div>
                 
                 <div className="p-6 md:p-8 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 text-pastel-turquoise font-semibold text-xs mb-4">
+                  {article.category && (
+                    <span className="self-start rounded-full border border-emerald-600/20 bg-pastel-turquoise-light px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-emerald-800 mb-3">
+                      {article.category}
+                    </span>
+                  )}
+                  <div className="flex items-center gap-2 text-emerald-800 font-semibold text-xs mb-4">
                     <CalendarIcon />
                     <span>{article.date}</span>
                   </div>
@@ -53,11 +58,11 @@ const LatestArticlesSection = () => {
                     {article.title}
                   </h3>
                   
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+                  <p className="text-foreground/80 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
                     {article.excerpt}
                   </p>
                   
-                  <div className="flex items-center text-primary font-semibold text-sm mt-auto">
+                  <div className="flex items-center text-emerald-700 group-hover:text-emerald-800 font-semibold text-sm mt-auto">
                     Číst celý článek <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
